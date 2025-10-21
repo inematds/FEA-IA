@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Domine a Engenharia de Agentes de IA com o curso mais completo do Brasil. 60 horas de conteúdo prático, projetos reais e certificação.">
+    <meta name="keywords" content="IA, Inteligência Artificial, Agentes de IA, LangChain, CrewAI, Agno, MCP, Machine Learning">
+    <meta name="author" content="Engenharia de Agentes de IA 2.0">
+
+    <title>Engenharia de Agentes de IA 2.0 | Curso Completo</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-logo">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text">Engenharia de Agentes IA 2.0</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#modulos" class="nav-link">Módulos</a></li>
+                <li><a href="#recursos" class="nav-link">Recursos</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#acesso" class="btn-primary">Acessar Curso</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-grid"></div>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">✨</span>
+                    <span>Curso Gratuito & Open Source</span>
+                </div>
+                <h1 class="hero-title">
+                    Domine a Engenharia de
+                    <span class="gradient-text">Agentes de IA</span>
+                </h1>
+                <p class="hero-description">
+                    Do zero ao profissional: aprenda a criar sistemas de agentes inteligentes que resolvem problemas reais.
+                    <strong>60 horas</strong> de conteúdo prático, <strong>8 módulos</strong> completos, e <strong>projetos reais</strong>.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">60h</div>
+                        <div class="stat-label">de Conteúdo</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Módulos</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">140k+</div>
+                        <div class="stat-label">Palavras</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Gratuito</div>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#acesso" class="btn-primary btn-large">
+                        <span>Começar Agora</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/inematds/FEA-IA" class="btn-secondary btn-large" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"/>
+                        </svg>
+                        <span>Ver no GitHub</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-card">
+                    <div class="card-header">
+                        <div class="card-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span class="card-title">agent_demo.py</span>
+                    </div>
+                    <div class="card-code">
+                        <pre><code><span class="code-keyword">from</span> <span class="code-module">agno</span> <span class="code-keyword">import</span> Agent
+
+agent = Agent(
+    name=<span class="code-string">"Assistant"</span>,
+    model=<span class="code-string">"claude-3-7-sonnet"</span>,
+    tools=[search_web, analyze_data]
+)
+
+response = agent.run(
+    <span class="code-string">"Analyze market trends"</span>
+)
+
+<span class="code-comment"># 🚀 Agente pronto para produção!</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-decoration">
+            <div class="decoration-circle circle-1"></div>
+            <div class="decoration-circle circle-2"></div>
+            <div class="decoration-circle circle-3"></div>
+        </div>
+    </section>
+
+    <!-- Módulos Section -->
+    <section id="modulos" class="modules">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">8 Módulos Completos</h2>
+                <p class="section-subtitle">
+                    Do fundamento ao deploy em produção, uma jornada completa de aprendizado
+                </p>
+            </div>
+
+            <div class="modules-grid">
+                <!-- Módulo 1 -->
+                <div class="module-card">
+                    <div class="module-icon">🧠</div>
+                    <div class="module-number">Módulo 01</div>
+                    <h3 class="module-title">Fundamentos de IA Generativa</h3>
+                    <p class="module-description">
+                        Base sólida em LLMs, transformers e conceitos essenciais de IA generativa.
+                    </p>
+                    <div class="module-meta">
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>6 horas</span>
+                        </span>
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M2 4h12M2 8h12M2 12h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>10k palavras</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Módulo 2 -->
+                <div class="module-card">
+                    <div class="module-icon">✍️</div>
+                    <div class="module-number">Módulo 02</div>
+                    <h3 class="module-title">Engenharia de Prompts Avançada</h3>
+                    <p class="module-description">
+                        Técnicas avançadas: CoT, Self-Consistency, Tree of Thoughts, ReAct e meta-prompting.
+                    </p>
+                    <div class="module-meta">
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>7 horas</span>
+                        </span>
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M2 4h12M2 8h12M2 12h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>15k palavras</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Módulo 3 -->
+                <div class="module-card">
+                    <div class="module-icon">🔗</div>
+                    <div class="module-number">Módulo 03</div>
+                    <h3 class="module-title">LangChain para Agentes</h3>
+                    <p class="module-description">
+                        Domine LangChain: RAG, Agents, Memory, Tools e aplicações práticas completas.
+                    </p>
+                    <div class="module-meta">
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>8 horas</span>
+                        </span>
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M2 4h12M2 8h12M2 12h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>18k palavras</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Módulo 4 -->
+                <div class="module-card">
+                    <div class="module-icon">⚡</div>
+                    <div class="module-number">Módulo 04</div>
+                    <h3 class="module-title">Agno - Simplicidade e Poder</h3>
+                    <p class="module-description">
+                        Framework moderno e minimalista para criar agentes poderosos com código limpo.
+                    </p>
+                    <div class="module-meta">
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>7 horas</span>
+                        </span>
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M2 4h12M2 8h12M2 12h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>17k palavras</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Módulo 5 -->
+                <div class="module-card">
+                    <div class="module-icon">👥</div>
+                    <div class="module-number">Módulo 05</div>
+                    <h3 class="module-title">CrewAI - Sistemas Multi-Agente</h3>
+                    <p class="module-description">
+                        Orquestre equipes de agentes especializados trabalhando em colaboração.
+                    </p>
+                    <div class="module-meta">
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>8 horas</span>
+                        </span>
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M2 4h12M2 8h12M2 12h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>20k palavras</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Módulo 6 -->
+                <div class="module-card">
+                    <div class="module-icon">🔌</div>
+                    <div class="module-number">Módulo 06</div>
+                    <h3 class="module-title">Model Context Protocol (MCP)</h3>
+                    <p class="module-description">
+                        Conecte agentes a dados reais e ferramentas externas com o protocolo MCP.
+                    </p>
+                    <div class="module-meta">
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>9 horas</span>
+                        </span>
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M2 4h12M2 8h12M2 12h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>22k palavras</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Módulo 7 -->
+                <div class="module-card">
+                    <div class="module-icon">🚀</div>
+                    <div class="module-number">Módulo 07</div>
+                    <h3 class="module-title">Deploy e Produção</h3>
+                    <p class="module-description">
+                        Docker, Kubernetes, monitoramento, otimização de custos e CI/CD para produção.
+                    </p>
+                    <div class="module-meta">
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>9 horas</span>
+                        </span>
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M2 4h12M2 8h12M2 12h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>25k palavras</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Módulo 8 -->
+                <div class="module-card">
+                    <div class="module-icon">🛠️</div>
+                    <div class="module-number">Módulo 08</div>
+                    <h3 class="module-title">Ferramentas e Ecossistema</h3>
+                    <p class="module-description">
+                        Domine Streamlit, Gradio, APIs, debugging, analytics e todo o ecossistema.
+                    </p>
+                    <div class="module-meta">
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>9 horas</span>
+                        </span>
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M2 4h12M2 8h12M2 12h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>23k palavras</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="recursos" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Por Que Este Curso?</h2>
+                <p class="section-subtitle">
+                    Desenvolvido por engenheiros, para engenheiros
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3 class="feature-title">Conteúdo Aprofundado</h3>
+                    <p class="feature-description">
+                        140.000+ palavras de conteúdo técnico detalhado, com teoria e prática balanceadas.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3 class="feature-title">Projetos Reais</h3>
+                    <p class="feature-description">
+                        8 projetos práticos completos e funcionais que você pode usar em produção.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3 class="feature-title">Do Zero ao Avançado</h3>
+                    <p class="feature-description">
+                        Não precisa de experiência prévia. Vamos do fundamento até deploy em produção.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Frameworks Modernos</h3>
+                    <p class="feature-description">
+                        LangChain, Agno, CrewAI, MCP - todos os frameworks essenciais cobertos.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔓</div>
+                    <h3 class="feature-title">100% Open Source</h3>
+                    <p class="feature-description">
+                        Todo o conteúdo é gratuito e de código aberto. Aprenda, compartilhe, contribua.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌟</div>
+                    <h3 class="feature-title">Sempre Atualizado</h3>
+                    <p class="feature-description">
+                        Conteúdo constantemente atualizado com as últimas tecnologias e melhores práticas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-stack">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tecnologias que Você Vai Dominar</h2>
+            </div>
+
+            <div class="tech-logos">
+                <div class="tech-item">
+                    <div class="tech-logo">🤖</div>
+                    <div class="tech-name">Claude</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-logo">🧠</div>
+                    <div class="tech-name">OpenAI</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-logo">🔗</div>
+                    <div class="tech-name">LangChain</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-logo">⚡</div>
+                    <div class="tech-name">Agno</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-logo">👥</div>
+                    <div class="tech-name">CrewAI</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-logo">🔌</div>
+                    <div class="tech-name">MCP</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-logo">🐳</div>
+                    <div class="tech-name">Docker</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-logo">☸️</div>
+                    <div class="tech-name">Kubernetes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="acesso" class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Pronto Para Começar?</h2>
+                <p class="cta-description">
+                    Acesse todo o conteúdo gratuitamente agora mesmo e comece sua jornada em Engenharia de Agentes de IA.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://github.com/inematds/FEA-IA" class="btn-primary btn-large" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"/>
+                        </svg>
+                        <span>Acessar no GitHub</span>
+                    </a>
+                    <a href="../README.md" class="btn-secondary btn-large">
+                        <span>Ver Documentação</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Sobre o Curso</h2>
+                    <p class="about-description">
+                        O <strong>Engenharia de Agentes de IA 2.0</strong> é um curso completo e gratuito que ensina
+                        desde os fundamentos até técnicas avançadas de criação de sistemas de agentes inteligentes.
+                    </p>
+                    <p class="about-description">
+                        Desenvolvido com base nas melhores práticas da indústria, este curso cobre todos os frameworks
+                        modernos e prepara você para criar aplicações de IA que resolvem problemas reais.
+                    </p>
+                    <ul class="about-list">
+                        <li>✅ Conteúdo técnico profundo e atualizado</li>
+                        <li>✅ Projetos práticos e aplicáveis</li>
+                        <li>✅ Open source e gratuito para sempre</li>
+                        <li>✅ Comunidade ativa e colaborativa</li>
+                    </ul>
+                </div>
+                <div class="about-visual">
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-box-number">140k+</div>
+                            <div class="stat-box-label">Palavras de Conteúdo</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-box-number">60h</div>
+                            <div class="stat-box-label">de Aprendizado</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-box-number">8</div>
+                            <div class="stat-box-label">Projetos Práticos</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-box-number">100%</div>
+                            <div class="stat-box-label">Gratuito</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🤖</span>
+                        <span class="logo-text">Engenharia de Agentes IA 2.0</span>
+                    </div>
+                    <p class="footer-description">
+                        Curso completo e gratuito de Engenharia de Agentes de IA.
+                        Do zero ao profissional.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Curso</h4>
+                        <ul class="footer-list">
+                            <li><a href="#modulos">Módulos</a></li>
+                            <li><a href="#recursos">Recursos</a></li>
+                            <li><a href="#sobre">Sobre</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-title">Links</h4>
+                        <ul class="footer-list">
+                            <li><a href="https://github.com/inematds/FEA-IA" target="_blank" rel="noopener">GitHub</a></li>
+                            <li><a href="../README.md">Documentação</a></li>
+                            <li><a href="https://github.com/inematds/FEA-IA/issues" target="_blank" rel="noopener">Suporte</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-title">Comunidade</h4>
+                        <ul class="footer-list">
+                            <li><a href="https://github.com/inematds/FEA-IA/discussions" target="_blank" rel="noopener">Discussões</a></li>
+                            <li><a href="https://github.com/inematds/FEA-IA/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribuir</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2025 Engenharia de Agentes de IA 2.0.
+                    Licença <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT</a>.
+                    Feito com ❤️ para a comunidade.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

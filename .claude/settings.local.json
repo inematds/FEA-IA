@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p modulos/{modulo-01,modulo-02,modulo-03,modulo-04,modulo-05,modulo-06,modulo-07,modulo-08}/{conteudo,projeto-pratico,exercicios,diagramas})",
+      "Bash(mkdir -p landing-page/{assets,css,js,images})",
+      "Bash(mkdir -p certificados)",
+      "Bash(mkdir -p imagens-conceituais)",
+      "Bash(cat RESUMO-VISUAL.txt)",
+      "Bash(awk '{print $9, \"\"\"\"(\"\"\"\" $5 \"\"\"\")\"\"\"\"}')",
+      "Bash(git init)",
+      "Bash(git config user.email \"inematds@gmail.com\")",
+      "Bash(git config user.name \"inematds\")",
+      "Bash(git add .)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
