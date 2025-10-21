@@ -10,7 +10,11 @@
       "Bash(git init)",
       "Bash(git config user.email \"inematds@gmail.com\")",
       "Bash(git config user.name \"inematds\")",
-      "Bash(git add .)"
+      "Bash(git add .)",
+      "Bash(git commit -m \"feat: curso completo de Engenharia de Agentes IA 2.0\n\n- 8 módulos completos (~140k palavras)\n- Landing page profissional responsiva\n- Estrutura GitHub completa (CONTRIBUTING, LICENSE, CODE_OF_CONDUCT)\n- Documentação e guias de setup\n- Pronto para publicação\n\n🤖 Generated with Claude Code\nCo-Authored-By: Claude <noreply@anthropic.com>\")",
+      "Bash(git remote add origin https://github.com/inematds/FEA-IA.git)",
+      "Bash(git branch -M main)",
+      "Bash(git push -u origin main)"
     ],
     "deny": [],
     "ask": []

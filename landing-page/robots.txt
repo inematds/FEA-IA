@@ -1,0 +1,11 @@
+# robots.txt for Engenharia de Agentes de IA 2.0
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://inematds.github.io/FEA-IA/sitemap.xml
+
+# Disallow admin or private paths (if any in the future)
+# Disallow: /admin/
+# Disallow: /private/
