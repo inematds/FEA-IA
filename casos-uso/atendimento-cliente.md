@@ -398,9 +398,9 @@ R: Sim! ChatGPT e Claude são excelentes em português.
 
 ## 📚 Conteúdo Relacionado
 
-- [Módulo 3: LangChain RAG](../modulos/modulo-03/rag.md)
-- [Templates de Prompts para Atendimento](../recursos/templates-prompts.md)
-- [Caso de Uso: Assistente de Vendas](./assistente-vendas.md)
+- [Módulo 3: LangChain - RAG Completo](https://github.com/inematds/FEA-IA/blob/main/modulos/modulo-03/conteudo/Modulo-03-LangChain.md)
+- [Módulo 2: Engenharia de Prompts](https://github.com/inematds/FEA-IA/blob/main/modulos/modulo-02/conteudo/Modulo-02-Engenharia-Prompts-Avancada.md)
+- [Repositório Completo do Curso](https://github.com/inematds/FEA-IA)
 
 ---
 

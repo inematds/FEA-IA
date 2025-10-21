@@ -12,15 +12,15 @@ Escolha seu caminho:
 
 ### Opção A: "Quero ENTENDER o que são Agentes de IA"
 👉 **Tempo:** 30 minutos
-👉 **Próximo passo:** [O que são Agentes de IA](./01-o-que-sao-agentes.md)
+👉 **Próximo passo:** [Módulo 1: Fundamentos de IA Generativa](https://github.com/inematds/FEA-IA/blob/main/modulos/modulo-01/conteudo/Modulo-01-Fundamentos-IA-Generativa.md)
 
 ### Opção B: "Quero VER um resultado prático AGORA"
 👉 **Tempo:** 2 horas
-👉 **Próximo passo:** [Caso de Uso: Automação de Atendimento](../casos-uso/atendimento-cliente.md)
+👉 **Próximo passo:** [Caso de Uso: Automação de Atendimento](https://github.com/inematds/FEA-IA/blob/main/casos-uso/atendimento-cliente.md)
 
 ### Opção C: "Quero seguir uma trilha completa"
 👉 **Tempo:** Variável (8-60h dependendo da trilha)
-👉 **Próximo passo:** [Escolher Trilha](../trilhas/)
+👉 **Próximo passo:** [Escolher Trilha](https://github.com/inematds/FEA-IA/tree/main/trilhas)
 
 ---
 
@@ -54,7 +54,7 @@ Responda SIM ou NÃO para cada afirmação:
 - [ ] Quero entender aspectos técnicos básicos
 - [ ] Preciso traduzir visão estratégica em execução
 
-**Se marcou 3-4:** Sua trilha é a [**Trilha Gestor**](../trilhas/TRILHA-GESTOR.md)
+**Se marcou 3-4:** Recomendamos a [**Trilha Empreendedor**](https://github.com/inematds/FEA-IA/blob/main/trilhas/TRILHA-EMPREENDEDOR.md) com foco em implementação
 
 ---
 
@@ -64,7 +64,7 @@ Responda SIM ou NÃO para cada afirmação:
 - [ ] Preciso de profundidade, não superficialidade
 - [ ] Vou construir sistemas de IA em produção
 
-**Se marcou 3-4:** Sua trilha é a [**Trilha Técnica Completa**](../trilhas/TRILHA-TECNICA.md)
+**Se marcou 3-4:** Comece pelo [**Módulo 1**](https://github.com/inematds/FEA-IA/blob/main/modulos/modulo-01/conteudo/Modulo-01-Fundamentos-IA-Generativa.md) e siga todos os 8 módulos sequencialmente
 
 ---
 
@@ -114,17 +114,14 @@ Este curso trabalha com 3 níveis. Identifique o seu:
 
 ## ⚡ Quick Wins (Resultados em 2 Horas)
 
-Quer ver resultados HOJE? Comece por um destes:
+Quer ver resultados HOJE? Comece por este:
 
 ### Para Empreendedores/Gestores:
-1. [Criar um Assistente de Vendas](../casos-uso/assistente-vendas.md) - 2h, 🟢
-2. [Automatizar Atendimento ao Cliente](../casos-uso/atendimento-cliente.md) - 2h, 🟢
+1. [Automatizar Atendimento ao Cliente](https://github.com/inematds/FEA-IA/blob/main/casos-uso/atendimento-cliente.md) - 2h, 🟢
 
-### Para Profissionais de Marketing:
-1. [Sistema de Criação de Conteúdo](../casos-uso/criacao-conteudo.md) - 2h, 🟢
-
-### Para Analistas:
-1. [Análise de Dados Automatizada](../casos-uso/analise-dados.md) - 3h, 🟡
+### Para Desenvolvedores:
+1. [Módulo 2: Engenharia de Prompts](https://github.com/inematds/FEA-IA/blob/main/modulos/modulo-02/conteudo/Modulo-02-Engenharia-Prompts-Avancada.md) - 6h, 🟡
+2. [Módulo 3: LangChain - Projeto ChatPDF](https://github.com/inematds/FEA-IA/blob/main/modulos/modulo-03/conteudo/Modulo-03-LangChain.md) - 10h, 🔴
 
 ---
 
@@ -147,21 +144,22 @@ Quer ver resultados HOJE? Comece por um destes:
 2. Editor de código (VS Code recomendado)
 3. Git
 4. Conta no GitHub
+5. Clone o repositório: `git clone https://github.com/inematds/FEA-IA.git`
 
-[Guia de Setup Completo →](../recursos/setup-ambiente-tecnico.md)
+Cada módulo tem instruções específicas de setup no início.
 
 ---
 
 ## 📚 Materiais de Apoio
 
-### Glossário
-Não sabe o que significa algo? → [Glossário Visual](./02-glossario-visual.md)
+### Documentação Principal
+Visão completa do curso → [README Principal](https://github.com/inematds/FEA-IA#readme)
 
-### Templates de Prompts
-Prompts prontos para copiar e usar → [Templates](../recursos/templates-prompts.md)
+### Trilhas de Aprendizado
+Escolha sua trilha → [Trilha Executivo](https://github.com/inematds/FEA-IA/blob/main/trilhas/TRILHA-EXECUTIVO.md) | [Trilha Empreendedor](https://github.com/inematds/FEA-IA/blob/main/trilhas/TRILHA-EMPREENDEDOR.md)
 
-### FAQ
-Dúvidas comuns → [Perguntas Frequentes](../comunidade/FAQ.md)
+### Todos os Módulos
+Acesse todos os 8 módulos → [Diretório de Módulos](https://github.com/inematds/FEA-IA/tree/main/modulos)
 
 ---
 
@@ -173,11 +171,11 @@ Com base no que você leu, escolha AGORA seu próximo passo:
 
 ### Escolha UMA opção e clique:
 
-**[🎓 Entender Conceitos Primeiro](./01-o-que-sao-agentes.md)**
+**[🎓 Entender Conceitos - Módulo 1](https://github.com/inematds/FEA-IA/blob/main/modulos/modulo-01/conteudo/Modulo-01-Fundamentos-IA-Generativa.md)**
 
-**[⚡ Ver Resultado Prático Agora](../casos-uso/atendimento-cliente.md)**
+**[⚡ Ver Resultado Prático Agora](https://github.com/inematds/FEA-IA/blob/main/casos-uso/atendimento-cliente.md)**
 
-**[🚀 Ir Para Minha Trilha](../trilhas/)**
+**[🚀 Escolher Minha Trilha](https://github.com/inematds/FEA-IA/tree/main/trilhas)**
 
 </div>
 
