@@ -5,7 +5,7 @@
 
 ![Status](https://img.shields.io/badge/Status-Online-brightgreen)
 ![Progresso](https://img.shields.io/badge/Progresso-75%25-green)
-![Conteúdo](https://img.shields.io/badge/Conteúdo-140k+%20palavras-blue)
+![Conteúdo](https://img.shields.io/badge/Conteúdo-157k+%20palavras-blue)
 ![Site](https://img.shields.io/badge/Site-Live-success)
 ![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-blue)
 ![Contribuições](https://img.shields.io/badge/Contribui%C3%A7%C3%B5es-Bem--vindas-brightgreen)

@@ -17,7 +17,10 @@
       "Bash(git push -u origin main)",
       "Bash(git commit -m \"feat: adiciona otimizações SEO e documentação da landing page\n\n- Meta tags completas (Open Graph, Twitter Cards)\n- Sitemap.xml para melhor indexação\n- Robots.txt para controle de crawlers\n- README.md da landing page com guia completo\n- .nojekyll para GitHub Pages\n- Keywords expandidas para SEO\n\n🤖 Generated with Claude Code\nCo-Authored-By: Claude <noreply@anthropic.com>\")",
       "Bash(git push origin main)",
-      "Bash(git commit -m \"docs: atualiza status para 75% e adiciona link do site ao vivo\n\n- README.md com link para site online\n- STATUS-RAPIDO.md atualizado (75% progresso)\n- Badge de status alterado para Online\n- Seção de próximos passos opcionais\n\n🤖 Generated with Claude Code\nCo-Authored-By: Claude <noreply@anthropic.com>\")"
+      "Bash(git commit -m \"docs: atualiza status para 75% e adiciona link do site ao vivo\n\n- README.md com link para site online\n- STATUS-RAPIDO.md atualizado (75% progresso)\n- Badge de status alterado para Online\n- Seção de próximos passos opcionais\n\n🤖 Generated with Claude Code\nCo-Authored-By: Claude <noreply@anthropic.com>\")",
+      "Bash(for f in modulos/modulo-*/conteudo/*.md)",
+      "Bash(done)",
+      "Bash(git commit -m \"fix: corrige links 404 e organiza Módulo 1\n\nMudanças principais:\n- Módulo 1 movido para estrutura correta (modulos/modulo-01/)\n- Todos os links da landing page apontam para GitHub (não GitHub Pages)\n- Números atualizados: 157k+ palavras (não 140k)\n- Total: 15.847 linhas de conteúdo\n- Sitemap.xml atualizado\n- Todos os 8 módulos organizados\n\nMódulos completos:\n- Módulo 1: 1046 linhas (~10k palavras)\n- Módulo 2: 1024 linhas (~10k palavras)\n- Módulo 3: 1801 linhas (~18k palavras)\n- Módulo 4: 1687 linhas (~17k palavras)\n- Módulo 5: 1781 linhas (~18k palavras)\n- Módulo 6: 3445 linhas (~34k palavras)\n- Módulo 7: 2655 linhas (~26k palavras)\n- Módulo 8: 2408 linhas (~24k palavras)\n\n🤖 Generated with Claude Code\nCo-Authored-By: Claude <noreply@anthropic.com>\")"
     ],
     "deny": [],
     "ask": []
