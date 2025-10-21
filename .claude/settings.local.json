@@ -14,7 +14,10 @@
       "Bash(git commit -m \"feat: curso completo de Engenharia de Agentes IA 2.0\n\n- 8 módulos completos (~140k palavras)\n- Landing page profissional responsiva\n- Estrutura GitHub completa (CONTRIBUTING, LICENSE, CODE_OF_CONDUCT)\n- Documentação e guias de setup\n- Pronto para publicação\n\n🤖 Generated with Claude Code\nCo-Authored-By: Claude <noreply@anthropic.com>\")",
       "Bash(git remote add origin https://github.com/inematds/FEA-IA.git)",
       "Bash(git branch -M main)",
-      "Bash(git push -u origin main)"
+      "Bash(git push -u origin main)",
+      "Bash(git commit -m \"feat: adiciona otimizações SEO e documentação da landing page\n\n- Meta tags completas (Open Graph, Twitter Cards)\n- Sitemap.xml para melhor indexação\n- Robots.txt para controle de crawlers\n- README.md da landing page com guia completo\n- .nojekyll para GitHub Pages\n- Keywords expandidas para SEO\n\n🤖 Generated with Claude Code\nCo-Authored-By: Claude <noreply@anthropic.com>\")",
+      "Bash(git push origin main)",
+      "Bash(git commit -m \"docs: atualiza status para 75% e adiciona link do site ao vivo\n\n- README.md com link para site online\n- STATUS-RAPIDO.md atualizado (75% progresso)\n- Badge de status alterado para Online\n- Seção de próximos passos opcionais\n\n🤖 Generated with Claude Code\nCo-Authored-By: Claude <noreply@anthropic.com>\")"
     ],
     "deny": [],
     "ask": []

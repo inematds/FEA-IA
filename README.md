@@ -3,14 +3,16 @@
 
 <div align="center">
 
-![Status](https://img.shields.io/badge/Status-Pronto%20para%20Publica%C3%A7%C3%A3o-brightgreen)
-![Progresso](https://img.shields.io/badge/Progresso-70%25-green)
+![Status](https://img.shields.io/badge/Status-Online-brightgreen)
+![Progresso](https://img.shields.io/badge/Progresso-75%25-green)
 ![Conteúdo](https://img.shields.io/badge/Conteúdo-140k+%20palavras-blue)
-![Landing Page](https://img.shields.io/badge/Landing%20Page-✓%20Pronta-success)
+![Site](https://img.shields.io/badge/Site-Live-success)
 ![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-blue)
 ![Contribuições](https://img.shields.io/badge/Contribui%C3%A7%C3%B5es-Bem--vindas-brightgreen)
 
 ### **"Você não está aprendendo sobre o futuro. Você está construindo ele."**
+
+🌐 **[→ ACESSE O CURSO ONLINE ←](https://inematds.github.io/FEA-IA/)**
 
 ---
 
