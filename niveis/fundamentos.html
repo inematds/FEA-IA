@@ -235,12 +235,110 @@
 
                     <div style="background: #f9fafb; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
                         <h4 style="font-size: 0.875rem; font-weight: 600; color: #374151; margin: 0 0 0.75rem 0; text-transform: uppercase; letter-spacing: 0.05em;">O que você vai aprender:</h4>
-                        <ul style="margin: 0; padding-left: 1.5rem; color: #6b7280; line-height: 1.8;">
-                            <li>Arquitetura Transformer e mecanismos de atenção</li>
-                            <li>Tokenização, embeddings e representações vetoriais</li>
-                            <li>Parâmetros de geração (temperature, top-p, top-k)</li>
-                            <li>Modelos multimodais (texto, imagem, áudio, vídeo)</li>
-                            <li>História e evolução dos LLMs</li>
+
+                        <ul class="topics-list" style="margin: 0; padding: 0; list-style: none;">
+                            <li class="topic-item" data-topic="fund-m01-t01" data-topic-level="1">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Arquitetura Transformer e mecanismos de atenção</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <p>Entenda a arquitetura revolucionária que tornou os LLMs possíveis. Você vai dominar:</p>
+                                    <ul>
+                                        <li><strong>Self-Attention:</strong> Como o modelo "presta atenção" em diferentes partes do texto</li>
+                                        <li><strong>Multi-Head Attention:</strong> Por que múltiplas "cabeças" de atenção são importantes</li>
+                                        <li><strong>Encoders vs Decoders:</strong> Diferenças entre BERT, GPT e modelos encoder-decoder</li>
+                                        <li><strong>Positional Encoding:</strong> Como o modelo entende a ordem das palavras</li>
+                                    </ul>
+                                    <p><strong>💡 Exemplo prático:</strong> Você verá como o GPT decide qual palavra vem a seguir analisando todo o contexto anterior usando atenção.</p>
+                                </div>
+                            </li>
+
+                            <li class="topic-item" data-topic="fund-m01-t02" data-topic-level="1">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Tokenização, embeddings e representações vetoriais</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <p>Descubra como texto vira números que a IA entende:</p>
+                                    <ul>
+                                        <li><strong>Tokenização:</strong> Como "Olá mundo" vira [42, 156] para a IA processar</li>
+                                        <li><strong>Vocabulário:</strong> Por que GPT-4 tem 100k+ tokens e o que isso significa</li>
+                                        <li><strong>Embeddings:</strong> Vetores de 768 ou 1536 dimensões que representam significado</li>
+                                        <li><strong>Similaridade semântica:</strong> Como calcular que "rei" - "homem" + "mulher" ≈ "rainha"</li>
+                                    </ul>
+                                    <p><strong>⚡ Você vai fazer:</strong> Calcular embeddings de frases e medir similaridade entre conceitos usando código Python real.</p>
+                                </div>
+                            </li>
+
+                            <li class="topic-item" data-topic="fund-m01-t03" data-topic-level="1">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Parâmetros de geração (temperature, top-p, top-k)</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <p>Domine os controles que mudam completamente o comportamento da IA:</p>
+                                    <ul>
+                                        <li><strong>Temperature (0.0-2.0):</strong> Controla criatividade vs consistência
+                                            <ul>
+                                                <li>0.0 = Determinístico (sempre mesma resposta)</li>
+                                                <li>0.7 = Balanceado (padrão recomendado)</li>
+                                                <li>1.5+ = Criativo/imprevisível</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Top-p (nucleus sampling):</strong> Limita escolhas às mais prováveis</li>
+                                        <li><strong>Top-k:</strong> Considera apenas as k palavras mais prováveis</li>
+                                        <li><strong>Max tokens:</strong> Limita tamanho da resposta</li>
+                                    </ul>
+                                    <p><strong>🎯 Caso real:</strong> Por que chatbots usam temperature=0.7 mas código precisa de 0.0.</p>
+                                </div>
+                            </li>
+
+                            <li class="topic-item" data-topic="fund-m01-t04" data-topic-level="1">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Modelos multimodais (texto, imagem, áudio, vídeo)</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <p>Explore modelos que vão além do texto:</p>
+                                    <ul>
+                                        <li><strong>Visão + Linguagem:</strong> GPT-4 Vision, Claude 3 Sonnet analisando imagens</li>
+                                        <li><strong>Áudio:</strong> Whisper (speech-to-text), modelos text-to-speech</li>
+                                        <li><strong>Vídeo:</strong> Sora (OpenAI), modelos que entendem frames temporais</li>
+                                        <li><strong>Fusion:</strong> Como diferentes modalidades são combinadas em um único modelo</li>
+                                    </ul>
+                                    <p><strong>🔥 Tendência:</strong> Modelos nativamente multimodais serão o padrão. Você aprenderá a trabalhar com eles hoje.</p>
+                                </div>
+                            </li>
+
+                            <li class="topic-item" data-topic="fund-m01-t05" data-topic-level="1">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>História e evolução dos LLMs</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <p>Entenda a jornada que nos trouxe até aqui:</p>
+                                    <ul>
+                                        <li><strong>2017:</strong> Transformer original ("Attention is All You Need")</li>
+                                        <li><strong>2018:</strong> BERT e GPT-1 mudam o jogo</li>
+                                        <li><strong>2020:</strong> GPT-3 com 175B parâmetros choca o mundo</li>
+                                        <li><strong>2022:</strong> ChatGPT torna IA mainstream</li>
+                                        <li><strong>2023-2024:</strong> Claude 3, GPT-4, Gemini e a explosão atual</li>
+                                        <li><strong>2025+:</strong> Para onde estamos indo?</li>
+                                    </ul>
+                                    <p><strong>📚 Contexto:</strong> Por que entender a história ajuda você a prever o futuro e tomar melhores decisões técnicas.</p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
 
