@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Módulo 7: Deploy e Produção - Leve seus agentes de IA para o mundo real com escalabilidade e confiabilidade">
+    <title>Módulo 7: Deploy e Produção | FEA-IA 2.0</title>
+
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/topics.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script defer src="../js/app.js"></script>
+
+    <style>
+        .module-hero {
+            padding: 6rem 0 4rem;
+            background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+            color: white;
+        }
+
+        .module-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .module-breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .module-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .module-content-area {
+            padding: 4rem 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .module-header-info {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .info-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .content-block {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-block h2 {
+            color: #ec4899;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #ec4899;
+        }
+
+        .content-block h3 {
+            color: #be185d;
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-block p {
+            line-height: 1.7;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+
+        .content-block ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-block li {
+            line-height: 1.7;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+            border-left: 4px solid #ec4899;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .insight-box p {
+            margin: 0;
+        }
+
+        .insight-box strong {
+            color: #9f1239;
+            font-weight: 600;
+        }
+
+        .practice-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 4px solid #10b981;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .practice-box p {
+            margin: 0;
+        }
+
+        .practice-box strong {
+            color: #047857;
+            font-weight: 600;
+        }
+
+        .code-block {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .quote-block {
+            font-style: italic;
+            font-size: 1.125rem;
+            color: #6b7280;
+            padding: 1rem 1.5rem;
+            border-left: 4px solid #d1d5db;
+            margin: 1.5rem 0;
+        }
+
+        .project-section {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(190, 24, 93, 0.05) 100%);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 2px solid #ec4899;
+            margin: 2rem 0;
+        }
+
+        .project-section h3 {
+            color: #ec4899;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .next-module-cta {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(190, 24, 93, 0.1) 100%);
+            border-radius: 1rem;
+            margin-top: 3rem;
+        }
+
+        .next-module-cta h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .next-module-cta p {
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, #be185d 0%, #9f1239 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(236, 72, 153, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+        }
+
+        .cta-button.secondary:hover {
+            background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
+            box-shadow: 0 10px 20px rgba(107, 114, 128, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .module-hero {
+                padding: 4rem 0 2rem;
+            }
+
+            .module-content-area {
+                padding: 2rem 1rem;
+            }
+
+            .content-block {
+                padding: 1.5rem;
+            }
+
+            .content-block h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-block h3 {
+                font-size: 1.25rem;
+            }
+
+            .cta-button {
+                margin: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-logo">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text">Engenharia de Agentes IA 2.0</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Início</a></li>
+                <li><a href="../index.html#niveis" class="nav-link">Níveis</a></li>
+                <li><a href="../index.html#modulos" class="nav-link">Módulos</a></li>
+                <li><a href="https://github.com/inematds/FEA-IA#readme" class="btn-primary" target="_blank" rel="noopener">Acessar Curso</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Module Hero -->
+    <section class="module-hero">
+        <div class="container">
+            <div class="module-breadcrumb">
+                <a href="../index.html">Início</a>
+                <span>›</span>
+                <a href="../niveis/estrategico.html">Nível Estratégico</a>
+                <span>›</span>
+                <span>Módulo 7</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
+                <div style="font-size: 4rem;">🚀</div>
+                <div>
+                    <h1 style="font-size: 2.5rem; font-weight: 700; margin: 0 0 0.5rem 0;">Módulo 7: Deploy e Produção</h1>
+                    <p style="font-size: 1.125rem; margin: 0; opacity: 0.9;">Leve seus agentes de IA para o mundo real com escalabilidade e confiabilidade</p>
+                </div>
+            </div>
+
+            <div class="module-header-info">
+                <span class="info-badge">⏱️ 16 horas</span>
+                <span class="info-badge">📝 26k palavras</span>
+                <span class="info-badge">🎯 Avançado</span>
+                <span class="info-badge">🌟 Nível Estratégico</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module Content -->
+    <section class="module-content-area">
+        <div class="container">
+            <!-- Progress Tracker -->
+            <div class="module-progress-container" data-module="modulo-07">
+                <div class="module-progress-header">
+                    <span class="module-progress-label">Progresso do Módulo</span>
+                    <span class="module-progress-text">0/35 tópicos</span>
+                </div>
+                <div class="module-progress-track">
+                    <div class="module-progress-bar"></div>
+                </div>
+            </div>
+
+            <!-- Intro Quote -->
+            <div class="content-block">
+                <blockquote class="quote-block">
+                    "Em desenvolvimento, tudo funciona. Em produção, tudo o que pode dar errado, dará errado. Prepare-se." - Lei de Murphy aplicada a sistemas de produção
+                </blockquote>
+                <p style="font-size: 1.125rem; font-weight: 500; color: #ec4899; margin-bottom: 1rem;">Levando Agentes de IA para o Mundo Real</p>
+                <p><strong>Produção</strong> é o ambiente onde seu sistema de agentes atende usuários reais, processando dados reais, com consequências reais. Este módulo ensina você a fazer isso com excelência.</p>
+            </div>
+
+            <!-- Chapter 7.1 -->
+            <div class="content-block module-content" data-module="modulo-07">
+                <h2>Capítulo 7.1: Fundamentos de Deploy</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m07-t01" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>O Que Significa "Produção"?</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Diferenças fundamentais:</strong></p>
+                            <ul>
+                                <li><strong>Escala:</strong> De 1-10 requisições/dia para 1.000-1.000.000+</li>
+                                <li><strong>Disponibilidade:</strong> De "pode cair" para 99.9%+ uptime</li>
+                                <li><strong>Dados:</strong> De testes para dados sensíveis reais</li>
+                                <li><strong>Custos:</strong> De mínimos para potencialmente significativos</li>
+                                <li><strong>Segurança:</strong> De básica para crítica</li>
+                                <li><strong>Monitoramento:</strong> De opcional para essencial</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m07-t02" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Desafios Únicos de Agentes em Produção</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>1. Não-determinismo</strong></p>
+                            <p>Mesmo input pode gerar outputs diferentes. Solução: use <code>temperature=0</code> para tarefas que precisam consistência.</p>
+
+                            <p><strong>2. Latência Variável</strong></p>
+                            <p>Agentes podem levar de 1s a 60s+. Requer timeouts, async processing, feedback de progresso e circuit breakers.</p>
+
+                            <p><strong>3. Custos Variáveis</strong></p>
+                            <p>Cada chamada ao LLM tem custo. Estratégias: cache, rate limiting, monitoramento de custos, fallback para modelos mais baratos.</p>
+
+                            <p><strong>4. Dependências Externas</strong></p>
+                            <p>APIs de LLMs, servidores MCP, bancos de dados, APIs de terceiros. Requer retry logic, graceful degradation, fallback strategies.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chapter 7.2 -->
+            <div class="content-block module-content" data-module="modulo-07">
+                <h2>Capítulo 7.2: Containerização com Docker</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m07-t05" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Por Que Docker para Agentes de IA?</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <ul>
+                                <li>✓ <strong>Reprodutibilidade:</strong> Funciona igual em dev, staging e produção</li>
+                                <li>✓ <strong>Isolamento:</strong> Cada agente em seu próprio container</li>
+                                <li>✓ <strong>Portabilidade:</strong> Roda em qualquer cloud provider</li>
+                                <li>✓ <strong>Versionamento:</strong> Fácil rollback para versão anterior</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m07-t06" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Dockerfile para Agente de IA</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <div class="code-block">
+<code>FROM python:3.11-slim
+
+WORKDIR /app
+
+# Instalar dependências
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar código
+COPY . .
+
+# Variáveis de ambiente
+ENV ANTHROPIC_API_KEY=""
+ENV LOG_LEVEL="INFO"
+
+# Healthcheck
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
+  CMD python -c "import requests; requests.get('http://localhost:8000/health')"
+
+# Rodar aplicação
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]</code>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chapter 7.3 -->
+            <div class="content-block module-content" data-module="modulo-07">
+                <h2>Capítulo 7.3: Deploy em Cloud</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m07-t10" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Opções de Deploy</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>1. AWS (Amazon Web Services)</strong></p>
+                            <ul>
+                                <li>ECS/Fargate: Container orchestration</li>
+                                <li>Lambda: Serverless para agentes simples</li>
+                                <li>EC2: Máquinas virtuais completas</li>
+                            </ul>
+
+                            <p><strong>2. Google Cloud Platform</strong></p>
+                            <ul>
+                                <li>Cloud Run: Deploy de containers serverless</li>
+                                <li>GKE: Kubernetes gerenciado</li>
+                                <li>Vertex AI: ML/AI específico</li>
+                            </ul>
+
+                            <p><strong>3. Azure</strong></p>
+                            <ul>
+                                <li>Container Apps: Simples e escalável</li>
+                                <li>AKS: Kubernetes gerenciado</li>
+                                <li>Azure Functions: Serverless</li>
+                            </ul>
+
+                            <p><strong>4. Plataformas Especializadas</strong></p>
+                            <ul>
+                                <li>Railway.app: Deploy simplificado</li>
+                                <li>Fly.io: Global edge deployment</li>
+                                <li>Render: Deploy direto do GitHub</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chapter 7.4 -->
+            <div class="content-block module-content" data-module="modulo-07">
+                <h2>Capítulo 7.4: Monitoramento e Observabilidade</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m07-t15" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Pilares da Observabilidade</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>1. Logs</strong></p>
+                            <p>Registros textuais de eventos. Use structured logging (JSON) para facilitar análise.</p>
+
+                            <p><strong>2. Métricas</strong></p>
+                            <ul>
+                                <li>Latência (p50, p95, p99)</li>
+                                <li>Taxa de requisições (RPS)</li>
+                                <li>Taxa de erros</li>
+                                <li>Uso de tokens/custos</li>
+                            </ul>
+
+                            <p><strong>3. Traces</strong></p>
+                            <p>Rastreamento de requisições end-to-end. Fundamental para agentes multi-step.</p>
+
+                            <div class="insight-box">
+                                <p><strong>🔍 FERRAMENTAS:</strong> DataDog, New Relic, Grafana+Prometheus, Sentry, LangSmith (específico para LLMs)</p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m07-t16" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Métricas Específicas para Agentes de IA</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <ul>
+                                <li><strong>Token Usage:</strong> Input/output tokens por requisição</li>
+                                <li><strong>Cost per Request:</strong> Custo médio por chamada</li>
+                                <li><strong>Tool Call Success Rate:</strong> Taxa de sucesso de ferramentas</li>
+                                <li><strong>Agent Completion Rate:</strong> % de tarefas completadas com sucesso</li>
+                                <li><strong>Cache Hit Rate:</strong> % de respostas servidas do cache</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chapter 7.5 -->
+            <div class="content-block module-content" data-module="modulo-07">
+                <h2>Capítulo 7.5: Segurança em Produção</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m07-t20" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Camadas de Segurança</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>1. Autenticação e Autorização</strong></p>
+                            <ul>
+                                <li>API Keys com rate limiting</li>
+                                <li>OAuth 2.0 para usuários</li>
+                                <li>RBAC (Role-Based Access Control)</li>
+                            </ul>
+
+                            <p><strong>2. Proteção de Dados</strong></p>
+                            <ul>
+                                <li>Criptografia em trânsito (TLS/HTTPS)</li>
+                                <li>Criptografia em repouso</li>
+                                <li>PII (Personally Identifiable Information) masking</li>
+                            </ul>
+
+                            <p><strong>3. Input Validation</strong></p>
+                            <ul>
+                                <li>Sanitização de inputs do usuário</li>
+                                <li>Proteção contra prompt injection</li>
+                                <li>Limites de tamanho/complexidade</li>
+                            </ul>
+
+                            <p><strong>4. Compliance</strong></p>
+                            <ul>
+                                <li>GDPR (Europa)</li>
+                                <li>LGPD (Brasil)</li>
+                                <li>SOC 2, ISO 27001</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="content-block">
+                <h2>📝 Resumo Gráfico do Módulo 7</h2>
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m07-t30" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Conceitos-Chave</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Deploy e Infraestrutura:</strong></p>
+                            <ul>
+                                <li>✓ Docker para containerização</li>
+                                <li>✓ Kubernetes para orquestração</li>
+                                <li>✓ Cloud providers (AWS, GCP, Azure)</li>
+                                <li>✓ CI/CD pipelines</li>
+                            </ul>
+                            <p><strong>Observabilidade:</strong></p>
+                            <ul>
+                                <li>✓ Logs estruturados</li>
+                                <li>✓ Métricas (latência, custos, tokens)</li>
+                                <li>✓ Distributed tracing</li>
+                                <li>✓ Alertas e dashboards</li>
+                            </ul>
+                            <p><strong>Segurança:</strong></p>
+                            <ul>
+                                <li>✓ Autenticação/Autorização</li>
+                                <li>✓ Criptografia</li>
+                                <li>✓ Input validation</li>
+                                <li>✓ Compliance</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Practical Project -->
+            <div class="project-section">
+                <h3>🚀 Projeto Prático do Módulo 7</h3>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m07-t31" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Desafio: Deploy Completo de Sistema de Agentes</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Objetivo:</strong> Fazer deploy de um sistema de agentes completo em produção com todas as melhores práticas.</p>
+
+                            <p><strong>Stack:</strong></p>
+                            <ul>
+                                <li>Docker + Docker Compose</li>
+                                <li>Railway/Render para hospedagem</li>
+                                <li>PostgreSQL para dados</li>
+                                <li>Redis para cache</li>
+                                <li>Prometheus + Grafana para métricas</li>
+                                <li>Sentry para error tracking</li>
+                            </ul>
+
+                            <p><strong>Funcionalidades:</strong></p>
+                            <ul>
+                                <li>API REST com FastAPI</li>
+                                <li>Autenticação com JWT</li>
+                                <li>Rate limiting por usuário</li>
+                                <li>Monitoramento de custos</li>
+                                <li>CI/CD com GitHub Actions</li>
+                                <li>Testes automatizados</li>
+                                <li>Documentação completa</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="content-block">
+                <h2>🎯 Próximos Passos</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m07-t35" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>O Que Vem a Seguir?</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Você agora domina deploy e produção de agentes de IA! Você aprendeu:</p>
+                            <ul>
+                                <li>✓ Containerização com Docker</li>
+                                <li>✓ Orquestração com Kubernetes</li>
+                                <li>✓ Deploy em cloud providers</li>
+                                <li>✓ Monitoramento e observabilidade</li>
+                                <li>✓ Segurança e compliance</li>
+                                <li>✓ CI/CD pipelines</li>
+                            </ul>
+                            <p>No <strong>Módulo 8 (final)</strong>, exploraremos o <strong>Ecossistema de Ferramentas e Tendências</strong> da Engenharia de Agentes de IA, incluindo as ferramentas mais importantes do mercado e para onde a tecnologia está caminhando.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- CTA to Next Module -->
+            <div class="next-module-cta">
+                <h3>Continue sua jornada</h3>
+                <p>Você dominou deploy e produção. Agora vamos explorar o ecossistema completo de ferramentas!</p>
+                <div>
+                    <a href="modulo-06.html" class="cta-button secondary">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Voltar: Módulo 6</span>
+                    </a>
+                    <a href="modulo-08.html" class="cta-button">
+                        <span>Próximo: Módulo 8 - Ferramentas</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <a href="../niveis/estrategico.html" style="color: #6b7280; text-decoration: none; font-size: 0.875rem;">← Voltar para Nível Estratégico</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Engenharia de Agentes IA 2.0</h3>
+                    <p class="footer-text">
+                        Curso completo e gratuito de Engenharia de Agentes de IA.
+                        Do zero ao profissional.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#niveis">Níveis</a></li>
+                        <li><a href="../index.html#modulos">Módulos</a></li>
+                        <li><a href="https://github.com/inematds/FEA-IA" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:inematds@gmail.com">inematds@gmail.com</a></li>
+                        <li><a href="https://github.com/inematds" target="_blank">@inematds</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Engenharia de Agentes IA 2.0. Código aberto sob licença MIT.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

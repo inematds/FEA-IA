@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nível Estratégico - Deploy em produção, DevOps, monitoramento e ecossistema profissional">
+    <title>Nível Estratégico | Engenharia de Agentes IA 2.0</title>
+
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/topics.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script defer src="../js/app.js"></script>
+
+    <style>
+        .nivel-hero {
+            padding: 6rem 0 4rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+        }
+
+        .nivel-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .nivel-breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .nivel-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .nivel-content {
+            padding: 4rem 0;
+        }
+
+        .modules-list {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .module-card-detailed {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .module-card-detailed:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+        }
+
+        .module-header-detailed {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .module-icon-large {
+            font-size: 3rem;
+            line-height: 1;
+        }
+
+        .module-info-detailed {
+            flex: 1;
+        }
+
+        .module-meta-inline {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
+
+        .module-description-full {
+            color: #374151;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .module-cta-detailed {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .module-cta-detailed:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            transform: translateX(5px);
+        }
+
+        .nivel-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 1rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-logo">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text">Engenharia de Agentes IA 2.0</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Início</a></li>
+                <li><a href="../index.html#niveis" class="nav-link">Níveis</a></li>
+                <li><a href="../index.html#modulos" class="nav-link">Módulos</a></li>
+                <li><a href="https://github.com/inematds/FEA-IA#readme" class="btn-primary" target="_blank" rel="noopener">Acessar Curso</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Nivel Hero -->
+    <section class="nivel-hero">
+        <div class="container">
+            <div class="nivel-breadcrumb">
+                <a href="../index.html">Início</a>
+                <span>›</span>
+                <a href="../index.html#niveis">Níveis</a>
+                <span>›</span>
+                <span>Estratégico</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
+                <div style="font-size: 4rem;">👑</div>
+                <div>
+                    <h1 style="font-size: 3rem; font-weight: 700; margin: 0 0 0.5rem 0;">Nível Estratégico</h1>
+                    <p style="font-size: 1.25rem; margin: 0; opacity: 0.9;">15-20 horas | Avançado</p>
+                </div>
+            </div>
+
+            <p style="font-size: 1.125rem; line-height: 1.7; max-width: 800px; opacity: 0.95;">
+                Deploy em produção, DevOps, monitoramento e todo o ecossistema de ferramentas profissionais.
+            </p>
+
+            <div class="nivel-stats">
+                <div class="stat-item">
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">Módulos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">15-20h</div>
+                    <div class="stat-label">Duração Total</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">48k+</div>
+                    <div class="stat-label">Palavras</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">Projetos Práticos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteúdo dos Módulos -->
+    <section class="nivel-content">
+        <div class="container">
+            <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">Módulos do Nível Estratégico</h2>
+            <p style="color: #6b7280; margin-bottom: 2rem;">
+                Complete os 2 módulos abaixo para dominar deploy, produção e todo o ecossistema profissional
+            </p>
+
+            <div class="modules-list">
+                <!-- Módulo 7 -->
+                <div class="module-card-detailed">
+                    <div class="module-header-detailed">
+                        <div class="module-icon-large">🚀</div>
+                        <div class="module-info-detailed">
+                            <div style="font-size: 0.875rem; font-weight: 600; color: #3b82f6; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Módulo 07</div>
+                            <h3 style="font-size: 1.75rem; font-weight: 700; margin: 0 0 0.5rem 0;">Deploy e Produção</h3>
+                            <div class="module-meta-inline">
+                                <span>⏱️ 9 horas</span>
+                                <span>📝 25k palavras</span>
+                                <span>🎯 Avançado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="module-description-full">
+                        Docker, Kubernetes, monitoramento, otimização de custos e CI/CD para produção.
+                    </p>
+
+                    <div style="background: #f9fafb; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                        <h4 style="font-size: 0.875rem; font-weight: 600; color: #374151; margin: 0 0 0.75rem 0; text-transform: uppercase; letter-spacing: 0.05em;">O que você vai aprender:</h4>
+                        <ul style="margin: 0; padding-left: 1.5rem; color: #6b7280; line-height: 1.8;">
+                            <li>Containerização com Docker</li>
+                            <li>Kubernetes para agentes</li>
+                            <li>CI/CD pipelines completos</li>
+                            <li>Monitoramento e observabilidade</li>
+                            <li>Otimização de custos e performance</li>
+                        </ul>
+                    </div>
+
+                    <a href="../modulos/modulo-07.html" class="module-cta-detailed">
+                        <span>Começar Módulo 7</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Módulo 8 -->
+                <div class="module-card-detailed">
+                    <div class="module-header-detailed">
+                        <div class="module-icon-large">🛠️</div>
+                        <div class="module-info-detailed">
+                            <div style="font-size: 0.875rem; font-weight: 600; color: #3b82f6; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Módulo 08</div>
+                            <h3 style="font-size: 1.75rem; font-weight: 700; margin: 0 0 0.5rem 0;">Ferramentas e Ecossistema</h3>
+                            <div class="module-meta-inline">
+                                <span>⏱️ 9 horas</span>
+                                <span>📝 23k palavras</span>
+                                <span>🎯 Avançado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="module-description-full">
+                        Domine Streamlit, Gradio, APIs, debugging, analytics e todo o ecossistema.
+                    </p>
+
+                    <div style="background: #f9fafb; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                        <h4 style="font-size: 0.875rem; font-weight: 600; color: #374151; margin: 0 0 0.75rem 0; text-transform: uppercase; letter-spacing: 0.05em;">O que você vai aprender:</h4>
+                        <ul style="margin: 0; padding-left: 1.5rem; color: #6b7280; line-height: 1.8;">
+                            <li>UIs com Streamlit e Gradio</li>
+                            <li>APIs RESTful e GraphQL</li>
+                            <li>Debugging e profiling</li>
+                            <li>Analytics e métricas</li>
+                            <li>Ecossistema de ferramentas</li>
+                        </ul>
+                    </div>
+
+                    <a href="../modulos/modulo-08.html" class="module-cta-detailed">
+                        <span>Começar Módulo 8</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div style="margin-top: 4rem; text-align: center; padding: 3rem; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%); border-radius: 1rem;">
+                <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem;">Parabéns! Você completou todos os níveis!</h3>
+                <p style="color: #6b7280; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Você dominou toda a jornada de Engenharia de Agentes IA 2.0. Continue praticando e construindo projetos incríveis!
+                </p>
+                <a href="../index.html" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; text-decoration: none; border-radius: 0.5rem; font-weight: 600;">
+                    <span>🏠 Voltar ao Início</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Engenharia de Agentes IA 2.0</h3>
+                    <p class="footer-text">
+                        Curso completo e gratuito de Engenharia de Agentes de IA.
+                        Do zero ao profissional.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#niveis">Níveis</a></li>
+                        <li><a href="../index.html#modulos">Módulos</a></li>
+                        <li><a href="https://github.com/inematds/FEA-IA" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:inematds@gmail.com">inematds@gmail.com</a></li>
+                        <li><a href="https://github.com/inematds" target="_blank">@inematds</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Engenharia de Agentes IA 2.0. Código aberto sob licença MIT.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-ga-id="G-J54622K7ST">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,10 +30,22 @@
     <meta name="revisit-after" content="7 days">
     <link rel="canonical" href="https://inematds.github.io/FEA-IA/">
 
+    <meta name="theme-color" content="#0f172a">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/topics.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Google Analytics (carrega somente se data-ga-id estiver definido) -->
+    <script defer src="js/ga.js"></script>
+    <!-- Sistema de Tópicos Compactos -->
+    <script defer src="js/app.js"></script>
 </head>
 <body>
     <!-- Header/Navigation -->
@@ -45,9 +57,9 @@
             </div>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#niveis" class="nav-link">Níveis</a></li>
                 <li><a href="#modulos" class="nav-link">Módulos</a></li>
                 <li><a href="#recursos" class="nav-link">Recursos</a></li>
-                <li><a href="#sobre" class="nav-link">Sobre</a></li>
                 <li><a href="https://github.com/inematds/FEA-IA#readme" class="btn-primary" target="_blank" rel="noopener">Acessar Curso</a></li>
             </ul>
             <div class="nav-toggle" id="nav-toggle">
@@ -145,13 +157,110 @@ response = agent.run(
         </div>
     </section>
 
+    <!-- Níveis de Progressão Section (Inspirado no FEP) -->
+    <section id="niveis" class="levels-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sua Jornada de Aprendizado</h2>
+                <p class="section-subtitle">
+                    Progrida através de 3 níveis estruturados: do zero ao especialista
+                </p>
+            </div>
+
+            <div class="levels-grid">
+                <!-- Nível Fundamentos -->
+                <div class="level-card level-fundamentos">
+                    <div class="level-header">
+                        <div class="level-icon">🌟</div>
+                        <div class="level-info">
+                            <h3 class="level-title">Nível Fundamentos</h3>
+                            <p class="level-duration">20-25 horas | Iniciante</p>
+                        </div>
+                    </div>
+                    <p class="level-description">
+                        Base sólida em IA Generativa, Prompts Avançados e LangChain. Perfeito para quem está começando.
+                    </p>
+                    <div class="level-modules">
+                        <h4>Módulos inclusos:</h4>
+                        <ul>
+                            <li>✓ Módulo 1: Fundamentos de IA Generativa (6h)</li>
+                            <li>✓ Módulo 2: Engenharia de Prompts Avançada (7h)</li>
+                            <li>✓ Módulo 3: LangChain para Agentes (8h)</li>
+                        </ul>
+                    </div>
+                    <a href="niveis/fundamentos.html" class="level-cta btn-fundamentos">
+                        <span>Começar Nível Fundamentos</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Nível Aplicação -->
+                <div class="level-card level-aplicacao">
+                    <div class="level-header">
+                        <div class="level-icon">⚡</div>
+                        <div class="level-info">
+                            <h3 class="level-title">Nível Aplicação</h3>
+                            <p class="level-duration">22-27 horas | Intermediário</p>
+                        </div>
+                    </div>
+                    <p class="level-description">
+                        Frameworks modernos e sistemas multi-agente. Agno, CrewAI e MCP para aplicações reais.
+                    </p>
+                    <div class="level-modules">
+                        <h4>Módulos inclusos:</h4>
+                        <ul>
+                            <li>✓ Módulo 4: Agno - Simplicidade e Poder (7h)</li>
+                            <li>✓ Módulo 5: CrewAI - Sistemas Multi-Agente (8h)</li>
+                            <li>✓ Módulo 6: Model Context Protocol (MCP) (9h)</li>
+                        </ul>
+                    </div>
+                    <a href="niveis/aplicacao.html" class="level-cta btn-aplicacao">
+                        <span>Começar Nível Aplicação</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Nível Estratégico -->
+                <div class="level-card level-estrategico">
+                    <div class="level-header">
+                        <div class="level-icon">👑</div>
+                        <div class="level-info">
+                            <h3 class="level-title">Nível Estratégico</h3>
+                            <p class="level-duration">15-20 horas | Avançado</p>
+                        </div>
+                    </div>
+                    <p class="level-description">
+                        Deploy em produção, DevOps, monitoramento e todo o ecossistema de ferramentas profissionais.
+                    </p>
+                    <div class="level-modules">
+                        <h4>Módulos inclusos:</h4>
+                        <ul>
+                            <li>✓ Módulo 7: Deploy e Produção (9h)</li>
+                            <li>✓ Módulo 8: Ferramentas e Ecossistema (9h)</li>
+                        </ul>
+                    </div>
+                    <a href="niveis/estrategico.html" class="level-cta btn-estrategico">
+                        <span>Começar Nível Estratégico</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Módulos Section -->
     <section id="modulos" class="modules">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">8 Módulos Completos</h2>
+                <h2 class="section-title">Visão Geral: 8 Módulos Completos</h2>
                 <p class="section-subtitle">
-                    Do fundamento ao deploy em produção, uma jornada completa de aprendizado
+                    Ou explore cada módulo individualmente
                 </p>
             </div>
 

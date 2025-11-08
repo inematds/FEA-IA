@@ -1,0 +1,352 @@
+/* ================================================
+   FEA-IA - Estilos do Sistema de Tópicos Compactos
+   Baseado no ATIA Compact Topics System
+   ================================================ */
+
+/* ========================================
+   CORES DOS NÍVEIS
+   ======================================== */
+
+:root {
+    /* Nível Fundamentos - Verde */
+    --color-fundamentos: #10b981;
+    --color-fundamentos-light: #d1fae5;
+    --color-fundamentos-dark: #047857;
+
+    /* Nível Aplicação - Roxo */
+    --color-aplicacao: #8b5cf6;
+    --color-aplicacao-light: #ede9fe;
+    --color-aplicacao-dark: #6d28d9;
+
+    /* Nível Estratégico - Azul */
+    --color-estrategico: #3b82f6;
+    --color-estrategico-light: #dbeafe;
+    --color-estrategico-dark: #1e40af;
+
+    /* Cores base */
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5db;
+    --color-gray-700: #374151;
+    --color-gray-800: #1f2937;
+    --color-gray-900: #111827;
+}
+
+/* ========================================
+   CONTAINER DE TÓPICOS
+   ======================================== */
+
+.topics-section {
+    margin-bottom: 2rem;
+}
+
+.topics-header {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-gray-900);
+    margin-bottom: 0.75rem;
+}
+
+.topics-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* ESPAÇAMENTO ULTRA-COMPACTO */
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem; /* 2px - space-y-0.5 */
+}
+
+/* ========================================
+   ITEM DE TÓPICO
+   ======================================== */
+
+.topic-item {
+    margin: 0;
+}
+
+/* ========================================
+   BOTÃO DO TÓPICO
+   ======================================== */
+
+.topic-button {
+    width: 100%;
+    text-align: left;
+    /* PADDING MÍNIMO */
+    padding: 0.25rem 1rem; /* py-1 px-4 */
+    background-color: var(--color-gray-50);
+    border: 1px solid var(--color-gray-200);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    color: var(--color-gray-800);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.topic-button:hover {
+    background-color: var(--color-gray-100);
+    border-color: var(--color-gray-300);
+    transform: translateX(2px);
+}
+
+.topic-button:active {
+    transform: scale(0.98);
+}
+
+/* Botão quando tópico está lido */
+.topic-button.topic-read {
+    background-color: #f0fdf4;
+    border-color: var(--color-fundamentos);
+}
+
+/* Checkbox de progresso */
+.topic-checkbox {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid var(--color-gray-300);
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+
+.topic-read .topic-checkbox {
+    background-color: var(--color-fundamentos);
+    border-color: var(--color-fundamentos);
+    color: white;
+}
+
+/* Ícone de expansão */
+.topic-icon {
+    margin-left: auto;
+    font-size: 0.625rem;
+    color: var(--color-gray-700);
+    flex-shrink: 0;
+}
+
+/* ========================================
+   CONTEÚDO EXPANSÍVEL
+   ======================================== */
+
+.topic-explanation {
+    margin-left: 1.5rem; /* ml-6 */
+    margin-top: 0.5rem; /* mt-2 */
+    padding: 1rem; /* p-4 */
+    background-color: #eff6ff; /* bg-blue-50 */
+    border-radius: 0.5rem;
+    border-left: 4px solid var(--color-fundamentos);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* Variantes de cor por nível */
+.topic-explanation.nivel-fundamentos {
+    background-color: var(--color-fundamentos-light);
+    border-left-color: var(--color-fundamentos);
+}
+
+.topic-explanation.nivel-aplicacao {
+    background-color: var(--color-aplicacao-light);
+    border-left-color: var(--color-aplicacao);
+}
+
+.topic-explanation.nivel-estrategico {
+    background-color: var(--color-estrategico-light);
+    border-left-color: var(--color-estrategico);
+}
+
+/* Parágrafos internos */
+.topic-explanation p {
+    margin: 0;
+    margin-bottom: 0.375rem; /* mb-1.5 - 6px */
+}
+
+.topic-explanation p:last-child {
+    margin-bottom: 0;
+}
+
+/* Títulos dentro do conteúdo */
+.topic-explanation strong {
+    font-weight: 600;
+}
+
+.topic-explanation .nivel-fundamentos strong {
+    color: var(--color-fundamentos);
+}
+
+.topic-explanation .nivel-aplicacao strong {
+    color: var(--color-aplicacao);
+}
+
+.topic-explanation .nivel-estrategico strong {
+    color: var(--color-estrategico);
+}
+
+/* Estado oculto */
+.hidden {
+    display: none;
+}
+
+/* ========================================
+   BARRA DE PROGRESSO DO MÓDULO
+   ======================================== */
+
+.module-progress-container {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--color-gray-50);
+    border-radius: 0.5rem;
+}
+
+.module-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.module-progress-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-gray-700);
+}
+
+.module-progress-text {
+    font-size: 0.75rem;
+    color: var(--color-gray-700);
+}
+
+.module-progress-track {
+    height: 0.5rem;
+    background-color: var(--color-gray-200);
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.module-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-fundamentos), var(--color-aplicacao));
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+/* ========================================
+   BADGES DE NÍVEL
+   ======================================== */
+
+.nivel-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.nivel-badge.fundamentos {
+    background-color: var(--color-fundamentos-light);
+    color: var(--color-fundamentos-dark);
+}
+
+.nivel-badge.aplicacao {
+    background-color: var(--color-aplicacao-light);
+    color: var(--color-aplicacao-dark);
+}
+
+.nivel-badge.estrategico {
+    background-color: var(--color-estrategico-light);
+    color: var(--color-estrategico-dark);
+}
+
+/* ========================================
+   BOTÃO DE CÓPIA DE CÓDIGO
+   ======================================== */
+
+.copy-code-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--color-gray-700);
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.copy-code-btn:hover {
+    opacity: 1;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .topic-explanation {
+        margin-left: 0.75rem;
+        padding: 0.75rem;
+    }
+
+    .topics-header {
+        font-size: 1rem;
+    }
+
+    .topic-button {
+        font-size: 0.8125rem;
+        padding: 0.375rem 0.875rem;
+    }
+}
+
+/* ========================================
+   CORES DE TEXTO POR NÍVEL (UTILITY)
+   ======================================== */
+
+.text-fundamentos {
+    color: var(--color-fundamentos);
+}
+
+.text-aplicacao {
+    color: var(--color-aplicacao);
+}
+
+.text-estrategico {
+    color: var(--color-estrategico);
+}
+
+.border-fundamentos {
+    border-color: var(--color-fundamentos);
+}
+
+.border-aplicacao {
+    border-color: var(--color-aplicacao);
+}
+
+.border-estrategico {
+    border-color: var(--color-estrategico);
+}
+
+.bg-fundamentos {
+    background-color: var(--color-fundamentos);
+}
+
+.bg-aplicacao {
+    background-color: var(--color-aplicacao);
+}
+
+.bg-estrategico {
+    background-color: var(--color-estrategico);
+}

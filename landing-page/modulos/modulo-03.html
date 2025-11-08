@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Módulo 3: LangChain - Domine o framework líder para desenvolvimento de aplicações IA com RAG, Agentes e Memória">
+    <title>Módulo 3: Frameworks - LangChain | FEA-IA 2.0</title>
+
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/topics.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script defer src="../js/app.js"></script>
+
+    <style>
+        .module-hero {
+            padding: 6rem 0 4rem;
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+            color: white;
+        }
+
+        .module-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .module-breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .module-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .module-content-area {
+            padding: 4rem 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .module-header-info {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .info-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .module-quote {
+            font-size: 1.25rem;
+            font-style: italic;
+            opacity: 0.95;
+            margin: 2rem 0;
+            padding-left: 1.5rem;
+            border-left: 4px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section h2 {
+            color: #8b5cf6;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .content-section h3 {
+            color: #6d28d9;
+            margin: 2rem 0 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .content-section h4 {
+            color: #333;
+            margin: 1.5rem 0 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .content-section p {
+            line-height: 1.8;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-section li {
+            margin: 0.5rem 0;
+            line-height: 1.8;
+            color: #374151;
+        }
+
+        /* Code blocks */
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            color: #8b5cf6;
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: #e2e8f0;
+        }
+
+        /* Diagrams & ASCII art */
+        .diagram {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        /* Info boxes */
+        .info-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        /* Project section */
+        .project-section {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+
+        .project-section h2 {
+            color: #059669;
+        }
+
+        /* Navigation buttons */
+        .module-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e5e7eb;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .nav-button.prev {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .nav-button.next {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+            color: white;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .module-hero {
+                padding: 4rem 0 2rem;
+            }
+
+            .module-content-area {
+                padding: 2rem 0;
+            }
+
+            .module-quote {
+                font-size: 1rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-section h3 {
+                font-size: 1.25rem;
+            }
+
+            pre {
+                padding: 1rem;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="module-hero">
+        <div class="container">
+            <div class="module-breadcrumb">
+                <a href="../index.html">Início</a>
+                <span>→</span>
+                <span>Módulo 3</span>
+            </div>
+
+            <h1 class="display-1">Módulo 3: Frameworks - LangChain</h1>
+
+            <div class="module-header-info">
+                <div class="info-badge">⏱️ 10 horas</div>
+                <div class="info-badge">📊 Nível: Intermediário</div>
+                <div class="info-badge">🎯 Nível: Aplicação</div>
+                <div class="info-badge">📄 1.801 linhas</div>
+            </div>
+
+            <p class="module-quote">
+                "Não construa do zero. Orquestre o que já existe."
+            </p>
+        </div>
+    </section>
+
+    <!-- Topics Compact Navigation -->
+    <div class="topics-container" id="topics-container">
+        <div class="topics-header">
+            <h3>📚 Conteúdo do Módulo</h3>
+            <button class="topics-toggle" id="topics-toggle" aria-label="Expandir/Recolher tópicos">
+                <span class="toggle-icon">▼</span>
+            </button>
+        </div>
+        <div class="topics-list" id="topics-list">
+            <a href="#cap-3-1" class="topic-item">
+                <span class="topic-icon">📦</span>
+                <span class="topic-text">Cap 3.1: Arquitetura LangChain</span>
+            </a>
+            <a href="#cap-3-2" class="topic-item">
+                <span class="topic-icon">⛓️</span>
+                <span class="topic-text">Cap 3.2: Chains - Pipelines Inteligentes</span>
+            </a>
+            <a href="#cap-3-3" class="topic-item">
+                <span class="topic-icon">🔍</span>
+                <span class="topic-text">Cap 3.3: RAG (Retrieval-Augmented Generation)</span>
+            </a>
+            <a href="#cap-3-4" class="topic-item">
+                <span class="topic-icon">🤖</span>
+                <span class="topic-text">Cap 3.4: Agentes LangChain</span>
+            </a>
+            <a href="#cap-3-5" class="topic-item">
+                <span class="topic-icon">🧠</span>
+                <span class="topic-text">Cap 3.5: Memory - Dando Memória aos Agentes</span>
+            </a>
+            <a href="#cap-3-6" class="topic-item">
+                <span class="topic-icon">🔌</span>
+                <span class="topic-text">Cap 3.6: Integrações e Ecosystem</span>
+            </a>
+            <a href="#projeto" class="topic-item">
+                <span class="topic-icon">🚀</span>
+                <span class="topic-text">Projeto Prático: ChatPDF Completo</span>
+            </a>
+            <a href="#dicas" class="topic-item">
+                <span class="topic-icon">💡</span>
+                <span class="topic-text">Dicas de Otimização</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container module-content-area">
+
+        <!-- Introduction -->
+        <section class="content-section">
+            <h2>Ato 2: A Construção</h2>
+            <p class="module-quote">
+                "Você aprendeu a falar com a IA. Agora, você vai dar a ela mãos para agir e uma mente para lembrar. Este é o momento em que passamos de meros conversadores a verdadeiros construtores de aplicações. Com LangChain, você não está mais limitado a uma única interação; você está construindo sistemas inteligentes e persistentes."
+            </p>
+
+            <p>Bem-vindo à oficina do Engenheiro de Agentes. Se os LLMs são o motor e os prompts são o volante, <strong>LangChain é o chassi, o sistema de transmissão e todo o conjunto</strong> que transforma um motor potente em um veículo funcional.</p>
+
+            <p>Este framework de código aberto nos dá os blocos de construção para criar aplicações de IA que vão muito além de um simples chatbot. Vamos aprender a:</p>
+            <ul>
+                <li><strong>Dar memória</strong> aos nossos agentes</li>
+                <li><strong>Conectá-los a fontes de dados externas</strong></li>
+                <li><strong>Criar cadeias de raciocínio complexas</strong></li>
+                <li><strong>Orquestrar múltiplos modelos e ferramentas</strong></li>
+            </ul>
+        </section>
+
+        <!-- Chapter 3.1 -->
+        <section id="cap-3-1" class="content-section">
+            <h2>Capítulo 3.1: A Arquitetura LangChain</h2>
+
+            <h3>O Problema que LangChain Resolve</h3>
+            <p>Imagine que você precisa construir um assistente de IA que:</p>
+            <ol>
+                <li>Responde perguntas sobre documentos da sua empresa</li>
+                <li>Lembra conversas anteriores</li>
+                <li>Pode buscar informações na web quando necessário</li>
+                <li>Consulta um banco de dados SQL</li>
+                <li>Envia emails automaticamente</li>
+            </ol>
+
+            <p>Sem um framework, você teria que:</p>
+            <ul>
+                <li>Escrever código personalizado para cada integração</li>
+                <li>Gerenciar manualmente o estado e a memória</li>
+                <li>Implementar lógica complexa de orquestração</li>
+                <li>Lidar com diferentes formatos de API</li>
+                <li>Debugar fluxos de dados entre componentes</li>
+            </ul>
+
+            <div class="success-box">
+                <strong>LangChain abstrai toda essa complexidade.</strong>
+            </div>
+
+            <h3>Filosofia de Design</h3>
+            <p>LangChain segue princípios fundamentais:</p>
+            <ol>
+                <li><strong>Modularidade:</strong> Cada componente é independente e intercambiável</li>
+                <li><strong>Composabilidade:</strong> Componentes simples se combinam para criar sistemas complexos</li>
+                <li><strong>Abstração:</strong> Interfaces unificadas para diferentes provedores e serviços</li>
+                <li><strong>Extensibilidade:</strong> Fácil criar componentes customizados</li>
+            </ol>
+
+            <h3>Os 6 Pilares da Arquitetura LangChain</h3>
+            <div class="diagram">┌─────────────────────────────────────────────────────┐
+│                    APLICAÇÃO                        │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│  ┌──────────┐  ┌─────────┐  ┌────────┐  ┌────────┐│
+│  │  Models  │  │ Prompts │  │ Chains │  │ Agents ││
+│  └──────────┘  └─────────┘  └────────┘  └────────┘│
+│                                                     │
+│  ┌──────────┐  ┌─────────────────────────────────┐ │
+│  │  Memory  │  │         Tools                   │ │
+│  └──────────┘  └─────────────────────────────────┘ │
+│                                                     │
+└─────────────────────────────────────────────────────┘</div>
+
+            <h4>1. Models (Modelos)</h4>
+            <p>Interface unificada para diferentes LLMs:</p>
+            <pre><code>from langchain_openai import ChatOpenAI
+from langchain_anthropic import ChatAnthropic
+from langchain_community.llms import Ollama
+
+# Todos usam a mesma interface!
+llm_openai = ChatOpenAI(model="gpt-4")
+llm_claude = ChatAnthropic(model="claude-3-sonnet")
+llm_local = Ollama(model="llama3")
+
+# Trocar de modelo = trocar 1 linha de código</code></pre>
+
+            <p><strong>Tipos de modelos suportados:</strong></p>
+            <ul>
+                <li><strong>Chat Models:</strong> Conversacional (ChatGPT, Claude, etc.)</li>
+                <li><strong>LLMs:</strong> Completion-style (GPT-3, etc.)</li>
+                <li><strong>Text Embedding Models:</strong> Para criar vetores</li>
+                <li><strong>Multimodal Models:</strong> Visão + Texto</li>
+            </ul>
+
+            <h4>2. Prompts</h4>
+            <p>Gerenciamento avançado de prompts:</p>
+            <pre><code>from langchain.prompts import PromptTemplate, ChatPromptTemplate
+
+# Template simples
+template = PromptTemplate(
+    input_variables=["produto", "publico"],
+    template="""
+    Crie um slogan de marketing para {produto}
+    direcionado a {publico}.
+    """
+)
+
+# Chat template (com papéis)
+chat_template = ChatPromptTemplate.from_messages([
+    ("system", "Você é um especialista em {dominio}"),
+    ("human", "{pergunta}"),
+    ("ai", "{resposta_parcial}"),
+    ("human", "Continue...")
+])</code></pre>
+
+            <p><strong>Recursos avançados:</strong></p>
+            <ul>
+                <li>Few-shot example selectors</li>
+                <li>Conditional prompting</li>
+                <li>Prompt composition</li>
+                <li>Versioning e A/B testing</li>
+            </ul>
+
+            <h4>3. Chains</h4>
+            <p>Sequências de operações:</p>
+            <pre><code>from langchain.chains import LLMChain
+
+chain = LLMChain(
+    llm=llm,
+    prompt=template
+)
+
+resultado = chain.run(
+    produto="Tênis de corrida",
+    publico="atletas profissionais"
+)</code></pre>
+
+            <p><strong>Tipos de Chains:</strong></p>
+            <ul>
+                <li><code>LLMChain</code>: Chain básica (LLM + Prompt)</li>
+                <li><code>SequentialChain</code>: Encadeia múltiplas chains</li>
+                <li><code>TransformChain</code>: Transforma dados entre chains</li>
+                <li><code>RouterChain</code>: Direciona para chains específicas</li>
+                <li><code>MapReduceChain</code>: Processa documentos em paralelo</li>
+            </ul>
+
+            <h4>4. Agents</h4>
+            <p>LLM como motor de decisão:</p>
+            <pre><code>from langchain.agents import create_react_agent, AgentExecutor
+from langchain.tools import Tool
+
+tools = [
+    Tool(
+        name="Calculator",
+        func=calculator_function,
+        description="Útil para cálculos matemáticos"
+    ),
+    Tool(
+        name="Search",
+        func=search_function,
+        description="Busca informações na web"
+    )
+]
+
+agent = create_react_agent(llm, tools, prompt)
+executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
+
+executor.invoke({"input": "Qual é a raiz quadrada de 144?"})</code></pre>
+
+            <h4>5. Memory</h4>
+            <p>Memória conversacional:</p>
+            <pre><code>from langchain.memory import ConversationBufferMemory
+
+memory = ConversationBufferMemory()
+
+# Armazena automaticamente histórico
+memory.save_context(
+    {"input": "Oi, meu nome é João"},
+    {"output": "Olá João! Como posso ajudar?"}
+)
+
+# Recupera contexto
+memory.load_memory_variables({})
+# {'history': 'Human: Oi, meu nome é João\nAI: Olá João!...'}</code></pre>
+
+            <p><strong>Tipos de Memory:</strong></p>
+            <ul>
+                <li><code>ConversationBufferMemory</code>: Guarda tudo</li>
+                <li><code>ConversationBufferWindowMemory</code>: Últimas N mensagens</li>
+                <li><code>ConversationSummaryMemory</code>: Resume conversas longas</li>
+                <li><code>ConversationKGMemory</code>: Extrai knowledge graph</li>
+            </ul>
+
+            <h4>6. Tools</h4>
+            <p>Conexão com o mundo externo:</p>
+            <pre><code>from langchain.tools import WikipediaQueryRun
+from langchain_community.utilities import WikipediaAPIWrapper
+
+wikipedia = WikipediaQueryRun(
+    api_wrapper=WikipediaAPIWrapper()
+)
+
+resultado = wikipedia.run("Inteligência Artificial")</code></pre>
+
+            <p><strong>Categorias de Tools:</strong></p>
+            <ul>
+                <li><strong>Search:</strong> Google, Bing, DuckDuckGo</li>
+                <li><strong>APIs:</strong> Weather, News, Finance</li>
+                <li><strong>Databases:</strong> SQL, MongoDB, Redis</li>
+                <li><strong>Files:</strong> PDF, CSV, JSON</li>
+                <li><strong>Custom:</strong> Suas próprias funções</li>
+            </ul>
+        </section>
+
+        <!-- Chapter 3.2 -->
+        <section id="cap-3-2" class="content-section">
+            <h2>Capítulo 3.2: Chains - Construindo Pipelines Inteligentes</h2>
+
+            <h3>LLMChain: A Fundação</h3>
+            <p>A <code>LLMChain</code> é o building block mais básico:</p>
+            <pre><code>from langchain_openai import ChatOpenAI
+from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
+
+# 1. Definir o modelo
+llm = ChatOpenAI(temperature=0.7)
+
+# 2. Criar template de prompt
+prompt = PromptTemplate(
+    input_variables=["tema", "tom"],
+    template="""
+    Escreva um parágrafo sobre {tema}.
+    Tom: {tom}
+    """
+)
+
+# 3. Criar a chain
+chain = LLMChain(llm=llm, prompt=prompt)
+
+# 4. Executar
+resultado = chain.invoke({
+    "tema": "inteligência artificial",
+    "tom": "inspirador"
+})
+
+print(resultado['text'])</code></pre>
+
+            <h3>SequentialChain: Workflows Multi-Etapa</h3>
+            <p>Crie pipelines complexos onde a saída de uma chain alimenta a próxima:</p>
+            <pre><code>from langchain.chains import SequentialChain
+
+# Chain 1: Gerar ideia de produto
+chain_ideia = LLMChain(
+    llm=llm,
+    prompt=PromptTemplate(
+        input_variables=["categoria"],
+        template="Sugira um nome criativo para um produto na categoria: {categoria}"
+    ),
+    output_key="nome_produto"
+)
+
+# Chain 2: Criar descrição
+chain_descricao = LLMChain(
+    llm=llm,
+    prompt=PromptTemplate(
+        input_variables=["nome_produto"],
+        template="Escreva uma descrição de marketing para: {nome_produto}"
+    ),
+    output_key="descricao"
+)
+
+# Chain 3: Gerar slogan
+chain_slogan = LLMChain(
+    llm=llm,
+    prompt=PromptTemplate(
+        input_variables=["nome_produto", "descricao"],
+        template="""
+        Baseado no produto {nome_produto} e sua descrição:
+        {descricao}
+
+        Crie um slogan memorável (máximo 7 palavras).
+        """
+    ),
+    output_key="slogan"
+)
+
+# Combinar em sequência
+pipeline_marketing = SequentialChain(
+    chains=[chain_ideia, chain_descricao, chain_slogan],
+    input_variables=["categoria"],
+    output_variables=["nome_produto", "descricao", "slogan"],
+    verbose=True
+)
+
+# Executar pipeline completo
+resultado = pipeline_marketing.invoke({"categoria": "fitness wearables"})
+
+print(f"Produto: {resultado['nome_produto']}")
+print(f"Descrição: {resultado['descricao']}")
+print(f"Slogan: {resultado['slogan']}")</code></pre>
+
+            <div class="info-box">
+                <strong>Saída exemplo:</strong><br>
+                Produto: FitPulse Pro<br>
+                Descrição: O FitPulse Pro é o smartwatch definitivo para atletas...<br>
+                Slogan: Seu batimento, sua vitória
+            </div>
+
+            <h3>RouterChain: Decisões Dinâmicas</h3>
+            <p>Direcione para chains diferentes baseado no input:</p>
+            <pre><code>from langchain.chains.router import MultiPromptChain
+
+# Definir chains especializadas
+chains = {
+    "matematica": LLMChain(...),
+    "codigo": LLMChain(...),
+    "geral": LLMChain(...)
+}
+
+# Descrições para o router decidir
+chain_descriptions = [
+    {
+        "name": "matematica",
+        "description": "Bom para resolver problemas matemáticos e cálculos"
+    },
+    {
+        "name": "codigo",
+        "description": "Bom para explicar código e conceitos de programação"
+    }
+]
+
+# Criar router
+router_chain = MultiPromptChain.from_prompts(
+    llm=llm,
+    destination_chains=chains,
+    destinations=chain_descriptions,
+    default_chain=chains["geral"]
+)
+
+# Teste
+print(router_chain.run("Qual é 25 * 17?"))  # → matematica
+print(router_chain.run("def factorial(n): ..."))  # → codigo</code></pre>
+
+            <h3>TransformChain: Processamento de Dados</h3>
+            <p>Transforme dados entre chains:</p>
+            <pre><code>from langchain.chains import TransformChain
+
+def extrair_palavras_chave(inputs: dict) -> dict:
+    texto = inputs["texto"]
+    # Lógica customizada
+    palavras = texto.lower().split()
+    freq = {}
+    for palavra in palavras:
+        if len(palavra) > 4:
+            freq[palavra] = freq.get(palavra, 0) + 1
+
+    top_palavras = sorted(freq.items(), key=lambda x: x[1], reverse=True)[:5]
+    return {"palavras_chave": [p[0] for p in top_palavras]}
+
+transform_chain = TransformChain(
+    input_variables=["texto"],
+    output_variables=["palavras_chave"],
+    transform=extrair_palavras_chave
+)</code></pre>
+        </section>
+
+        <!-- Chapter 3.3 -->
+        <section id="cap-3-3" class="content-section">
+            <h2>Capítulo 3.3: RAG (Retrieval-Augmented Generation)</h2>
+
+            <h3>O Problema do Conhecimento Limitado</h3>
+            <p>LLMs têm três limitações fundamentais:</p>
+            <ol>
+                <li><strong>Conhecimento Datado:</strong> Treinados até uma data de corte</li>
+                <li><strong>Sem Dados Privados:</strong> Não conhecem seus documentos internos</li>
+                <li><strong>Alucinações:</strong> Podem inventar informações</li>
+            </ol>
+
+            <div class="success-box">
+                <strong>RAG resolve todos esses problemas.</strong>
+            </div>
+
+            <h3>Arquitetura RAG Completa</h3>
+            <div class="diagram">┌─────────────────────────────────────────────────────────┐
+│                  FASE 1: INDEXAÇÃO                      │
+│  (Executada uma vez ou periodicamente)                  │
+└─────────────────────────────────────────────────────────┘
+
+Documentos → Document Loader → Text Splitter → Embedding Model
+    ↓                               ↓                ↓
+  PDFs                          Chunks            Vetores
+  TXTs                       (pedaços)          [0.1, 0.5,...]
+  URLs                                              ↓
+                                            Vector Database
+                                            (Chroma, FAISS)
+
+┌─────────────────────────────────────────────────────────┐
+│                  FASE 2: RECUPERAÇÃO                    │
+│  (Executada a cada pergunta)                            │
+└─────────────────────────────────────────────────────────┘
+
+Pergunta do Usuário → Embedding Model → Busca Semântica
+      ↓                     ↓                   ↓
+  "Qual garantia?"      [0.2, 0.4,...]   Top K chunks
+                                         relevantes
+
+┌─────────────────────────────────────────────────────────┐
+│                   FASE 3: GERAÇÃO                       │
+│  (Executada a cada pergunta)                            │
+└─────────────────────────────────────────────────────────┘
+
+Pergunta + Chunks Relevantes → LLM → Resposta Final
+                 ↓
+        Context-aware prompt</div>
+
+            <h3>Implementação Completa: ChatPDF</h3>
+
+            <h4>Passo 1: Document Loading</h4>
+            <pre><code>from langchain_community.document_loaders import PyPDFLoader, TextLoader, WebBaseLoader
+
+# Carregar PDF
+loader_pdf = PyPDFLoader("manual_produto.pdf")
+documentos_pdf = loader_pdf.load()
+
+# Carregar de URL
+loader_web = WebBaseLoader("https://docs.empresa.com")
+documentos_web = loader_web.load()
+
+# Carregar múltiplos arquivos
+from langchain_community.document_loaders import DirectoryLoader
+
+loader = DirectoryLoader(
+    "docs/",
+    glob="**/*.pdf",
+    loader_cls=PyPDFLoader
+)
+todos_docs = loader.load()
+
+print(f"Carregados {len(todos_docs)} documentos")</code></pre>
+
+            <h4>Passo 2: Text Splitting</h4>
+            <p>Documentos precisam ser divididos em chunks para:</p>
+            <ul>
+                <li>Caber no contexto do LLM</li>
+                <li>Melhorar precisão da busca semântica</li>
+                <li>Otimizar performance</li>
+            </ul>
+
+            <pre><code>from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=1000,        # Tamanho de cada chunk
+    chunk_overlap=200,      # Overlap entre chunks (continuidade)
+    length_function=len,
+    separators=["\n\n", "\n", " ", ""]  # Tenta quebrar em parágrafos primeiro
+)
+
+chunks = text_splitter.split_documents(todos_docs)
+
+print(f"Documentos divididos em {len(chunks)} chunks")
+print(f"Exemplo de chunk:\n{chunks[0].page_content[:200]}...")</code></pre>
+
+            <h4>Passo 3: Embeddings</h4>
+            <pre><code>from langchain_openai import OpenAIEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
+
+# Opção 1: OpenAI (pago, alta qualidade)
+embeddings_openai = OpenAIEmbeddings(
+    model="text-embedding-3-small"
+)
+
+# Opção 2: Open-source (gratuito)
+embeddings_hf = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
+)
+
+# Testar embedding
+vetor = embeddings_openai.embed_query("Qual é a garantia?")
+print(f"Dimensões do vetor: {len(vetor)}")
+print(f"Primeiros valores: {vetor[:5]}")</code></pre>
+
+            <h4>Passo 4: Vector Store</h4>
+            <pre><code>from langchain_community.vectorstores import FAISS, Chroma
+
+# Opção 1: FAISS (local, rápido, sem dependências)
+vectorstore_faiss = FAISS.from_documents(
+    documents=chunks,
+    embedding=embeddings_openai
+)
+
+# Salvar para uso posterior
+vectorstore_faiss.save_local("vectorstore_local")
+
+# Carregar
+vectorstore_carregado = FAISS.load_local(
+    "vectorstore_local",
+    embeddings_openai,
+    allow_dangerous_deserialization=True
+)
+
+# Opção 2: Chroma (persistent, com metadados)
+vectorstore_chroma = Chroma.from_documents(
+    documents=chunks,
+    embedding=embeddings_openai,
+    persist_directory="./chroma_db"
+)</code></pre>
+
+            <h4>Passo 5: Retrieval</h4>
+            <pre><code># Busca simples por similaridade
+query = "Qual é a política de devolução?"
+docs_relevantes = vectorstore_faiss.similarity_search(
+    query,
+    k=4  # Top 4 resultados mais relevantes
+)
+
+for i, doc in enumerate(docs_relevantes):
+    print(f"\n--- Documento {i+1} ---")
+    print(doc.page_content[:200])
+    print(f"Metadados: {doc.metadata}")
+
+# Busca com score de similaridade
+docs_com_score = vectorstore_faiss.similarity_search_with_score(
+    query,
+    k=4
+)
+
+for doc, score in docs_com_score:
+    print(f"Score: {score:.4f} | {doc.page_content[:100]}...")</code></pre>
+
+            <h4>Passo 6: Geração com Contexto</h4>
+            <pre><code>from langchain.chains import RetrievalQA
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(model="gpt-4", temperature=0)
+
+# Criar chain RAG completa
+qa_chain = RetrievalQA.from_chain_type(
+    llm=llm,
+    chain_type="stuff",  # Como combinar documentos
+    retriever=vectorstore_faiss.as_retriever(search_kwargs={"k": 3}),
+    return_source_documents=True,  # Retornar fontes
+    verbose=True
+)
+
+# Fazer pergunta
+pergunta = "Qual é o período de garantia do produto X?"
+resultado = qa_chain.invoke({"query": pergunta})
+
+print(f"Pergunta: {pergunta}")
+print(f"\nResposta: {resultado['result']}")
+print(f"\nFontes utilizadas:")
+for doc in resultado['source_documents']:
+    print(f"- {doc.metadata['source']}, página {doc.metadata.get('page', 'N/A')}")</code></pre>
+
+            <div class="info-box">
+                <strong>Chain Types explicados:</strong><br>
+                1. <strong>"stuff"</strong> - Coloca tudo em um prompt (melhor para poucos docs)<br>
+                2. <strong>"map_reduce"</strong> - Processa docs em paralelo, depois combina<br>
+                3. <strong>"refine"</strong> - Processa docs sequencialmente, refinando resposta<br>
+                4. <strong>"map_rerank"</strong> - Pontua cada doc, escolhe melhor resposta
+            </div>
+
+            <h3>RAG Conversacional (com memória)</h3>
+            <pre><code>from langchain.chains import ConversationalRetrievalChain
+from langchain.memory import ConversationBufferMemory
+
+# Criar memória
+memory = ConversationBufferMemory(
+    memory_key="chat_history",
+    return_messages=True,
+    output_key="answer"
+)
+
+# Chain conversacional
+conversational_chain = ConversationalRetrievalChain.from_llm(
+    llm=llm,
+    retriever=vectorstore_faiss.as_retriever(),
+    memory=memory,
+    return_source_documents=True
+)
+
+# Conversa multi-turn
+perguntas = [
+    "Qual é a garantia do produto?",
+    "E se eu quiser estender ela?",  # Usa contexto anterior
+    "Quanto custa?"  # Ainda referencia "garantia estendida"
+]
+
+for pergunta in perguntas:
+    resultado = conversational_chain.invoke({"question": pergunta})
+    print(f"\nQ: {pergunta}")
+    print(f"A: {resultado['answer']}")</code></pre>
+        </section>
+
+        <!-- Chapter 3.4 -->
+        <section id="cap-3-4" class="content-section">
+            <h2>Capítulo 3.4: Agentes LangChain - Inteligência Autônoma</h2>
+
+            <h3>Do Scripted ao Autônomo</h3>
+            <p><strong>Chains</strong> são como seguir uma receita:</p>
+            <ul>
+                <li>Passo 1: Faça X</li>
+                <li>Passo 2: Faça Y</li>
+                <li>Passo 3: Faça Z</li>
+            </ul>
+
+            <p><strong>Agents</strong> são como ter um chef que decide:</p>
+            <ul>
+                <li>Qual receita seguir</li>
+                <li>Que ingredientes usar</li>
+                <li>Quando improvisar</li>
+            </ul>
+
+            <h3>O Padrão ReAct (Reason + Act)</h3>
+            <div class="diagram">┌─────────────────────────────────────────────┐
+│         CICLO DO AGENTE REACT               │
+└─────────────────────────────────────────────┘
+
+1. THOUGHT (Pensamento)
+   "Preciso saber o clima atual em São Paulo"
+   ↓
+2. ACTION (Ação)
+   Tool: weather_api
+   ↓
+3. ACTION INPUT (Entrada)
+   Input: "São Paulo, Brasil"
+   ↓
+4. OBSERVATION (Observação)
+   Result: "25°C, ensolarado"
+   ↓
+5. THOUGHT (Pensamento)
+   "Agora tenho a informação, posso responder"
+   ↓
+6. FINAL ANSWER (Resposta Final)
+   "O clima em São Paulo está 25°C e ensolarado"</div>
+
+            <h3>Criando Seu Primeiro Agente</h3>
+
+            <h4>Passo 1: Definir Tools</h4>
+            <pre><code>from langchain.tools import Tool
+from langchain_community.utilities import WikipediaAPIWrapper
+import requests
+
+# Tool 1: Wikipedia
+wikipedia = WikipediaAPIWrapper()
+tool_wikipedia = Tool(
+    name="Wikipedia",
+    func=wikipedia.run,
+    description="""
+    Útil para buscar informações factuais sobre pessoas, lugares,
+    eventos históricos, etc. Input deve ser uma pergunta ou termo
+    de busca em português.
+    """
+)
+
+# Tool 2: Calculadora
+def calculadora(expression: str) -> str:
+    """Avalia expressões matemáticas"""
+    try:
+        return str(eval(expression))
+    except Exception as e:
+        return f"Erro: {str(e)}"
+
+tool_calc = Tool(
+    name="Calculadora",
+    func=calculadora,
+    description="""
+    Útil para fazer cálculos matemáticos. Input deve ser uma
+    expressão matemática válida em Python (ex: '2 + 2', '10 ** 3').
+    """
+)
+
+# Tool 3: Busca na Web (exemplo com DuckDuckGo)
+from langchain_community.tools import DuckDuckGoSearchRun
+
+search = DuckDuckGoSearchRun()
+tool_search = Tool(
+    name="WebSearch",
+    func=search.run,
+    description="""
+    Útil para buscar informações atualizadas na internet.
+    Use quando precisar de notícias recentes, dados atuais,
+    ou informações que não estão na Wikipedia.
+    """
+)
+
+tools = [tool_wikipedia, tool_calc, tool_search]</code></pre>
+
+            <h4>Passo 2: Criar o Agente</h4>
+            <pre><code>from langchain.agents import create_react_agent, AgentExecutor
+from langchain_openai import ChatOpenAI
+from langchain.prompts import PromptTemplate
+
+llm = ChatOpenAI(model="gpt-4", temperature=0)
+
+# Prompt do agente ReAct
+react_prompt = PromptTemplate.from_template("""
+Responda à seguinte pergunta o melhor que puder. Você tem acesso às seguintes ferramentas:
+
+{tools}
+
+Use o seguinte formato:
+
+Question: a pergunta de entrada que você deve responder
+Thought: você deve sempre pensar sobre o que fazer
+Action: a ação a tomar, deve ser uma de [{tool_names}]
+Action Input: a entrada para a ação
+Observation: o resultado da ação
+... (este Thought/Action/Action Input/Observation pode se repetir N vezes)
+Thought: Agora eu sei a resposta final
+Final Answer: a resposta final para a pergunta original
+
+Comece!
+
+Question: {input}
+Thought: {agent_scratchpad}
+""")
+
+# Criar agente
+agent = create_react_agent(
+    llm=llm,
+    tools=tools,
+    prompt=react_prompt
+)
+
+# Executor (gerencia execução)
+agent_executor = AgentExecutor(
+    agent=agent,
+    tools=tools,
+    verbose=True,  # Mostra raciocínio
+    max_iterations=10,  # Limite de segurança
+    handle_parsing_errors=True
+)</code></pre>
+
+            <h4>Passo 3: Executar o Agente</h4>
+            <pre><code># Teste 1: Requer Wikipedia
+resposta1 = agent_executor.invoke({
+    "input": "Quem foi Albert Einstein e em que ano nasceu?"
+})
+print(resposta1['output'])
+
+# Teste 2: Requer Calculadora
+resposta2 = agent_executor.invoke({
+    "input": "Qual é a raiz quadrada de 12345?"
+})
+print(resposta2['output'])
+
+# Teste 3: Requer múltiplas tools
+resposta3 = agent_executor.invoke({
+    "input": """
+    O PIB do Brasil em 2023 foi de 10.9 trilhões de reais.
+    Se dividirmos isso pela população de 215 milhões,
+    quanto é o PIB per capita em reais?
+    """
+})
+print(resposta3['output'])
+# Agente vai: buscar confirmação do PIB → calcular divisão → responder</code></pre>
+
+            <div class="info-box">
+                <strong>Exemplo de saída (verbose=True):</strong><br>
+                <pre>> Entering new AgentExecutor chain...
+
+Question: Qual é a raiz quadrada de 12345?
+
+Thought: Preciso calcular a raiz quadrada de um número.
+Action: Calculadora
+Action Input: 12345 ** 0.5
+Observation: 111.1081249402829
+
+Thought: Agora eu sei a resposta final.
+Final Answer: A raiz quadrada de 12345 é aproximadamente 111.11.
+
+> Finished chain.</pre>
+            </div>
+
+            <h3>Tipos de Agentes no LangChain</h3>
+
+            <h4>1. Zero-Shot ReAct Agent</h4>
+            <pre><code>from langchain.agents import create_react_agent
+
+# Decide ferramentas baseado apenas em descrições
+agent_zero_shot = create_react_agent(
+    llm=llm,
+    tools=tools,
+    prompt=react_prompt
+)</code></pre>
+
+            <h4>2. Conversational Agent (com memória)</h4>
+            <pre><code>from langchain.agents import create_conversational_agent
+from langchain.memory import ConversationBufferMemory
+
+memory = ConversationBufferMemory(
+    memory_key="chat_history",
+    return_messages=True
+)
+
+conversational_agent = create_conversational_agent(
+    llm=llm,
+    tools=tools,
+    memory=memory,
+    verbose=True
+)
+
+# Agora mantém contexto entre perguntas
+executor = AgentExecutor(agent=conversational_agent, tools=tools)
+
+executor.invoke({"input": "Pesquise sobre Python"})
+executor.invoke({"input": "E quanto a performance?"})  # Lembra que é sobre Python</code></pre>
+
+            <h4>3. OpenAI Functions Agent</h4>
+            <pre><code>from langchain.agents import create_openai_functions_agent
+
+# Usa function calling nativo do GPT-4
+functions_agent = create_openai_functions_agent(
+    llm=llm,
+    tools=tools,
+    prompt=react_prompt
+)
+
+# Mais confiável e menos propenso a erros de parsing</code></pre>
+
+            <h3>Criando Tools Customizadas</h3>
+
+            <h4>Tool Simples (função)</h4>
+            <pre><code>@tool
+def consultar_estoque(produto: str) -> str:
+    """
+    Consulta estoque de um produto no sistema.
+    Args:
+        produto: Nome do produto a consultar
+    """
+    # Simular consulta ao banco
+    estoque_db = {
+        "notebook": 15,
+        "mouse": 50,
+        "teclado": 30
+    }
+    quantidade = estoque_db.get(produto.lower(), 0)
+    return f"Estoque de {produto}: {quantidade} unidades"
+
+tools.append(consultar_estoque)</code></pre>
+
+            <h4>Tool com API Externa</h4>
+            <pre><code>from langchain.tools import tool
+import requests
+
+@tool
+def buscar_cep(cep: str) -> str:
+    """
+    Busca endereço a partir do CEP brasileiro.
+    Args:
+        cep: CEP no formato 12345-678 ou 12345678
+    """
+    cep_limpo = cep.replace("-", "")
+    response = requests.get(f"https://viacep.com.br/ws/{cep_limpo}/json/")
+
+    if response.status_code == 200:
+        data = response.json()
+        if "erro" not in data:
+            return f"""
+            Endereço:
+            {data['logradouro']}, {data['bairro']}
+            {data['localidade']} - {data['uf']}
+            """
+    return "CEP não encontrado"</code></pre>
+        </section>
+
+        <!-- Chapter 3.5 -->
+        <section id="cap-3-5" class="content-section">
+            <h2>Capítulo 3.5: Memory - Dando Memória aos Agentes</h2>
+
+            <h3>Por Que Memória é Crucial</h3>
+            <p>LLMs são <strong>stateless</strong> por padrão - cada chamada é independente. Memória permite:</p>
+            <ul>
+                <li>Conversas naturais multi-turn</li>
+                <li>Personalização baseada em histórico</li>
+                <li>Contexto acumulado</li>
+                <li>Aprendizado de preferências</li>
+            </ul>
+
+            <h3>Tipos de Memory no LangChain</h3>
+
+            <h4>1. ConversationBufferMemory (Memória Completa)</h4>
+            <pre><code>from langchain.memory import ConversationBufferMemory
+
+memory = ConversationBufferMemory()
+
+# Salvar interações
+memory.save_context(
+    {"input": "Olá! Meu nome é Ana"},
+    {"output": "Olá Ana! Como posso ajudar?"}
+)
+
+memory.save_context(
+    {"input": "Preciso de ajuda com Python"},
+    {"output": "Claro! Qual sua dúvida sobre Python?"}
+)
+
+# Recuperar histórico completo
+print(memory.load_memory_variables({}))</code></pre>
+
+            <div class="info-box">
+                <strong>Saída:</strong><br>
+                <pre>{
+  'history': 'Human: Olá! Meu nome é Ana\nAI: Olá Ana! Como posso ajudar?\nHuman: Preciso de ajuda com Python\nAI: Claro! Qual sua dúvida sobre Python?'
+}</pre>
+            </div>
+
+            <p><strong>Usar com Chain:</strong></p>
+            <pre><code>from langchain.chains import ConversationChain
+
+conversation = ConversationChain(
+    llm=llm,
+    memory=ConversationBufferMemory(),
+    verbose=True
+)
+
+conversation.predict(input="Oi, sou João")
+conversation.predict(input="Qual é meu nome?")  # Vai lembrar: João</code></pre>
+
+            <h4>2. ConversationBufferWindowMemory (Janela Deslizante)</h4>
+            <pre><code>from langchain.memory import ConversationBufferWindowMemory
+
+# Mantém apenas últimas K interações
+memory_window = ConversationBufferWindowMemory(k=3)
+
+# Depois de 10 interações, só lembra as 3 últimas</code></pre>
+
+            <p><strong>Quando usar:</strong></p>
+            <ul>
+                <li>Conversas longas</li>
+                <li>Limitar custos de tokens</li>
+                <li>Focar em contexto recente</li>
+            </ul>
+
+            <h4>3. ConversationSummaryMemory (Resumo Inteligente)</h4>
+            <pre><code>from langchain.memory import ConversationSummaryMemory
+
+# Resume conversas longas
+memory_summary = ConversationSummaryMemory(llm=llm)
+
+memory_summary.save_context(
+    {"input": "Quero comprar um notebook para programação"},
+    {"output": "Recomendo um com pelo menos 16GB RAM e SSD"}
+)
+
+memory_summary.save_context(
+    {"input": "Qual processador você recomenda?"},
+    {"output": "Intel i7 ou AMD Ryzen 7 são ótimas opções"}
+)
+
+# Em vez de guardar tudo, cria resumo
+print(memory_summary.load_memory_variables({}))</code></pre>
+
+            <div class="info-box">
+                <strong>Saída:</strong><br>
+                <pre>{
+  'history': 'O usuário está interessado em comprar um notebook para programação. Recomendei especificações mínimas de 16GB RAM, SSD, e processadores Intel i7 ou AMD Ryzen 7.'
+}</pre>
+            </div>
+
+            <h4>4. ConversationSummaryBufferMemory (Híbrido)</h4>
+            <pre><code>from langchain.memory import ConversationSummaryBufferMemory
+
+# Resume antigas, mantém recentes completas
+memory_hybrid = ConversationSummaryBufferMemory(
+    llm=llm,
+    max_token_limit=500  # Limite antes de resumir
+)</code></pre>
+
+            <h4>5. ConversationKGMemory (Knowledge Graph)</h4>
+            <pre><code>from langchain.memory import ConversationKGMemory
+
+# Extrai relações entre entidades
+memory_kg = ConversationKGMemory(llm=llm)
+
+memory_kg.save_context(
+    {"input": "João mora em São Paulo"},
+    {"output": "Entendi"}
+)
+
+memory_kg.save_context(
+    {"input": "Ele trabalha na Google"},
+    {"output": "Anotado"}
+)
+
+# Cria grafo: João --mora_em--> São Paulo
+#             João --trabalha_em--> Google</code></pre>
+
+            <h3>Memory Persistente (Banco de Dados)</h3>
+            <pre><code>from langchain.memory import ConversationBufferMemory
+from langchain.memory.chat_message_histories import RedisChatMessageHistory
+
+# Salvar em Redis
+message_history = RedisChatMessageHistory(
+    url="redis://localhost:6379/0",
+    session_id="user_123"
+)
+
+memory_redis = ConversationBufferMemory(
+    chat_memory=message_history
+)
+
+# Ou SQLite
+from langchain.memory.chat_message_histories import SQLChatMessageHistory
+
+sql_history = SQLChatMessageHistory(
+    session_id="user_123",
+    connection_string="sqlite:///chat_history.db"
+)
+
+memory_sql = ConversationBufferMemory(chat_memory=sql_history)</code></pre>
+
+            <h3>Memory com Agentes</h3>
+            <pre><code>from langchain.agents import initialize_agent, AgentType
+from langchain.memory import ConversationBufferMemory
+
+memory = ConversationBufferMemory(
+    memory_key="chat_history",
+    return_messages=True
+)
+
+agent_with_memory = initialize_agent(
+    tools=tools,
+    llm=llm,
+    agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,
+    memory=memory,
+    verbose=True
+)
+
+# Conversa com contexto
+agent_with_memory.invoke({"input": "Meu nome é Carlos e gosto de futebol"})
+agent_with_memory.invoke({"input": "Qual meu esporte favorito?"})  # Lembra!
+agent_with_memory.invoke({"input": "E meu nome?"})  # Também lembra!</code></pre>
+        </section>
+
+        <!-- Chapter 3.6 -->
+        <section id="cap-3-6" class="content-section">
+            <h2>Capítulo 3.6: Integrações e Ecosystem</h2>
+
+            <h3>Document Loaders (60+ tipos)</h3>
+            <pre><code># PDFs
+from langchain_community.document_loaders import PyPDFLoader, PDFMinerLoader
+
+# Web
+from langchain_community.document_loaders import WebBaseLoader, SeleniumURLLoader
+
+# Office
+from langchain_community.document_loaders import UnstructuredWordDocumentLoader, UnstructuredExcelLoader
+
+# Código
+from langchain_community.document_loaders import GitLoader, NotebookLoader
+
+# Databases
+from langchain_community.document_loaders import DataFrameLoader, SQLDatabaseLoader
+
+# APIs
+from langchain_community.document_loaders import GoogleDriveLoader, NotionDBLoader</code></pre>
+
+            <h3>Vector Stores (50+ opções)</h3>
+            <pre><code># Local
+from langchain_community.vectorstores import FAISS, Chroma, DocArrayInMemorySearch
+
+# Cloud
+from langchain_community.vectorstores import Pinecone, Weaviate, Qdrant
+
+# Databases
+from langchain_community.vectorstores import PGVector, Redis, ElasticsearchStore</code></pre>
+
+            <h3>LLM Providers</h3>
+            <pre><code># Proprietários
+from langchain_openai import ChatOpenAI, OpenAI
+from langchain_anthropic import ChatAnthropic
+from langchain_google_genai import ChatGoogleGenerativeAI
+
+# Open-source
+from langchain_community.llms import Ollama, HuggingFaceHub, LlamaCpp
+
+# Self-hosted
+from langchain_community.llms import HuggingFacePipeline</code></pre>
+        </section>
+
+        <!-- Summary -->
+        <section class="content-section">
+            <h2>📝 Resumo Gráfico do Módulo 3</h2>
+
+            <h3>Conceitos-Chave</h3>
+            <p><strong>LangChain = Framework de Orquestração</strong></p>
+            <ul>
+                <li>Modularidade + Composabilidade</li>
+                <li>Abstração de complexidade</li>
+                <li>Ecosystem rico</li>
+            </ul>
+
+            <p><strong>6 Pilares:</strong></p>
+            <ol>
+                <li>Models (LLMs)</li>
+                <li>Prompts (Templates)</li>
+                <li>Chains (Pipelines)</li>
+                <li>Agents (Autonomia)</li>
+                <li>Memory (Contexto)</li>
+                <li>Tools (Conexões externas)</li>
+            </ol>
+
+            <p><strong>RAG (Retrieval-Augmented Generation):</strong></p>
+            <ul>
+                <li>Indexação → Embedding → VectorDB</li>
+                <li>Retrieval → Busca semântica</li>
+                <li>Generation → LLM com contexto</li>
+            </ul>
+
+            <p><strong>Agents:</strong></p>
+            <ul>
+                <li>ReAct (Reason + Act)</li>
+                <li>Tools customizadas</li>
+                <li>Decisões autônomas</li>
+            </ul>
+        </section>
+
+        <!-- Project -->
+        <section id="projeto" class="project-section">
+            <h2>🚀 Projeto Prático do Módulo 3</h2>
+
+            <h3>Desafio: ChatPDF Completo com Interface Web</h3>
+
+            <p><strong>Objetivo:</strong> Construir uma aplicação completa de RAG que permite:</p>
+            <ol>
+                <li>Upload de múltiplos PDFs</li>
+                <li>Processamento e indexação automática</li>
+                <li>Chat conversacional com memória</li>
+                <li>Citação de fontes</li>
+                <li>Interface web intuitiva</li>
+            </ol>
+
+            <h4>Especificações Técnicas</h4>
+            <p><strong>Stack:</strong></p>
+            <ul>
+                <li>LangChain para RAG</li>
+                <li>OpenAI para embeddings e LLM</li>
+                <li>FAISS para vector store (local)</li>
+                <li>Streamlit para interface web</li>
+                <li>Python 3.10+</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>📁 Código completo disponível:</strong><br>
+                Veja o arquivo completo do projeto ChatPDF (200+ linhas) no conteúdo markdown do módulo, incluindo:<br>
+                • Interface Streamlit completa<br>
+                • Sistema de upload e processamento de PDFs<br>
+                • RAG conversacional com memória<br>
+                • Citação de fontes com metadados<br>
+                • requirements.txt e instruções de setup
+            </div>
+
+            <h4>Como Executar</h4>
+            <pre><code># 1. Criar ambiente virtual
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# ou
+venv\Scripts\activate  # Windows
+
+# 2. Instalar dependências
+pip install -r requirements.txt
+
+# 3. Executar aplicação
+streamlit run chatpdf_app.py</code></pre>
+        </section>
+
+        <!-- Tips -->
+        <section id="dicas" class="content-section">
+            <h2>💡 Dicas de Otimização e Debugging</h2>
+
+            <h3>1. Debugging de Chains</h3>
+            <pre><code># Ativar verbose
+chain = LLMChain(llm=llm, prompt=prompt, verbose=True)
+
+# Callbacks customizados
+from langchain.callbacks import StdOutCallbackHandler
+
+handler = StdOutCallbackHandler()
+chain.run(input="...", callbacks=[handler])
+
+# LangSmith (plataforma oficial)
+import os
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGCHAIN_API_KEY"] = "..."</code></pre>
+
+            <h3>2. Otimizando RAG</h3>
+            <pre><code># Cache de embeddings
+from langchain.embeddings import CacheBackedEmbeddings
+from langchain.storage import LocalFileStore
+
+store = LocalFileStore("./cache/")
+cached_embeddings = CacheBackedEmbeddings.from_bytes_store(
+    underlying_embeddings,
+    store,
+    namespace="openai_embeddings"
+)
+
+# Compressão de contexto
+from langchain.retrievers import ContextualCompressionRetriever
+from langchain.retrievers.document_compressors import LLMChainExtractor
+
+compressor = LLMChainExtractor.from_llm(llm)
+compression_retriever = ContextualCompressionRetriever(
+    base_compressor=compressor,
+    base_retriever=retriever
+)</code></pre>
+
+            <h3>3. Gerenciamento de Custos</h3>
+            <pre><code>from langchain.callbacks import get_openai_callback
+
+with get_openai_callback() as cb:
+    result = chain.run(input="...")
+    print(f"Tokens: {cb.total_tokens}")
+    print(f"Custo: ${cb.total_cost}")</code></pre>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="content-section">
+            <h2>🎯 Próximos Passos</h2>
+
+            <p>Você dominou LangChain! Agora sabe como:</p>
+            <ul>
+                <li>✓ Criar chains complexas</li>
+                <li>✓ Implementar RAG completo</li>
+                <li>✓ Construir agentes autônomos</li>
+                <li>✓ Gerenciar memória conversacional</li>
+                <li>✓ Integrar ferramentas externas</li>
+                <li>✓ Deploy de aplicações reais</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>No Módulo 4</strong>, exploraremos o <strong>Agno</strong>, um framework mais recente e minimalista que oferece uma perspectiva diferente sobre a construção de agentes autônomos, focando na simplicidade e elegância.
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="module-navigation">
+            <a href="modulo-02.html" class="nav-button prev">
+                ← Módulo 2: Engenharia de Prompts
+            </a>
+            <a href="modulo-04.html" class="nav-button next">
+                Módulo 4: Agno →
+            </a>
+        </nav>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: #1e293b; color: white; padding: 3rem 0; margin-top: 4rem;">
+        <div class="container" style="text-align: center;">
+            <p style="margin-bottom: 1rem;">
+                <strong>FEA-IA 2.0</strong> - Formação Completa em Engenharia de Agentes IA
+            </p>
+            <p style="font-size: 0.875rem; opacity: 0.8;">
+                📄 1.801 linhas | 18.000+ palavras | Nível Aplicação
+            </p>
+            <p style="font-size: 0.875rem; opacity: 0.6; margin-top: 1rem;">
+                Desenvolvido com 💜 para a comunidade de IA
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Topics toggle functionality
+        const toggleButton = document.getElementById('topics-toggle');
+        const topicsList = document.getElementById('topics-list');
+        const topicsContainer = document.getElementById('topics-container');
+        const toggleIcon = toggleButton.querySelector('.toggle-icon');
+
+        toggleButton.addEventListener('click', () => {
+            topicsContainer.classList.toggle('collapsed');
+            toggleIcon.textContent = topicsContainer.classList.contains('collapsed') ? '▶' : '▼';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section in topics
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.topic-item').forEach(item => {
+                        item.classList.remove('active');
+                        if (item.getAttribute('href') === `#${id}`) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, {
+            rootMargin: '-100px 0px -66%'
+        });
+
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

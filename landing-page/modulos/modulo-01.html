@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Módulo 1: Fundamentos de Inteligência Artificial Generativa - Base sólida em LLMs, transformers e conceitos essenciais">
+    <title>Módulo 1: Fundamentos de IA Generativa | FEA-IA 2.0</title>
+
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/topics.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script defer src="../js/app.js"></script>
+
+    <style>
+        .module-hero {
+            padding: 6rem 0 4rem;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+
+        .module-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .module-breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .module-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .module-content-area {
+            padding: 4rem 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .module-header-info {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .info-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .content-block {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-block h2 {
+            color: #10b981;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #10b981;
+        }
+
+        .content-block h3 {
+            color: #059669;
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-block p {
+            line-height: 1.7;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+
+        .content-block ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-block li {
+            line-height: 1.7;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 4px solid #3b82f6;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .insight-box p {
+            margin: 0;
+        }
+
+        .insight-box strong {
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        .practice-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 4px solid #10b981;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .practice-box p {
+            margin: 0;
+        }
+
+        .practice-box strong {
+            color: #047857;
+            font-weight: 600;
+        }
+
+        .code-block {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .quote-block {
+            font-style: italic;
+            font-size: 1.125rem;
+            color: #6b7280;
+            padding: 1rem 1.5rem;
+            border-left: 4px solid #d1d5db;
+            margin: 1.5rem 0;
+        }
+
+        .image-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-caption {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        .project-section {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 2px solid #10b981;
+            margin: 2rem 0;
+        }
+
+        .project-section h3 {
+            color: #10b981;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .next-module-cta {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+            border-radius: 1rem;
+            margin-top: 3rem;
+        }
+
+        .next-module-cta h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .next-module-cta p {
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .module-hero {
+                padding: 4rem 0 2rem;
+            }
+
+            .module-content-area {
+                padding: 2rem 1rem;
+            }
+
+            .content-block {
+                padding: 1.5rem;
+            }
+
+            .content-block h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-block h3 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-logo">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text">Engenharia de Agentes IA 2.0</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Início</a></li>
+                <li><a href="../index.html#niveis" class="nav-link">Níveis</a></li>
+                <li><a href="../index.html#modulos" class="nav-link">Módulos</a></li>
+                <li><a href="https://github.com/inematds/FEA-IA#readme" class="btn-primary" target="_blank" rel="noopener">Acessar Curso</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Module Hero -->
+    <section class="module-hero">
+        <div class="container">
+            <div class="module-breadcrumb">
+                <a href="../index.html">Início</a>
+                <span>›</span>
+                <a href="../niveis/fundamentos.html">Nível Fundamentos</a>
+                <span>›</span>
+                <span>Módulo 1</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
+                <div style="font-size: 4rem;">🧠</div>
+                <div>
+                    <h1 style="font-size: 2.5rem; font-weight: 700; margin: 0 0 0.5rem 0;">Módulo 1: Fundamentos de Inteligência Artificial Generativa</h1>
+                    <p style="font-size: 1.125rem; margin: 0; opacity: 0.9;">Base sólida em LLMs, transformers e conceitos essenciais de IA generativa</p>
+                </div>
+            </div>
+
+            <div class="module-header-info">
+                <span class="info-badge">⏱️ 6 horas</span>
+                <span class="info-badge">📝 10k palavras</span>
+                <span class="info-badge">🎯 Iniciante</span>
+                <span class="info-badge">🌟 Nível Fundamentos</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module Content -->
+    <section class="module-content-area">
+        <div class="container">
+            <!-- Progress Tracker -->
+            <div class="module-progress-container" data-module="modulo-01">
+                <div class="module-progress-header">
+                    <span class="module-progress-label">Progresso do Módulo</span>
+                    <span class="module-progress-text">0/12 tópicos</span>
+                </div>
+                <div class="module-progress-track">
+                    <div class="module-progress-bar"></div>
+                </div>
+            </div>
+
+            <!-- Intro Quote -->
+            <div class="content-block">
+                <blockquote class="quote-block">
+                    "A IA não pensa. Ela prevê. E previsão é poder."
+                </blockquote>
+                <p style="font-size: 1.125rem; font-weight: 500; color: #10b981; margin-bottom: 1rem;">Ato 1: O Despertar</p>
+                <p>Você está prestes a dominar a tecnologia que está redefinindo o mundo. Não como um mero usuário, mas como um arquiteto. Este é o seu primeiro passo para se tornar um Engenheiro de Agentes de IA, aprendendo a linguagem das máquinas que aprendem.</p>
+                <p>Bem-vindo ao ponto de partida da sua jornada. Neste módulo, vamos desmistificar a "mágica" por trás da Inteligência Artificial Generativa. Você não precisa de nenhum conhecimento prévio em IA; apenas curiosidade e a vontade de construir o futuro.</p>
+            </div>
+
+            <!-- Chapter 1.1 -->
+            <div class="content-block module-content" data-module="modulo-01">
+                <h2>Capítulo 1.1: A Revolução dos Modelos de Linguagem</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m01-t01" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>A Escalada Rumo à Inteligência Artificial Geral</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>A busca por criar uma inteligência artificial não é nova. Ela povoa nossa imaginação há décadas, desde os primeiros computadores. No entanto, por muito tempo, a IA era "simbólica" — baseada em regras rígidas e lógicas programadas por humanos. Era poderosa, mas limitada.</p>
+                            <p>A verdadeira revolução começou com o <strong>Machine Learning</strong>, onde os sistemas passaram a aprender a partir de dados. O grande salto veio com o <strong>Deep Learning</strong> e, mais especificamente, com a arquitetura <strong>Transformer</strong>, introduzida em 2017 no artigo "Attention Is All You Need".</p>
+                            <p>Ao processar dados em paralelo e focar em quais partes da informação são mais importantes (o mecanismo de <strong>atenção</strong>), os Transformers abriram as portas para os <strong>Large Language Models (LLMs)</strong> que conhecemos hoje.</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m01-t02" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>O Coração da Máquina: A Arquitetura Transformer</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Para entender um LLM, você precisa entender o Transformer. Pense nele não como um cérebro, mas como uma refinaria de informação extremamente eficiente. Ele recebe uma sequência de dados (texto, imagem, etc.) e a processa através de duas pilhas principais:</p>
+                            <ul>
+                                <li><strong>Encoder:</strong> Sua função é ler e compreender a informação de entrada. Ele analisa cada parte da sequência e constrói uma representação matemática rica em contexto. É como ler uma frase e entender não apenas as palavras, mas as relações entre elas.</li>
+                                <li><strong>Decoder:</strong> Sua função é gerar uma nova sequência de dados com base na compreensão do encoder. Ele prevê a próxima palavra (ou pixel) mais provável, uma de cada vez, até completar a tarefa.</li>
+                            </ul>
+                            <p>O que torna isso possível é o <strong>mecanismo de atenção (Attention Mechanism)</strong>.</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m01-t03" data-topic-level="2">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>💡 INSIGHT: Mecanismo de Atenção</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <div class="insight-box">
+                                <p><strong>💡 INSIGHT:</strong> O mecanismo de atenção permite que o modelo pese a importância de diferentes palavras na sequência de entrada ao processar uma palavra específica. Ao traduzir "O gato sentou no tapete", a atenção garante que o modelo associe "sentou" com "gato" e "tapete", entendendo o contexto da ação.</p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m01-t04" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>A Linguagem das Máquinas: Tokenização e Embeddings</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Modelos de linguagem não leem palavras; eles leem números. O processo de converter texto em números que a máquina pode entender é fundamental e ocorre em duas etapas:</p>
+                            <ol>
+                                <li><strong>Tokenização:</strong> O texto é quebrado em pedaços menores, chamados <strong>tokens</strong>. Um token pode ser uma palavra, parte de uma palavra ou até mesmo um único caractere. Por exemplo, a frase "IA Generativa" pode ser tokenizada em <code>["IA", "Genera", "tiva"]</code>.</li>
+                                <li><strong>Embeddings:</strong> Cada token é então mapeado para um vetor numérico de alta dimensão. Esse vetor, ou <strong>embedding</strong>, captura o significado semântico do token. Palavras com significados semelhantes, como "rei" e "rainha", terão vetores de embedding próximos no espaço vetorial.</li>
+                            </ol>
+                            <div class="practice-box">
+                                <p><strong>🔍 VEJA NA PRÁTICA:</strong> Imagine um dicionário onde cada palavra aponta para um conjunto de coordenadas em um mapa 3D. Palavras relacionadas a "realeza" estariam agrupadas em uma região, enquanto palavras sobre "tecnologia" estariam em outra. É isso que os embeddings fazem, mas em centenas ou milhares de dimensões.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chapter 1.2 -->
+            <div class="content-block module-content" data-module="modulo-01">
+                <h2>Capítulo 1.2: Anatomia de um LLM</h2>
+
+                <p>Agora que entendemos os blocos de construção, vamos montar as peças. Um LLM é, em essência, uma pilha massiva de camadas de Transformer, treinada em uma quantidade colossal de dados da internet. Essa escala é o que permite o comportamento emergente que vemos.</p>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m01-t05" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Camadas de Atenção e Conhecimento</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Dentro de um LLM, dezenas de camadas de Transformer são empilhadas. Cada camada refina a compreensão da anterior. As primeiras camadas podem aprender sobre gramática e sintaxe, enquanto as camadas mais profundas aprendem sobre conceitos abstratos, raciocínio e até mesmo estilos de escrita. É uma hierarquia de abstração.</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m01-t06" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>O Processo Criativo: Geração de Texto</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Quando pedimos a um LLM para gerar texto, ele não está "pensando" em uma resposta. Ele está realizando uma tarefa estatística sofisticada: prever o próximo token mais provável na sequência. Esse processo é controlado por alguns parâmetros-chave:</p>
+                            <ul>
+                                <li><strong>Temperature:</strong> Controla a aleatoriedade. Uma temperatura baixa (ex: 0.2) torna as respostas mais previsíveis e focadas. Uma temperatura alta (ex: 1.0) aumenta a criatividade e a diversidade, mas também o risco de erros.</li>
+                                <li><strong>Top-p (Nucleus Sampling):</strong> Seleciona o menor conjunto de tokens cuja probabilidade acumulada excede o valor <code>p</code>. Por exemplo, com <code>top-p=0.9</code>, o modelo considera apenas os tokens que compõem os 90% mais prováveis da distribuição de probabilidade.</li>
+                                <li><strong>Top-k:</strong> Limita a seleção aos <code>k</code> tokens mais prováveis.</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m01-t07" data-topic-level="2">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>✅ TESTE: Experimentar Parâmetros de Geração</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <div class="practice-box">
+                                <p><strong>✅ TESTE VOCÊ MESMO:</strong> Use um playground de LLM e experimente gerar o mesmo prompt com diferentes valores de <code>temperature</code> e <code>top-p</code>. Observe como a previsibilidade e a "criatividade" da resposta mudam drasticamente.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chapter 1.3 -->
+            <div class="content-block module-content" data-module="modulo-01">
+                <h2>Capítulo 1.3: Além do Texto: Multimodalidade</h2>
+
+                <p>A IA Generativa vai muito além da linguagem. Os mesmos princípios dos Transformers podem ser aplicados a outros tipos de dados, criando uma IA <strong>multimodal</strong>.</p>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m01-t08" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Modelos de Imagem: Pintando com Probabilidades</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Modelos como <strong>Stable Diffusion</strong>, <strong>Midjourney</strong> e <strong>DALL-E</strong> usam uma técnica chamada <strong>difusão</strong>. Eles aprendem a remover ruído de uma imagem para chegar a uma imagem coerente que corresponda a um prompt de texto.</p>
+                            <p>É como um escultor que começa com um bloco de mármore ruidoso e, guiado pelo prompt, esculpe a obra de arte.</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m01-t09" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Modelos de Áudio e Vídeo: A Próxima Fronteira</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <ul>
+                                <li><strong>Áudio:</strong> Modelos como o <strong>Whisper</strong> da OpenAI aplicam a arquitetura Transformer para realizar a transcrição de fala para texto com uma precisão impressionante. Na outra direção, modelos <strong>Text-to-Speech (TTS)</strong> geram vozes humanas realistas a partir de texto.</li>
+                                <li><strong>Vídeo:</strong> A geração de vídeo, como vista em modelos como o <strong>Sora</strong>, é a fronteira atual. Ela combina a compreensão de texto, a geração de imagens e a consistência temporal para criar clipes de vídeo a partir de um simples prompt.</li>
+                            </ul>
+                            <div class="insight-box">
+                                <p><strong>💡 INSIGHT:</strong> A multimodalidade é a chave para agentes de IA que podem perceber e interagir com o mundo de uma forma mais humana, combinando visão, audição e linguagem para realizar tarefas complexas.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="content-block">
+                <h2>📝 Resumo Gráfico do Módulo 1</h2>
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m01-t10" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Conceitos-Chave do Módulo</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <ul>
+                                <li><strong>IA Generativa:</strong> Baseada em prever o próximo item em uma sequência</li>
+                                <li><strong>Transformer:</strong> Arquitetura chave com mecanismos de Encoder, Decoder e Atenção</li>
+                                <li><strong>Tokenização & Embeddings:</strong> Como a IA converte texto em números com significado</li>
+                                <li><strong>Parâmetros de Geração:</strong> <code>Temperature</code>, <code>top-p</code> e <code>top-k</code> controlam a criatividade</li>
+                                <li><strong>Multimodalidade:</strong> Aplicação dos mesmos princípios a imagens, áudio e vídeo</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Practical Project -->
+            <div class="project-section">
+                <h3>🚀 Projeto Prático do Módulo 1</h3>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m01-t11" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Desafio: Gerador de Ideias Multimodal</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Objetivo:</strong> Construir um sistema que gera ideias de produtos e cria visualizações automáticas.</p>
+
+                            <p><strong>Etapas:</strong></p>
+                            <ol>
+                                <li><strong>Geração de Ideias:</strong> Crie um script simples em Python que use uma API de LLM (como a da OpenAI ou uma alternativa open-source via Hugging Face) para gerar uma ideia de produto.</li>
+                                <li><strong>Criação de Prompt Visual:</strong> A partir da ideia gerada, use o mesmo LLM para criar um prompt detalhado para um modelo de geração de imagem.</li>
+                                <li><strong>Visualização:</strong> Use uma API de geração de imagem (como a do Stable Diffusion) para criar um conceito visual do produto.</li>
+                            </ol>
+
+                            <p><strong>Resultado:</strong> Este projeto irá solidificar sua compreensão de como diferentes modalidades de IA podem ser orquestradas para um único objetivo criativo.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="content-block">
+                <h2>Próximos Passos</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m01-t12" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>O Que Vem a Seguir?</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Agora que você entende <em>o que são</em> e <em>como funcionam</em> os LLMs, estamos prontos para o próximo passo: aprender a <em>conversar</em> com eles de forma eficaz.</p>
+                            <p>No <strong>Módulo 2</strong>, você se tornará um <strong>Engenheiro de Prompts</strong>, dominando a arte e a ciência de instruir a IA para obter exatamente o que você precisa.</p>
+                            <p><strong>Você aprenderá:</strong></p>
+                            <ul>
+                                <li>Anatomia de um prompt perfeito (Persona, Contexto, Tarefa, Formato)</li>
+                                <li>Zero-Shot, Few-Shot e Chain-of-Thought prompting</li>
+                                <li>Técnicas avançadas: Self-Consistency, Tree of Thoughts, ReAct</li>
+                                <li>Meta-prompting e prompt engineering sistemático</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- CTA to Next Module -->
+            <div class="next-module-cta">
+                <h3>Continue sua jornada</h3>
+                <p>Você dominou os fundamentos da IA Generativa. Agora é hora de aprender a arte da comunicação com IA!</p>
+                <a href="modulo-02.html" class="cta-button">
+                    <span>✍️ Ir para Módulo 2: Engenharia de Prompts</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <div style="margin-top: 1rem;">
+                    <a href="../niveis/fundamentos.html" style="color: #6b7280; text-decoration: none; font-size: 0.875rem;">← Voltar para Nível Fundamentos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Engenharia de Agentes IA 2.0</h3>
+                    <p class="footer-text">
+                        Curso completo e gratuito de Engenharia de Agentes de IA.
+                        Do zero ao profissional.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#niveis">Níveis</a></li>
+                        <li><a href="../index.html#modulos">Módulos</a></li>
+                        <li><a href="https://github.com/inematds/FEA-IA" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:inematds@gmail.com">inematds@gmail.com</a></li>
+                        <li><a href="https://github.com/inematds" target="_blank">@inematds</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Engenharia de Agentes IA 2.0. Código aberto sob licença MIT.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
