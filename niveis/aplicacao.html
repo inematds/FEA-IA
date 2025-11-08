@@ -151,7 +151,7 @@
                 <li><a href="../index.html#home" class="nav-link">Início</a></li>
                 <li><a href="../index.html#niveis" class="nav-link">Níveis</a></li>
                 <li><a href="../index.html#modulos" class="nav-link">Módulos</a></li>
-                <li><a href="https://github.com/inematds/FEA-IA#readme" class="btn-primary" target="_blank" rel="noopener">Acessar Curso</a></li>
+                <li><a href="http://inema.club" class="btn-primary" target="_blank" rel="noopener">INEMA.CLUB</a></li>
             </ul>
             <div class="nav-toggle" id="nav-toggle">
                 <span></span>
@@ -235,12 +235,94 @@
 
                     <div style="background: #f9fafb; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
                         <h4 style="font-size: 0.875rem; font-weight: 600; color: #374151; margin: 0 0 0.75rem 0; text-transform: uppercase; letter-spacing: 0.05em;">O que você vai aprender:</h4>
-                        <ul style="margin: 0; padding-left: 1.5rem; color: #6b7280; line-height: 1.8;">
-                            <li>Arquitetura minimalista do Agno</li>
-                            <li>Agentes reativos e proativos</li>
-                            <li>Integração com LLMs diversos</li>
-                            <li>Patterns de design com Agno</li>
-                            <li>Projetos práticos completos</li>
+                        <ul class="topics-list">
+                            <li class="topic-item" data-topic="aplic-m04-t01" data-topic-level="2">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Filosofia Agno: Simplicidade radical</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation nivel-aplicacao hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <p>Entenda a filosofia por trás do Agno:</p>
+                                    <ul>
+                                        <li><strong>Zero boilerplate:</strong> Código limpo sem configurações complexas</li>
+                                        <li><strong>Type-safe:</strong> Pydantic para validação automática</li>
+                                        <li><strong>Multi-model:</strong> Trocar entre GPT-4, Claude, Gemini sem reescrever código</li>
+                                        <li><strong>Production-ready:</strong> Built-in retry, caching, observability</li>
+                                    </ul>
+                                    <p><strong>💡 Diferencial:</strong> Criar agentes poderosos com 10x menos código que frameworks complexos.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="aplic-m04-t02" data-topic-level="2">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Criando agentes com Agno Agent</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation nivel-aplicacao hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <ul>
+                                        <li><strong>Agent class:</strong> Interface simples para criar agentes</li>
+                                        <li><strong>Tools:</strong> Decorador @agent.tool() para adicionar ferramentas</li>
+                                        <li><strong>Streaming:</strong> Respostas em tempo real</li>
+                                        <li><strong>Structured outputs:</strong> Pydantic models como saída</li>
+                                    </ul>
+                                    <p><strong>🔥 Na prática:</strong> Agente completo em 20 linhas de código!</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="aplic-m04-t03" data-topic-level="2">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Tools e structured outputs</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation nivel-aplicacao hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <ul>
+                                        <li>Criar ferramentas com type hints automáticos</li>
+                                        <li>Validação de inputs com Pydantic</li>
+                                        <li>Outputs estruturados garantidos (não mais parsing de JSON!)</li>
+                                        <li>Composição de ferramentas complexas</li>
+                                    </ul>
+                                    <p><strong>⚡ Benefício:</strong> Elimina 90% dos erros de parsing e validação.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="aplic-m04-t04" data-topic-level="2">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Multi-model switching</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation nivel-aplicacao hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <ul>
+                                        <li>Usar GPT-4, Claude, Gemini com a mesma interface</li>
+                                        <li>Fallback automático se um modelo falha</li>
+                                        <li>Escolher modelo baseado em custo/latência/qualidade</li>
+                                        <li>A/B testing de diferentes modelos</li>
+                                    </ul>
+                                    <p><strong>💰 Economia:</strong> Use modelo mais barato para tarefas simples, modelo premium para complexas.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="aplic-m04-t05" data-topic-level="2">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Deployment e boas práticas</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation nivel-aplicacao hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <ul>
+                                        <li>Estrutura de projeto profissional</li>
+                                        <li>Environment variables e secrets management</li>
+                                        <li>Logging e debugging</li>
+                                        <li>Testing de agentes</li>
+                                        <li>Deploy em produção (Docker, cloud)</li>
+                                    </ul>
+                                    <p><strong>🏗️ Arquitetura:</strong> Do protótipo ao sistema enterprise-ready.</p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
 
@@ -273,12 +355,93 @@
 
                     <div style="background: #f9fafb; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
                         <h4 style="font-size: 0.875rem; font-weight: 600; color: #374151; margin: 0 0 0.75rem 0; text-transform: uppercase; letter-spacing: 0.05em;">O que você vai aprender:</h4>
-                        <ul style="margin: 0; padding-left: 1.5rem; color: #6b7280; line-height: 1.8;">
-                            <li>Arquitetura multi-agente</li>
-                            <li>Crew, Tasks e Processes</li>
-                            <li>Delegação e hierarquia</li>
-                            <li>Ferramentas colaborativas</li>
-                            <li>Cases complexos reais</li>
+                        <ul class="topics-list">
+                            <li class="topic-item" data-topic="aplic-m05-t01" data-topic-level="2">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Conceitos de Multi-Agent Systems (MAS)</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation nivel-aplicacao hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <ul>
+                                        <li><strong>Por que múltiplos agentes?</strong> Especialização, paralelismo, robustez</li>
+                                        <li><strong>Comunicação:</strong> Como agentes trocam informações</li>
+                                        <li><strong>Coordenação:</strong> Sincronizar ações de múltiplos agentes</li>
+                                        <li><strong>Exemplos reais:</strong> Agência de marketing, consultoria jurídica, dev team</li>
+                                    </ul>
+                                    <p><strong>🎯 Analogia:</strong> Como uma equipe humana, cada agente tem sua expertise.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="aplic-m05-t02" data-topic-level="2">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Arquitetura CrewAI: Agents, Tasks, Tools</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation nivel-aplicacao hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <ul>
+                                        <li><strong>Agents:</strong> Especialistas com role, goal, backstory</li>
+                                        <li><strong>Tasks:</strong> Unidades de trabalho com expected_output</li>
+                                        <li><strong>Tools:</strong> Ferramentas que agentes podem usar</li>
+                                        <li><strong>Crew:</strong> Orquestrador da equipe</li>
+                                        <li><strong>Process:</strong> Sequential vs Hierarchical</li>
+                                    </ul>
+                                    <p><strong>🏗️ Estrutura:</strong> Componentes modulares que se combinam para resolver problemas complexos.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="aplic-m05-t03" data-topic-level="2">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Processos: Sequential vs Hierarchical</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation nivel-aplicacao hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <ul>
+                                        <li><strong>Sequential:</strong> Tarefas executadas em ordem (A → B → C)</li>
+                                        <li><strong>Hierarchical:</strong> Manager agent coordena e delega</li>
+                                        <li><strong>Quando usar cada um:</strong> Trade-offs e casos de uso</li>
+                                        <li><strong>Custom workflows:</strong> Criar processos personalizados</li>
+                                    </ul>
+                                    <p><strong>⚙️ Escolha:</strong> Sequential para workflows simples, Hierarchical para complexidade.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="aplic-m05-t04" data-topic-level="2">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Delegação e colaboração entre agentes</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation nivel-aplicacao hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <ul>
+                                        <li><strong>allow_delegation=True:</strong> Agentes podem pedir ajuda</li>
+                                        <li><strong>Context sharing:</strong> Passar informações entre agentes</li>
+                                        <li><strong>Feedback loops:</strong> Revisão e melhoria iterativa</li>
+                                        <li><strong>Conflict resolution:</strong> Lidar com agentes que discordam</li>
+                                    </ul>
+                                    <p><strong>🤝 Colaboração:</strong> Agentes trabalhando juntos são mais poderosos que sozinhos.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="aplic-m05-t05" data-topic-level="2">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Casos de uso reais e padrões</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation nivel-aplicacao hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <ul>
+                                        <li><strong>Content creation pipeline:</strong> Research → Write → Edit → SEO</li>
+                                        <li><strong>Data analysis team:</strong> Collect → Clean → Analyze → Report</li>
+                                        <li><strong>Customer support:</strong> Classify → Research → Respond → Escalate</li>
+                                        <li><strong>Software development:</strong> Plan → Code → Test → Deploy</li>
+                                    </ul>
+                                    <p><strong>💼 Aplicação:</strong> Padrões reutilizáveis para diferentes domínios.</p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
 
@@ -311,12 +474,96 @@
 
                     <div style="background: #f9fafb; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
                         <h4 style="font-size: 0.875rem; font-weight: 600; color: #374151; margin: 0 0 0.75rem 0; text-transform: uppercase; letter-spacing: 0.05em;">O que você vai aprender:</h4>
-                        <ul style="margin: 0; padding-left: 1.5rem; color: #6b7280; line-height: 1.8;">
-                            <li>Arquitetura do MCP</li>
-                            <li>Criação de servers customizados</li>
-                            <li>Integração com ferramentas externas</li>
-                            <li>Segurança e autenticação</li>
-                            <li>MCP em produção</li>
+                        <ul class="topics-list">
+                            <li class="topic-item" data-topic="aplic-m06-t01" data-topic-level="2">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>O que é MCP e por que é revolucionário</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation nivel-aplicacao hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <ul>
+                                        <li><strong>MCP:</strong> Protocolo aberto da Anthropic para conectar IA a dados</li>
+                                        <li><strong>Problema:</strong> Cada ferramenta tinha integração custom</li>
+                                        <li><strong>Solução:</strong> Interface padronizada para tudo</li>
+                                        <li><strong>Impacto:</strong> IA pode acessar qualquer sistema de forma consistente</li>
+                                    </ul>
+                                    <p><strong>🌐 Visão:</strong> MCP para IA = HTTP para a web.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="aplic-m06-t02" data-topic-level="2">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Arquitetura: Servers, Clients, Resources, Tools</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation nivel-aplicacao hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <ul>
+                                        <li><strong>MCP Server:</strong> Expõe dados e ferramentas via protocolo</li>
+                                        <li><strong>MCP Client:</strong> Aplicação IA que consome servidores</li>
+                                        <li><strong>Resources:</strong> Dados que podem ser lidos (URIs)</li>
+                                        <li><strong>Tools:</strong> Ações que modificam estado</li>
+                                        <li><strong>Prompts:</strong> Templates reutilizáveis</li>
+                                    </ul>
+                                    <p><strong>🔌 Protocolo:</strong> JSON-RPC 2.0 para comunicação cliente-servidor.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="aplic-m06-t03" data-topic-level="2">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Criando servidores MCP customizados</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation nivel-aplicacao hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <ul>
+                                        <li>Implementar MCP Server do zero</li>
+                                        <li>Expor APIs, bancos de dados, arquivos via MCP</li>
+                                        <li>Definir schemas de resources e tools</li>
+                                        <li>Autenticação e autorização</li>
+                                        <li>Deploy e hospedagem de servidores</li>
+                                    </ul>
+                                    <p><strong>🛠️ Poder:</strong> Conectar agentes a QUALQUER sistema que você imaginar!</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="aplic-m06-t04" data-topic-level="2">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Integrando MCP com agentes</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation nivel-aplicacao hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <ul>
+                                        <li>Conectar Claude Desktop a servidores MCP</li>
+                                        <li>Usar MCP com LangChain e CrewAI</li>
+                                        <li>Discovery de recursos disponíveis</li>
+                                        <li>Error handling e retry logic</li>
+                                        <li>Caching e performance</li>
+                                    </ul>
+                                    <p><strong>🔗 Integração:</strong> Agentes com superpoderes via MCP.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="aplic-m06-t05" data-topic-level="2">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Segurança, autenticação e boas práticas</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation nivel-aplicacao hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <ul>
+                                        <li><strong>Auth:</strong> API keys, OAuth, JWT</li>
+                                        <li><strong>Permissions:</strong> RBAC e scope control</li>
+                                        <li><strong>Rate limiting:</strong> Prevenir abuso</li>
+                                        <li><strong>Input validation:</strong> Sanitização de dados</li>
+                                        <li><strong>Audit logging:</strong> Rastreabilidade completa</li>
+                                    </ul>
+                                    <p><strong>🔒 Segurança:</strong> Produção-ready com todas as proteções necessárias.</p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
 
