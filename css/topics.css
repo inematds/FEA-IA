@@ -144,6 +144,7 @@
     border-left: 4px solid var(--color-fundamentos);
     font-size: 0.875rem;
     line-height: 1.5;
+    color: #111827; /* Texto escuro para contraste */
 }
 
 /* Variantes de cor por nível */
@@ -166,27 +167,41 @@
 .topic-explanation p {
     margin: 0;
     margin-bottom: 0.375rem; /* mb-1.5 - 6px */
+    color: #111827; /* Texto escuro */
 }
 
 .topic-explanation p:last-child {
     margin-bottom: 0;
 }
 
+/* Listas dentro do conteúdo */
+.topic-explanation ul {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    color: #111827; /* Texto escuro */
+}
+
+.topic-explanation li {
+    margin-bottom: 0.25rem;
+    color: #111827; /* Texto escuro */
+}
+
 /* Títulos dentro do conteúdo */
 .topic-explanation strong {
     font-weight: 600;
+    color: #111827; /* Texto escuro por padrão */
 }
 
-.topic-explanation .nivel-fundamentos strong {
-    color: var(--color-fundamentos);
+.topic-explanation.nivel-fundamentos strong {
+    color: #047857; /* Verde escuro - melhor contraste */
 }
 
-.topic-explanation .nivel-aplicacao strong {
-    color: var(--color-aplicacao);
+.topic-explanation.nivel-aplicacao strong {
+    color: #5b21b6; /* Roxo escuro - melhor contraste */
 }
 
-.topic-explanation .nivel-estrategico strong {
-    color: var(--color-estrategico);
+.topic-explanation.nivel-estrategico strong {
+    color: #1e3a8a; /* Azul escuro - melhor contraste */
 }
 
 /* Estado oculto */
