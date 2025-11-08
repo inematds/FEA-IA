@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Módulo 6: Model Context Protocol (MCP) - Conecte agentes de IA a qualquer sistema externo de forma padronizada">
+    <title>Módulo 6: Model Context Protocol (MCP) | FEA-IA 2.0</title>
+
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/topics.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script defer src="../js/app.js"></script>
+
+    <style>
+        .module-hero {
+            padding: 6rem 0 4rem;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+        }
+
+        .module-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .module-breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .module-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .module-content-area {
+            padding: 4rem 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .module-header-info {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .info-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .content-block {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-block h2 {
+            color: #f59e0b;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #f59e0b;
+        }
+
+        .content-block h3 {
+            color: #d97706;
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-block p {
+            line-height: 1.7;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+
+        .content-block ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-block li {
+            line-height: 1.7;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .insight-box p {
+            margin: 0;
+        }
+
+        .insight-box strong {
+            color: #92400e;
+            font-weight: 600;
+        }
+
+        .practice-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 4px solid #10b981;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .practice-box p {
+            margin: 0;
+        }
+
+        .practice-box strong {
+            color: #047857;
+            font-weight: 600;
+        }
+
+        .code-block {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .quote-block {
+            font-style: italic;
+            font-size: 1.125rem;
+            color: #6b7280;
+            padding: 1rem 1.5rem;
+            border-left: 4px solid #d1d5db;
+            margin: 1.5rem 0;
+        }
+
+        .project-section {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(217, 119, 6, 0.05) 100%);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 2px solid #f59e0b;
+            margin: 2rem 0;
+        }
+
+        .project-section h3 {
+            color: #f59e0b;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .next-module-cta {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(217, 119, 6, 0.1) 100%);
+            border-radius: 1rem;
+            margin-top: 3rem;
+        }
+
+        .next-module-cta h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .next-module-cta p {
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+        }
+
+        .cta-button.secondary:hover {
+            background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
+            box-shadow: 0 10px 20px rgba(107, 114, 128, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .module-hero {
+                padding: 4rem 0 2rem;
+            }
+
+            .module-content-area {
+                padding: 2rem 1rem;
+            }
+
+            .content-block {
+                padding: 1.5rem;
+            }
+
+            .content-block h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-block h3 {
+                font-size: 1.25rem;
+            }
+
+            .cta-button {
+                margin: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-logo">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text">Engenharia de Agentes IA 2.0</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Início</a></li>
+                <li><a href="../index.html#niveis" class="nav-link">Níveis</a></li>
+                <li><a href="../index.html#modulos" class="nav-link">Módulos</a></li>
+                <li><a href="https://github.com/inematds/FEA-IA#readme" class="btn-primary" target="_blank" rel="noopener">Acessar Curso</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Module Hero -->
+    <section class="module-hero">
+        <div class="container">
+            <div class="module-breadcrumb">
+                <a href="../index.html">Início</a>
+                <span>›</span>
+                <a href="../niveis/aplicacao.html">Nível Aplicação</a>
+                <span>›</span>
+                <span>Módulo 6</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
+                <div style="font-size: 4rem;">🔌</div>
+                <div>
+                    <h1 style="font-size: 2.5rem; font-weight: 700; margin: 0 0 0.5rem 0;">Módulo 6: Model Context Protocol (MCP)</h1>
+                    <p style="font-size: 1.125rem; margin: 0; opacity: 0.9;">Conecte agentes de IA a qualquer sistema externo de forma padronizada e segura</p>
+                </div>
+            </div>
+
+            <div class="module-header-info">
+                <span class="info-badge">⏱️ 14 horas</span>
+                <span class="info-badge">📝 34k palavras</span>
+                <span class="info-badge">🎯 Avançado</span>
+                <span class="info-badge">🌟 Nível Aplicação</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module Content -->
+    <section class="module-content-area">
+        <div class="container">
+            <!-- Progress Tracker -->
+            <div class="module-progress-container" data-module="modulo-06">
+                <div class="module-progress-header">
+                    <span class="module-progress-label">Progresso do Módulo</span>
+                    <span class="module-progress-text">0/30 tópicos</span>
+                </div>
+                <div class="module-progress-track">
+                    <div class="module-progress-bar"></div>
+                </div>
+            </div>
+
+            <!-- Intro Quote -->
+            <div class="content-block">
+                <blockquote class="quote-block">
+                    "A verdadeira inteligência não vem apenas do modelo, mas das conexões que ele pode fazer com o mundo."
+                </blockquote>
+                <p style="font-size: 1.125rem; font-weight: 500; color: #f59e0b; margin-bottom: 1rem;">Conectando Agentes ao Mundo Real</p>
+                <p>Se os LLMs são "cérebros", o <strong>MCP é o sistema nervoso</strong> que conecta esse cérebro aos "órgãos sensoriais" e "membros" - permitindo que o agente veja (dados) e aja (ferramentas) no mundo real.</p>
+                <p>O Model Context Protocol é um <strong>protocolo aberto</strong> desenvolvido pela Anthropic que define uma maneira padronizada para que aplicações de IA se conectem a fontes de dados e ferramentas externas.</p>
+            </div>
+
+            <!-- Chapter 6.1 -->
+            <div class="content-block module-content" data-module="modulo-06">
+                <h2>Capítulo 6.1: Introdução ao MCP</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m06-t01" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>O Que É o Model Context Protocol?</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>MCP é um <strong>protocolo aberto</strong> que define uma maneira padronizada para que aplicações de IA se conectem a:</p>
+                            <ul>
+                                <li>Fontes de dados externas (bancos de dados, APIs, arquivos)</li>
+                                <li>Ferramentas e serviços (cloud, automação, integração)</li>
+                                <li>Sistemas empresariais (CRM, ERP, data warehouses)</li>
+                            </ul>
+                            <div class="insight-box">
+                                <p><strong>💡 ANALOGIA:</strong> Se os LLMs são "cérebros", o MCP é o "sistema nervoso" que conecta esse cérebro aos órgãos sensoriais (dados) e membros (ações), permitindo que o agente perceba e interaja com o mundo real.</p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m06-t02" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Por Que MCP É Importante?</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>❌ Problema antes do MCP:</strong></p>
+                            <div class="code-block">
+<code># Cada ferramenta tinha sua própria integração
+chatbot.add_tool(custom_database_connector())
+chatbot.add_tool(custom_api_wrapper())
+chatbot.add_tool(custom_file_reader())
+# Resultado: código fragmentado, difícil de manter</code>
+                            </div>
+
+                            <p><strong>✅ Solução com MCP:</strong></p>
+                            <div class="code-block">
+<code># Protocolo unificado
+mcp_client.connect_to_server("sqlite://local.db")
+mcp_client.connect_to_server("api://github.com")
+mcp_client.connect_to_server("file://~/documents")
+# Resultado: interface consistente e reutilizável</code>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m06-t03" data-topic-level="2">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Principais Vantagens do MCP</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <ul>
+                                <li>✅ <strong>Padronização:</strong> Interface única para todos os tipos de integrações</li>
+                                <li>✅ <strong>Reutilização:</strong> Servidores MCP podem ser usados por múltiplas aplicações</li>
+                                <li>✅ <strong>Segurança:</strong> Controle granular de permissões e autenticação</li>
+                                <li>✅ <strong>Escalabilidade:</strong> Fácil adicionar novas fontes de dados</li>
+                                <li>✅ <strong>Manutenibilidade:</strong> Separação clara entre cliente e servidor</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m06-t04" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Casos de Uso Principais</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>1. Acesso a Dados Empresariais</strong></p>
+                            <ul>
+                                <li>Conectar agentes a bancos de dados corporativos</li>
+                                <li>Acessar sistemas CRM, ERP</li>
+                                <li>Integração com data warehouses</li>
+                            </ul>
+
+                            <p><strong>2. Automação de Ferramentas</strong></p>
+                            <ul>
+                                <li>Executar comandos no sistema operacional</li>
+                                <li>Gerenciar serviços em nuvem</li>
+                                <li>Controlar APIs de terceiros</li>
+                            </ul>
+
+                            <p><strong>3. Sistemas de Conhecimento</strong></p>
+                            <ul>
+                                <li>RAG com fontes de dados dinâmicas</li>
+                                <li>Acesso a documentação técnica atualizada</li>
+                                <li>Bases de conhecimento corporativas</li>
+                            </ul>
+
+                            <p><strong>4. Agentes Autônomos</strong></p>
+                            <ul>
+                                <li>Agentes que operam em ambientes reais</li>
+                                <li>Robôs de atendimento com acesso a sistemas</li>
+                                <li>Assistentes pessoais conectados</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chapter 6.2 -->
+            <div class="content-block module-content" data-module="modulo-06">
+                <h2>Capítulo 6.2: Arquitetura do MCP</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m06-t05" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Visão Geral da Arquitetura</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>O MCP segue uma arquitetura <strong>cliente-servidor</strong> baseada em <strong>JSON-RPC 2.0</strong>.</p>
+                            <div class="code-block">
+<code>┌────────────────────────────────────────────────────────┐
+│                   MCP ECOSYSTEM                        │
+├────────────────────────────────────────────────────────┤
+│                                                        │
+│  ┌──────────┐      MCP Protocol      ┌──────────┐    │
+│  │   MCP    │  ◄─────────────────────►│   MCP    │    │
+│  │  Client  │                         │  Server  │    │
+│  │ (seu app)│  Resources, Tools,      │          │    │
+│  └─────┬────┘  Prompts                └────┬─────┘    │
+│        │                                    │          │
+│        ▼                                    ▼          │
+│  ┌──────────┐                      ┌────────────────┐ │
+│  │   LLM    │                      │ Data Sources   │ │
+│  │ (Claude) │                      │   & Tools      │ │
+│  └──────────┘                      └────────────────┘ │
+│                                                        │
+└────────────────────────────────────────────────────────┘</code>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m06-t06" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Conceito: Resources (Recursos)</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Resources</strong> são <strong>dados</strong> que o servidor expõe ao cliente.</p>
+                            <div class="code-block">
+<code>// Exemplo de um resource
+{
+  "uri": "project://tasks/12345",
+  "name": "Task #12345",
+  "mimeType": "application/json",
+  "description": "Detalhes da tarefa de desenvolvimento"
+}</code>
+                            </div>
+                            <p><strong>Características:</strong></p>
+                            <ul>
+                                <li>Representam dados que podem ser lidos</li>
+                                <li>Identificados por URIs únicas</li>
+                                <li>Podem ter diferentes formatos (JSON, texto, binário)</li>
+                                <li>Suportam versionamento</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m06-t07" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Conceito: Tools (Ferramentas)</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Tools</strong> são <strong>ações</strong> que o servidor pode executar.</p>
+                            <div class="code-block">
+<code>// Exemplo de uma tool
+{
+  "name": "create_task",
+  "description": "Cria uma nova tarefa no sistema",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "title": {"type": "string"},
+      "priority": {
+        "type": "string",
+        "enum": ["low", "medium", "high"]
+      }
+    },
+    "required": ["title"]
+  }
+}</code>
+                            </div>
+                            <p><strong>Características:</strong></p>
+                            <ul>
+                                <li>Representam operações que modificam estado</li>
+                                <li>Podem receber parâmetros</li>
+                                <li>Retornam resultados estruturados</li>
+                                <li>Podem ter efeitos colaterais</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m06-t08" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Conceito: Prompts (Templates Reutilizáveis)</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Prompts</strong> são <strong>templates</strong> pré-configurados que o servidor oferece.</p>
+                            <div class="code-block">
+<code>// Exemplo de um prompt
+{
+  "name": "analyze_code",
+  "description": "Analisa código fonte",
+  "arguments": [
+    {
+      "name": "language",
+      "description": "Linguagem de programação",
+      "required": true
+    }
+  ]
+}</code>
+                            </div>
+                            <div class="insight-box">
+                                <p><strong>💡 DICA:</strong> Prompts são úteis para padronizar interações comuns. Por exemplo, um servidor MCP de análise de código pode oferecer prompts pré-configurados para "code review", "bug detection", "optimization suggestions".</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chapter 6.3 -->
+            <div class="content-block module-content" data-module="modulo-06">
+                <h2>Capítulo 6.3: Criando Servidores MCP</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m06-t10" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Instalação e Setup</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <div class="code-block">
+<code># Instalar o SDK do MCP
+pip install mcp
+
+# Ou via npm (Node.js)
+npm install @modelcontextprotocol/sdk</code>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m06-t11" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Exemplo: Servidor MCP Básico</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <div class="code-block">
+<code>from mcp.server import Server
+from mcp.server.stdio import stdio_server
+from mcp.types import Resource, Tool
+
+# Criar servidor
+app = Server("meu-servidor-mcp")
+
+# Definir resources
+@app.list_resources()
+async def list_resources():
+    return [
+        Resource(
+            uri="task://list",
+            name="Lista de Tarefas",
+            mimeType="application/json",
+            description="Todas as tarefas do sistema"
+        )
+    ]
+
+@app.read_resource()
+async def read_resource(uri: str):
+    if uri == "task://list":
+        return {
+            "tasks": [
+                {"id": 1, "title": "Implementar MCP"},
+                {"id": 2, "title": "Testar integração"}
+            ]
+        }
+
+# Definir tools
+@app.list_tools()
+async def list_tools():
+    return [
+        Tool(
+            name="create_task",
+            description="Cria nova tarefa",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "title": {"type": "string"}
+                },
+                "required": ["title"]
+            }
+        )
+    ]
+
+@app.call_tool()
+async def call_tool(name: str, arguments: dict):
+    if name == "create_task":
+        # Criar tarefa
+        return f"Tarefa '{arguments['title']}' criada!"
+
+# Rodar servidor
+if __name__ == "__main__":
+    stdio_server(app)</code>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m06-t12" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Criando Cliente MCP</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <div class="code-block">
+<code>from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+
+async def main():
+    # Conectar ao servidor
+    server_params = StdioServerParameters(
+        command="python",
+        args=["meu_servidor.py"]
+    )
+
+    async with stdio_client(server_params) as (read, write):
+        async with ClientSession(read, write) as session:
+            # Inicializar
+            await session.initialize()
+
+            # Listar resources
+            resources = await session.list_resources()
+            print(resources)
+
+            # Ler resource
+            data = await session.read_resource("task://list")
+            print(data)
+
+            # Chamar tool
+            result = await session.call_tool(
+                "create_task",
+                {"title": "Nova tarefa via MCP"}
+            )
+            print(result)</code>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chapter 6.4 -->
+            <div class="content-block module-content" data-module="modulo-06">
+                <h2>Capítulo 6.4: Integração com Agentes</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m06-t15" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>MCP + CrewAI</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <div class="code-block">
+<code>from crewai import Agent, Task, Crew
+from crewai_tools import MCPTool
+
+# Criar tool MCP
+mcp_tool = MCPTool(
+    server_command="python",
+    server_args=["meu_servidor_mcp.py"]
+)
+
+# Agente com acesso ao servidor MCP
+agent = Agent(
+    role="Project Manager",
+    goal="Gerenciar tarefas do projeto",
+    tools=[mcp_tool],
+    verbose=True
+)
+
+task = Task(
+    description="Liste todas as tarefas e crie uma nova",
+    agent=agent
+)
+
+crew = Crew(agents=[agent], tasks=[task])
+result = crew.kickoff()
+print(result)</code>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m06-t16" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Segurança e Autenticação</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Principais Considerações de Segurança:</strong></p>
+                            <ul>
+                                <li>✓ <strong>Autenticação:</strong> Validar identidade do cliente</li>
+                                <li>✓ <strong>Autorização:</strong> Controlar acesso a resources e tools</li>
+                                <li>✓ <strong>Validação:</strong> Verificar inputs antes de executar</li>
+                                <li>✓ <strong>Rate Limiting:</strong> Prevenir abuso</li>
+                                <li>✓ <strong>Logging:</strong> Auditoria de todas as operações</li>
+                            </ul>
+                            <div class="insight-box">
+                                <p><strong>🔒 SEGURANÇA:</strong> Sempre valide e sanitize inputs de tools antes de executar ações críticas. Use sandboxing quando possível e implemente rate limiting para prevenir abuso.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="content-block">
+                <h2>📝 Resumo Gráfico do Módulo 6</h2>
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m06-t25" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Conceitos-Chave</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Componentes MCP:</strong></p>
+                            <ul>
+                                <li><strong>Resources:</strong> Dados expostos pelo servidor</li>
+                                <li><strong>Tools:</strong> Ações que modificam estado</li>
+                                <li><strong>Prompts:</strong> Templates reutilizáveis</li>
+                                <li><strong>Client:</strong> Aplicação que consome MCP</li>
+                                <li><strong>Server:</strong> Expõe dados e ferramentas</li>
+                            </ul>
+                            <p><strong>Vantagens:</strong></p>
+                            <ul>
+                                <li>✓ Padronização de integrações</li>
+                                <li>✓ Reutilização de servidores</li>
+                                <li>✓ Segurança e controle</li>
+                                <li>✓ Escalabilidade</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Practical Project -->
+            <div class="project-section">
+                <h3>🚀 Projeto Prático do Módulo 6</h3>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m06-t26" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Desafio: Sistema de Gestão de Projetos com MCP</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Objetivo:</strong> Criar um servidor MCP completo para gestão de projetos que expõe resources e tools para agentes de IA.</p>
+
+                            <p><strong>Funcionalidades:</strong></p>
+                            <ul>
+                                <li><strong>Resources:</strong> Listar projetos, tarefas, equipes</li>
+                                <li><strong>Tools:</strong> Criar tarefa, atualizar status, atribuir membro</li>
+                                <li><strong>Prompts:</strong> Templates para relatórios, análises</li>
+                                <li><strong>Segurança:</strong> Autenticação e autorização</li>
+                            </ul>
+
+                            <p><strong>Integração:</strong></p>
+                            <ul>
+                                <li>Conectar com banco de dados SQLite</li>
+                                <li>Criar crew de agentes que usa o servidor MCP</li>
+                                <li>Implementar logging e auditoria</li>
+                            </ul>
+
+                            <p><strong>Resultado Esperado:</strong> Sistema funcional onde agentes podem gerenciar projetos via MCP.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="content-block">
+                <h2>🎯 Próximos Passos</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m06-t30" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>O Que Vem a Seguir?</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Você agora domina o Model Context Protocol! Você aprendeu:</p>
+                            <ul>
+                                <li>✓ O que é MCP e por que é importante</li>
+                                <li>✓ Arquitetura cliente-servidor</li>
+                                <li>✓ Resources, Tools e Prompts</li>
+                                <li>✓ Criar servidores e clientes MCP</li>
+                                <li>✓ Integração com agentes</li>
+                                <li>✓ Segurança e boas práticas</li>
+                            </ul>
+                            <p>No <strong>Módulo 7</strong>, vamos para a fase final: <strong>Deploy e Produção</strong>. Você aprenderá a levar seus agentes de IA do desenvolvimento para o mundo real com escalabilidade, monitoramento e confiabilidade.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- CTA to Next Module -->
+            <div class="next-module-cta">
+                <h3>Continue sua jornada</h3>
+                <p>Você dominou o MCP. Agora é hora de colocar seus agentes em produção!</p>
+                <div>
+                    <a href="modulo-05.html" class="cta-button secondary">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Voltar: Módulo 5</span>
+                    </a>
+                    <a href="modulo-07.html" class="cta-button">
+                        <span>Próximo: Módulo 7 - Deploy</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <a href="../niveis/aplicacao.html" style="color: #6b7280; text-decoration: none; font-size: 0.875rem;">← Voltar para Nível Aplicação</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Engenharia de Agentes IA 2.0</h3>
+                    <p class="footer-text">
+                        Curso completo e gratuito de Engenharia de Agentes de IA.
+                        Do zero ao profissional.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#niveis">Níveis</a></li>
+                        <li><a href="../index.html#modulos">Módulos</a></li>
+                        <li><a href="https://github.com/inematds/FEA-IA" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:inematds@gmail.com">inematds@gmail.com</a></li>
+                        <li><a href="https://github.com/inematds" target="_blank">@inematds</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Engenharia de Agentes IA 2.0. Código aberto sob licença MIT.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

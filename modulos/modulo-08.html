@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Módulo 8: Ferramentas e Ecossistema - Explore o ecossistema completo de ferramentas e tendências da Engenharia de Agentes IA">
+    <title>Módulo 8: Ferramentas e Ecossistema | FEA-IA 2.0</title>
+
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/topics.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script defer src="../js/app.js"></script>
+
+    <style>
+        .module-hero {
+            padding: 6rem 0 4rem;
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+        }
+
+        .module-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .module-breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .module-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .module-content-area {
+            padding: 4rem 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .module-header-info {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .info-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .content-block {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-block h2 {
+            color: #6366f1;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #6366f1;
+        }
+
+        .content-block h3 {
+            color: #4f46e5;
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-block p {
+            line-height: 1.7;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+
+        .content-block ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-block li {
+            line-height: 1.7;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            border-left: 4px solid #6366f1;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .insight-box p {
+            margin: 0;
+        }
+
+        .insight-box strong {
+            color: #3730a3;
+            font-weight: 600;
+        }
+
+        .practice-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 4px solid #10b981;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .practice-box p {
+            margin: 0;
+        }
+
+        .practice-box strong {
+            color: #047857;
+            font-weight: 600;
+        }
+
+        .code-block {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .quote-block {
+            font-style: italic;
+            font-size: 1.125rem;
+            color: #6b7280;
+            padding: 1rem 1.5rem;
+            border-left: 4px solid #d1d5db;
+            margin: 1.5rem 0;
+        }
+
+        .project-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(79, 70, 229, 0.05) 100%);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 2px solid #6366f1;
+            margin: 2rem 0;
+        }
+
+        .project-section h3 {
+            color: #6366f1;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .completion-cta {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(79, 70, 229, 0.1) 100%);
+            border-radius: 1rem;
+            margin-top: 3rem;
+            border: 3px solid #6366f1;
+        }
+
+        .completion-cta h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #6366f1;
+        }
+
+        .completion-cta p {
+            color: #374151;
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+        }
+
+        .cta-button.secondary:hover {
+            background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
+            box-shadow: 0 10px 20px rgba(107, 114, 128, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .module-hero {
+                padding: 4rem 0 2rem;
+            }
+
+            .module-content-area {
+                padding: 2rem 1rem;
+            }
+
+            .content-block {
+                padding: 1.5rem;
+            }
+
+            .content-block h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-block h3 {
+                font-size: 1.25rem;
+            }
+
+            .cta-button {
+                margin: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-logo">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text">Engenharia de Agentes IA 2.0</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Início</a></li>
+                <li><a href="../index.html#niveis" class="nav-link">Níveis</a></li>
+                <li><a href="../index.html#modulos" class="nav-link">Módulos</a></li>
+                <li><a href="https://github.com/inematds/FEA-IA#readme" class="btn-primary" target="_blank" rel="noopener">Acessar Curso</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Module Hero -->
+    <section class="module-hero">
+        <div class="container">
+            <div class="module-breadcrumb">
+                <a href="../index.html">Início</a>
+                <span>›</span>
+                <a href="../niveis/estrategico.html">Nível Estratégico</a>
+                <span>›</span>
+                <span>Módulo 8</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
+                <div style="font-size: 4rem;">🛠️</div>
+                <div>
+                    <h1 style="font-size: 2.5rem; font-weight: 700; margin: 0 0 0.5rem 0;">Módulo 8: Ferramentas e Ecossistema</h1>
+                    <p style="font-size: 1.125rem; margin: 0; opacity: 0.9;">O ecossistema completo de ferramentas, tendências e o futuro da Engenharia de Agentes IA</p>
+                </div>
+            </div>
+
+            <div class="module-header-info">
+                <span class="info-badge">⏱️ 10 horas</span>
+                <span class="info-badge">📝 24k palavras</span>
+                <span class="info-badge">🎯 Avançado</span>
+                <span class="info-badge">🌟 Módulo Final</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module Content -->
+    <section class="module-content-area">
+        <div class="container">
+            <!-- Progress Tracker -->
+            <div class="module-progress-container" data-module="modulo-08">
+                <div class="module-progress-header">
+                    <span class="module-progress-label">Progresso do Módulo</span>
+                    <span class="module-progress-text">0/30 tópicos</span>
+                </div>
+                <div class="module-progress-track">
+                    <div class="module-progress-bar"></div>
+                </div>
+            </div>
+
+            <!-- Intro Quote -->
+            <div class="content-block">
+                <blockquote class="quote-block">
+                    "O futuro pertence àqueles que dominam não apenas a tecnologia de hoje, mas entendem para onde ela está caminhando."
+                </blockquote>
+                <p style="font-size: 1.125rem; font-weight: 500; color: #6366f1; margin-bottom: 1rem;">Explorando o Ecossistema de Ferramentas</p>
+                <p>Neste módulo final, você explorará o <strong>ecossistema completo</strong> de ferramentas para Engenharia de Agentes IA, desde frameworks até plataformas de observabilidade, e descobrirá as <strong>tendências futuras</strong> que moldarão a próxima geração de sistemas de IA.</p>
+            </div>
+
+            <!-- Chapter 8.1 -->
+            <div class="content-block module-content" data-module="modulo-08">
+                <h2>Capítulo 8.1: Frameworks de Desenvolvimento</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m08-t01" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>LangChain / LangGraph</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Quando usar:</strong></p>
+                            <ul>
+                                <li>Construção rápida de protótipos</li>
+                                <li>RAG (Retrieval-Augmented Generation)</li>
+                                <li>Chains complexas com múltiplos passos</li>
+                                <li>Integração com muitas fontes de dados</li>
+                            </ul>
+                            <p><strong>Pontos fortes:</strong> Ecossistema maduro, muitas integrações, documentação extensa</p>
+                            <p><strong>Pontos fracos:</strong> Pode ser complexo para casos simples, abstração excessiva</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m08-t02" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>CrewAI</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Quando usar:</strong></p>
+                            <ul>
+                                <li>Sistemas multi-agentes</li>
+                                <li>Colaboração entre agentes especialistas</li>
+                                <li>Processos sequenciais ou hierárquicos</li>
+                            </ul>
+                            <p><strong>Pontos fortes:</strong> API intuitiva, foco em multi-agentes, fácil setup</p>
+                            <p><strong>Pontos fracos:</strong> Menos flexível que LangChain, ecossistema menor</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m08-t03" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>AutoGen (Microsoft)</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Quando usar:</strong></p>
+                            <ul>
+                                <li>Conversas complexas multi-agentes</li>
+                                <li>Automação de tarefas que requerem múltiplas etapas</li>
+                                <li>Pesquisa e desenvolvimento</li>
+                            </ul>
+                            <p><strong>Pontos fortes:</strong> Padrões de conversação avançados, suporte da Microsoft</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m08-t04" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>LlamaIndex</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Quando usar:</strong></p>
+                            <ul>
+                                <li>RAG especializado</li>
+                                <li>Indexação de grandes volumes de dados</li>
+                                <li>Query sobre documentos complexos</li>
+                            </ul>
+                            <p><strong>Pontos fortes:</strong> Excelente para RAG, otimizações de indexação</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m08-t05" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Semantic Kernel (Microsoft)</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Quando usar:</strong></p>
+                            <ul>
+                                <li>Integração com ecossistema Microsoft</li>
+                                <li>Aplicações enterprise</li>
+                                <li>Suporte para C#, Python, Java</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chapter 8.2 -->
+            <div class="content-block module-content" data-module="modulo-08">
+                <h2>Capítulo 8.2: Plataformas de Observabilidade</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m08-t10" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>LangSmith</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Funcionalidades:</strong></p>
+                            <ul>
+                                <li>Tracing de chains e agentes</li>
+                                <li>Debugging de prompts</li>
+                                <li>Avaliação de qualidade</li>
+                                <li>Monitoramento de custos</li>
+                            </ul>
+                            <p><strong>Ideal para:</strong> Projetos usando LangChain</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m08-t11" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Weights & Biases (W&B)</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Funcionalidades:</strong></p>
+                            <ul>
+                                <li>Experimentos de ML/LLM</li>
+                                <li>Tracking de métricas</li>
+                                <li>Comparação de modelos</li>
+                                <li>Visualização de dados</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m08-t12" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Helicone</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Funcionalidades:</strong></p>
+                            <ul>
+                                <li>Monitoramento de APIs de LLM</li>
+                                <li>Análise de custos em tempo real</li>
+                                <li>Cache de respostas</li>
+                                <li>Rate limiting</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m08-t13" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Arize AI</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Funcionalidades:</strong></p>
+                            <ul>
+                                <li>Detecção de drift em produção</li>
+                                <li>Análise de performance de modelos</li>
+                                <li>Debugging de predições</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chapter 8.3 -->
+            <div class="content-block module-content" data-module="modulo-08">
+                <h2>Capítulo 8.3: Vector Databases</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m08-t15" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Pinecone</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Pontos fortes:</strong> Managed service, escalável, fácil setup</p>
+                            <p><strong>Casos de uso:</strong> RAG, semantic search, recomendações</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m08-t16" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Weaviate</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Pontos fortes:</strong> Open-source, GraphQL API, híbrido (vector + keyword)</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m08-t17" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Chroma</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Pontos fortes:</strong> Leve, fácil de usar, ótimo para protótipos</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m08-t18" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Qdrant</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Pontos fortes:</strong> Performance, filtros avançados, self-hosted ou cloud</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m08-t19" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>pgvector (PostgreSQL)</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Pontos fortes:</strong> Integra com PostgreSQL existente, confiável, familiar</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chapter 8.4 -->
+            <div class="content-block module-content" data-module="modulo-08">
+                <h2>Capítulo 8.4: Tendências Futuras</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m08-t20" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>1. Agentes Autônomos de Longa Duração</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Agentes que operam por dias/semanas, mantendo contexto e aprendendo continuamente.</p>
+                            <div class="insight-box">
+                                <p><strong>💡 TENDÊNCIA:</strong> Veremos agentes que gerenciam projetos inteiros do início ao fim, tomando decisões autônomas baseadas em objetivos de alto nível.</p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m08-t21" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>2. Multimodalidade Avançada</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Agentes que processam e geram texto, imagens, áudio, vídeo e código simultaneamente.</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m08-t22" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>3. Agentes com Memória Episódica</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Memória de longo prazo que permite agentes "lembrar" de interações passadas e aprender com elas.</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m08-t23" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>4. Edge AI e Agentes Locais</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Modelos rodando localmente em dispositivos (celulares, laptops) para privacidade e latência zero.</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m08-t24" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>5. AI Regulation e Compliance</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Regulamentações como EU AI Act moldarão como construímos sistemas de IA. Ferramentas de compliance se tornarão essenciais.</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m08-t25" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>6. Agentic Web</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Websites e aplicações projetadas para serem navegadas por agentes de IA, não apenas humanos.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="content-block">
+                <h2>📝 Resumo Gráfico do Módulo 8</h2>
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m08-t28" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>O Ecossistema Completo</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Frameworks:</strong></p>
+                            <ul>
+                                <li>LangChain/LangGraph, CrewAI, AutoGen, LlamaIndex</li>
+                            </ul>
+                            <p><strong>Observabilidade:</strong></p>
+                            <ul>
+                                <li>LangSmith, W&B, Helicone, Arize AI</li>
+                            </ul>
+                            <p><strong>Vector Databases:</strong></p>
+                            <ul>
+                                <li>Pinecone, Weaviate, Chroma, Qdrant, pgvector</li>
+                            </ul>
+                            <p><strong>Tendências:</strong></p>
+                            <ul>
+                                <li>Agentes autônomos, multimodalidade, edge AI, regulamentação</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Course Completion -->
+            <div class="completion-cta">
+                <h3>🎓 Parabéns! Você Completou o Curso!</h3>
+                <p>Você dominou os 8 módulos da Engenharia de Agentes IA 2.0. De fundamentos a produção, você agora possui as habilidades para construir sistemas de IA de classe mundial.</p>
+
+                <div style="margin: 2rem 0;">
+                    <h4 style="color: #6366f1; font-size: 1.5rem; margin-bottom: 1rem;">O Que Você Aprendeu:</h4>
+                    <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+                        <li>✅ Fundamentos de IA Generativa e LLMs</li>
+                        <li>✅ Engenharia de Prompts Avançada</li>
+                        <li>✅ LangChain e frameworks de desenvolvimento</li>
+                        <li>✅ Agno e agentes especializados</li>
+                        <li>✅ CrewAI e sistemas multi-agentes</li>
+                        <li>✅ Model Context Protocol (MCP)</li>
+                        <li>✅ Deploy e produção com escalabilidade</li>
+                        <li>✅ Ecossistema completo de ferramentas</li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <a href="../index.html" class="cta-button" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                        <span>🏠 Voltar ao Início</span>
+                    </a>
+                    <a href="https://github.com/inematds/FEA-IA" class="cta-button" target="_blank">
+                        <span>⭐ Dar Star no GitHub</span>
+                    </a>
+                </div>
+
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #e5e7eb;">
+                    <p style="font-size: 0.875rem; color: #6b7280;">
+                        Continue sua jornada contribuindo para o projeto, compartilhando com a comunidade ou construindo seus próprios agentes de IA!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Engenharia de Agentes IA 2.0</h3>
+                    <p class="footer-text">
+                        Curso completo e gratuito de Engenharia de Agentes de IA.
+                        Do zero ao profissional.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#niveis">Níveis</a></li>
+                        <li><a href="../index.html#modulos">Módulos</a></li>
+                        <li><a href="https://github.com/inematds/FEA-IA" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:inematds@gmail.com">inematds@gmail.com</a></li>
+                        <li><a href="https://github.com/inematds" target="_blank">@inematds</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Engenharia de Agentes IA 2.0. Código aberto sob licença MIT.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

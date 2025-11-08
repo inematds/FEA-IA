@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nível Aplicação - Frameworks modernos e sistemas multi-agente com Agno, CrewAI e MCP">
+    <title>Nível Aplicação | Engenharia de Agentes IA 2.0</title>
+
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/topics.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script defer src="../js/app.js"></script>
+
+    <style>
+        .nivel-hero {
+            padding: 6rem 0 4rem;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+        }
+
+        .nivel-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .nivel-breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .nivel-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .nivel-content {
+            padding: 4rem 0;
+        }
+
+        .modules-list {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .module-card-detailed {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .module-card-detailed:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .module-header-detailed {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .module-icon-large {
+            font-size: 3rem;
+            line-height: 1;
+        }
+
+        .module-info-detailed {
+            flex: 1;
+        }
+
+        .module-meta-inline {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
+
+        .module-description-full {
+            color: #374151;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .module-cta-detailed {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .module-cta-detailed:hover {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            transform: translateX(5px);
+        }
+
+        .nivel-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 1rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #8b5cf6;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-logo">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text">Engenharia de Agentes IA 2.0</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Início</a></li>
+                <li><a href="../index.html#niveis" class="nav-link">Níveis</a></li>
+                <li><a href="../index.html#modulos" class="nav-link">Módulos</a></li>
+                <li><a href="https://github.com/inematds/FEA-IA#readme" class="btn-primary" target="_blank" rel="noopener">Acessar Curso</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Nivel Hero -->
+    <section class="nivel-hero">
+        <div class="container">
+            <div class="nivel-breadcrumb">
+                <a href="../index.html">Início</a>
+                <span>›</span>
+                <a href="../index.html#niveis">Níveis</a>
+                <span>›</span>
+                <span>Aplicação</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
+                <div style="font-size: 4rem;">⚡</div>
+                <div>
+                    <h1 style="font-size: 3rem; font-weight: 700; margin: 0 0 0.5rem 0;">Nível Aplicação</h1>
+                    <p style="font-size: 1.25rem; margin: 0; opacity: 0.9;">22-27 horas | Intermediário</p>
+                </div>
+            </div>
+
+            <p style="font-size: 1.125rem; line-height: 1.7; max-width: 800px; opacity: 0.95;">
+                Frameworks modernos e sistemas multi-agente. Agno, CrewAI e MCP para aplicações reais.
+            </p>
+
+            <div class="nivel-stats">
+                <div class="stat-item">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Módulos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">22-27h</div>
+                    <div class="stat-label">Duração Total</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">59k+</div>
+                    <div class="stat-label">Palavras</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Projetos Práticos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteúdo dos Módulos -->
+    <section class="nivel-content">
+        <div class="container">
+            <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">Módulos do Nível Aplicação</h2>
+            <p style="color: #6b7280; margin-bottom: 2rem;">
+                Complete os 3 módulos abaixo para dominar frameworks modernos e sistemas multi-agente
+            </p>
+
+            <div class="modules-list">
+                <!-- Módulo 4 -->
+                <div class="module-card-detailed">
+                    <div class="module-header-detailed">
+                        <div class="module-icon-large">⚡</div>
+                        <div class="module-info-detailed">
+                            <div style="font-size: 0.875rem; font-weight: 600; color: #8b5cf6; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Módulo 04</div>
+                            <h3 style="font-size: 1.75rem; font-weight: 700; margin: 0 0 0.5rem 0;">Agno - Simplicidade e Poder</h3>
+                            <div class="module-meta-inline">
+                                <span>⏱️ 7 horas</span>
+                                <span>📝 17k palavras</span>
+                                <span>🎯 Intermediário</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="module-description-full">
+                        Framework moderno e minimalista para criar agentes poderosos com código limpo.
+                    </p>
+
+                    <div style="background: #f9fafb; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                        <h4 style="font-size: 0.875rem; font-weight: 600; color: #374151; margin: 0 0 0.75rem 0; text-transform: uppercase; letter-spacing: 0.05em;">O que você vai aprender:</h4>
+                        <ul style="margin: 0; padding-left: 1.5rem; color: #6b7280; line-height: 1.8;">
+                            <li>Arquitetura minimalista do Agno</li>
+                            <li>Agentes reativos e proativos</li>
+                            <li>Integração com LLMs diversos</li>
+                            <li>Patterns de design com Agno</li>
+                            <li>Projetos práticos completos</li>
+                        </ul>
+                    </div>
+
+                    <a href="../modulos/modulo-04.html" class="module-cta-detailed">
+                        <span>Começar Módulo 4</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Módulo 5 -->
+                <div class="module-card-detailed">
+                    <div class="module-header-detailed">
+                        <div class="module-icon-large">👥</div>
+                        <div class="module-info-detailed">
+                            <div style="font-size: 0.875rem; font-weight: 600; color: #8b5cf6; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Módulo 05</div>
+                            <h3 style="font-size: 1.75rem; font-weight: 700; margin: 0 0 0.5rem 0;">CrewAI - Sistemas Multi-Agente</h3>
+                            <div class="module-meta-inline">
+                                <span>⏱️ 8 horas</span>
+                                <span>📝 20k palavras</span>
+                                <span>🎯 Intermediário-Avançado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="module-description-full">
+                        Orquestre equipes de agentes especializados trabalhando em colaboração.
+                    </p>
+
+                    <div style="background: #f9fafb; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                        <h4 style="font-size: 0.875rem; font-weight: 600; color: #374151; margin: 0 0 0.75rem 0; text-transform: uppercase; letter-spacing: 0.05em;">O que você vai aprender:</h4>
+                        <ul style="margin: 0; padding-left: 1.5rem; color: #6b7280; line-height: 1.8;">
+                            <li>Arquitetura multi-agente</li>
+                            <li>Crew, Tasks e Processes</li>
+                            <li>Delegação e hierarquia</li>
+                            <li>Ferramentas colaborativas</li>
+                            <li>Cases complexos reais</li>
+                        </ul>
+                    </div>
+
+                    <a href="../modulos/modulo-05.html" class="module-cta-detailed">
+                        <span>Começar Módulo 5</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Módulo 6 -->
+                <div class="module-card-detailed">
+                    <div class="module-header-detailed">
+                        <div class="module-icon-large">🔌</div>
+                        <div class="module-info-detailed">
+                            <div style="font-size: 0.875rem; font-weight: 600; color: #8b5cf6; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Módulo 06</div>
+                            <h3 style="font-size: 1.75rem; font-weight: 700; margin: 0 0 0.5rem 0;">Model Context Protocol (MCP)</h3>
+                            <div class="module-meta-inline">
+                                <span>⏱️ 9 horas</span>
+                                <span>📝 22k palavras</span>
+                                <span>🎯 Intermediário-Avançado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="module-description-full">
+                        Conecte agentes a dados reais e ferramentas externas com o protocolo MCP.
+                    </p>
+
+                    <div style="background: #f9fafb; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                        <h4 style="font-size: 0.875rem; font-weight: 600; color: #374151; margin: 0 0 0.75rem 0; text-transform: uppercase; letter-spacing: 0.05em;">O que você vai aprender:</h4>
+                        <ul style="margin: 0; padding-left: 1.5rem; color: #6b7280; line-height: 1.8;">
+                            <li>Arquitetura do MCP</li>
+                            <li>Criação de servers customizados</li>
+                            <li>Integração com ferramentas externas</li>
+                            <li>Segurança e autenticação</li>
+                            <li>MCP em produção</li>
+                        </ul>
+                    </div>
+
+                    <a href="../modulos/modulo-06.html" class="module-cta-detailed">
+                        <span>Começar Módulo 6</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div style="margin-top: 4rem; text-align: center; padding: 3rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%); border-radius: 1rem;">
+                <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem;">Pronto para o Próximo Nível?</h3>
+                <p style="color: #6b7280; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Após completar o Nível Aplicação, continue sua jornada com o Nível Estratégico
+                </p>
+                <a href="estrategico.html" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; text-decoration: none; border-radius: 0.5rem; font-weight: 600;">
+                    <span>👑 Ir para Nível Estratégico</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Engenharia de Agentes IA 2.0</h3>
+                    <p class="footer-text">
+                        Curso completo e gratuito de Engenharia de Agentes de IA.
+                        Do zero ao profissional.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#niveis">Níveis</a></li>
+                        <li><a href="../index.html#modulos">Módulos</a></li>
+                        <li><a href="https://github.com/inematds/FEA-IA" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:inematds@gmail.com">inematds@gmail.com</a></li>
+                        <li><a href="https://github.com/inematds" target="_blank">@inematds</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Engenharia de Agentes IA 2.0. Código aberto sob licença MIT.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

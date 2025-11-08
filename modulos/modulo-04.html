@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Módulo 4: Agno - Aprenda a construir agentes autônomos com código minimalista e elegante">
+    <title>Módulo 4: Agentes Autônomos com Agno | FEA-IA 2.0</title>
+
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/topics.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script defer src="../js/app.js"></script>
+
+    <style>
+        .module-hero {
+            padding: 6rem 0 4rem;
+            background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+            color: white;
+        }
+
+        .module-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .module-breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .module-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .module-content-area {
+            padding: 4rem 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .module-header-info {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .info-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .module-quote {
+            font-size: 1.25rem;
+            font-style: italic;
+            opacity: 0.95;
+            margin: 2rem 0;
+            padding-left: 1.5rem;
+            border-left: 4px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section h2 {
+            color: #ec4899;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .content-section h3 {
+            color: #be185d;
+            margin: 2rem 0 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .content-section h4 {
+            color: #333;
+            margin: 1.5rem 0 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .content-section p {
+            line-height: 1.8;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-section li {
+            margin: 0.5rem 0;
+            line-height: 1.8;
+            color: #374151;
+        }
+
+        /* Code blocks */
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            color: #ec4899;
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: #e2e8f0;
+        }
+
+        /* Diagrams & ASCII art */
+        .diagram {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        /* Info boxes */
+        .info-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        /* Comparison table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        /* Project section */
+        .project-section {
+            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+
+        .project-section h2 {
+            color: #be185d;
+        }
+
+        /* Navigation buttons */
+        .module-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e5e7eb;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .nav-button.prev {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .nav-button.next {
+            background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+            color: white;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .module-hero {
+                padding: 4rem 0 2rem;
+            }
+
+            .module-content-area {
+                padding: 2rem 0;
+            }
+
+            .module-quote {
+                font-size: 1rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-section h3 {
+                font-size: 1.25rem;
+            }
+
+            pre {
+                padding: 1rem;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="module-hero">
+        <div class="container">
+            <div class="module-breadcrumb">
+                <a href="../index.html">Início</a>
+                <span>→</span>
+                <span>Módulo 4</span>
+            </div>
+
+            <h1 class="display-1">Módulo 4: Agentes Autônomos com Agno</h1>
+
+            <div class="module-header-info">
+                <div class="info-badge">⏱️ 5 horas</div>
+                <div class="info-badge">📊 Nível: Intermediário</div>
+                <div class="info-badge">🎯 Nível: Aplicação</div>
+                <div class="info-badge">📄 1.687 linhas</div>
+            </div>
+
+            <p class="module-quote">
+                "Simplicidade é a sofisticação máxima." - Leonardo da Vinci
+            </p>
+        </div>
+    </section>
+
+    <!-- Topics Compact Navigation -->
+    <div class="topics-container" id="topics-container">
+        <div class="topics-header">
+            <h3>📚 Conteúdo do Módulo</h3>
+            <button class="topics-toggle" id="topics-toggle" aria-label="Expandir/Recolher tópicos">
+                <span class="toggle-icon">▼</span>
+            </button>
+        </div>
+        <div class="topics-list" id="topics-list">
+            <a href="#cap-4-1" class="topic-item">
+                <span class="topic-icon">🎯</span>
+                <span class="topic-text">Cap 4.1: A Filosofia Agno</span>
+            </a>
+            <a href="#cap-4-2" class="topic-item">
+                <span class="topic-icon">🚀</span>
+                <span class="topic-text">Cap 4.2: Setup e Primeiros Passos</span>
+            </a>
+            <a href="#cap-4-3" class="topic-item">
+                <span class="topic-icon">🔧</span>
+                <span class="topic-text">Cap 4.3: Tools - O Poder das Ferramentas</span>
+            </a>
+            <a href="#cap-4-4" class="topic-item">
+                <span class="topic-icon">🧠</span>
+                <span class="topic-text">Cap 4.4: Memory e Contexto Conversacional</span>
+            </a>
+            <a href="#cap-4-5" class="topic-item">
+                <span class="topic-icon">🔍</span>
+                <span class="topic-text">Cap 4.5: RAG com Agno</span>
+            </a>
+            <a href="#cap-4-6" class="topic-item">
+                <span class="topic-icon">👥</span>
+                <span class="topic-text">Cap 4.6: Sistemas Multi-Agentes</span>
+            </a>
+            <a href="#cap-4-7" class="topic-item">
+                <span class="topic-icon">⚙️</span>
+                <span class="topic-text">Cap 4.7: Configurações e Customização</span>
+            </a>
+            <a href="#cap-4-8" class="topic-item">
+                <span class="topic-icon">✨</span>
+                <span class="topic-text">Cap 4.8: Best Practices e Padrões</span>
+            </a>
+            <a href="#projeto" class="topic-item">
+                <span class="topic-icon">🚀</span>
+                <span class="topic-text">Projeto Prático: Assistente Pessoal</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container module-content-area">
+
+        <!-- Introduction -->
+        <section class="content-section">
+            <h2>Ato 2: A Construção (Perspectiva Alternativa)</h2>
+            <p class="module-quote">
+                "Você dominou a complexidade da orquestração com LangChain. Agora, vamos explorar a elegância da simplicidade. Agno nos convida a pensar de forma diferente sobre a construção de agentes, focando em um design minimalista e em um fluxo de trabalho intuitivo. É a prova de que o poder não precisa vir da complexidade."
+            </p>
+
+            <p>Depois de mergulhar na vastidão de opções do LangChain, <strong>Agno surge como um contraponto refrescante</strong>. Criado com a filosofia de ser "<strong>painfully simple</strong>" (dolorosamente simples), este framework open-source foca em fazer uma coisa e fazê-la excepcionalmente bem: <strong>criar agentes de IA autônomos</strong>.</p>
+
+            <p>Neste módulo, vamos aprender:</p>
+            <ul>
+                <li>A filosofia e princípios de design do Agno</li>
+                <li>Como criar agentes com código minimalista</li>
+                <li>Padrões avançados (RAG, Memory, Multi-Agent)</li>
+                <li>Quando escolher Agno vs LangChain</li>
+                <li>Best practices para produção</li>
+            </ul>
+        </section>
+
+        <!-- Chapter 4.1 -->
+        <section id="cap-4-1" class="content-section">
+            <h2>Capítulo 4.1: A Filosofia Agno</h2>
+
+            <h3>O Problema da Complexidade</h3>
+            <p>Após trabalhar com LangChain, você pode ter experimentado:</p>
+
+            <p><strong>Desafios Comuns:</strong></p>
+            <ul>
+                <li>🤯 <strong>Curva de aprendizado íngreme:</strong> Dezenas de classes e abstrações</li>
+                <li>🍝 <strong>"Spaghetti code":</strong> Chains aninhadas difíceis de debugar</li>
+                <li>🐛 <strong>Debugging complexo:</strong> Rastrear erros através de múltiplas camadas</li>
+                <li>📚 <strong>Documentação fragmentada:</strong> Muitas opções, pouca clareza</li>
+                <li>⏰ <strong>Time to hello world:</strong> Horas para entender o básico</li>
+            </ul>
+
+            <h3>A Solução Agno</h3>
+            <p>Agno foi criado para resolver exatamente esses pontos de dor:</p>
+
+            <p><strong>Mesmo agente em Agno:</strong></p>
+            <pre><code>from agno import Agent
+
+@tool
+def my_tool(input: str) -> str:
+    """Descrição da ferramenta"""
+    return result
+
+agent = Agent(tools=[my_tool])
+agent.run("Pergunta")  # Pronto!</code></pre>
+
+            <div class="success-box">
+                <strong>3 linhas vs 30+ linhas.</strong> 🎯
+            </div>
+
+            <h3>Os 3 Pilares da Filosofia Agno</h3>
+
+            <h4>1. Simplicidade Extrema</h4>
+            <div class="info-box">
+                <strong>PRINCÍPIO:</strong> Se você precisa consultar a documentação para fazer algo básico, o design falhou.
+            </div>
+
+            <p><strong>Manifesto:</strong></p>
+            <ul>
+                <li>Código linear e direto</li>
+                <li>Zero abstrações desnecessárias</li>
+                <li>API intuitiva e previsível</li>
+                <li>Menos é mais</li>
+            </ul>
+
+            <h4>2. Foco no Agente</h4>
+            <div class="info-box">
+                <strong>PRINCÍPIO:</strong> Agno faz UMA coisa excepcional bem: Agentes autônomos com ferramentas.
+            </div>
+
+            <p><strong>Foca em:</strong></p>
+            <ul>
+                <li>✅ Agentes que tomam decisões</li>
+                <li>✅ Agentes que usam ferramentas</li>
+                <li>✅ Agentes que colaboram</li>
+                <li>✅ Simplicidade de debugging</li>
+            </ul>
+
+            <h4>3. Transparência Total</h4>
+            <div class="info-box">
+                <strong>PRINCÍPIO:</strong> Você deve saber exatamente o que o agente está pensando em cada etapa.
+            </div>
+
+            <p><strong>Logging claro e automático:</strong></p>
+            <pre><code>[Agent] Thinking: Preciso buscar informações sobre Python
+[Agent] Action: search_web
+[Agent] Action Input: "Python programming language"
+[Agent] Observation: Python is a high-level...
+[Agent] Thinking: Agora tenho a informação
+[Agent] Final Answer: Python is...</code></pre>
+
+            <h3>Comparação Direta: Agno vs LangChain</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>LangChain</th>
+                        <th>Agno</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Filosofia</strong></td>
+                        <td>Framework abrangente</td>
+                        <td>Framework focado</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Curva de Aprendizado</strong></td>
+                        <td>Íngreme (dias/semanas)</td>
+                        <td>Suave (horas)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Linhas de Código</strong></td>
+                        <td>Muitas (~50-100 para agente)</td>
+                        <td>Poucas (~10-20)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Debugging</strong></td>
+                        <td>Complexo, múltiplas camadas</td>
+                        <td>Simples, linear</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Flexibilidade</strong></td>
+                        <td>Muito alta</td>
+                        <td>Moderada</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Performance</strong></td>
+                        <td>Boa</td>
+                        <td>Excelente (menos overhead)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Quando Usar Cada Um?</h3>
+
+            <p><strong>Use LangChain quando:</strong></p>
+            <ul>
+                <li>Precisa de integrações com tudo</li>
+                <li>Projeto complexo de processamento de dados</li>
+                <li>Pipelines avançados de transformação</li>
+                <li>Time grande com tempo para aprender</li>
+            </ul>
+
+            <p><strong>Use Agno quando:</strong></p>
+            <ul>
+                <li>Foco principal é agentes autônomos</li>
+                <li>Prototipagem rápida</li>
+                <li>Clareza e manutenibilidade são prioridades</li>
+                <li>Time pequeno ou solo developer</li>
+                <li>Deadline apertado</li>
+            </ul>
+        </section>
+
+        <!-- Chapter 4.2 -->
+        <section id="cap-4-2" class="content-section">
+            <h2>Capítulo 4.2: Setup e Primeiros Passos</h2>
+
+            <h3>Instalação</h3>
+            <pre><code># Instalação básica
+pip install agno
+
+# Com OpenAI
+pip install "agno[openai]"
+
+# Com Anthropic (Claude)
+pip install "agno[anthropic]"
+
+# Completo
+pip install "agno[all]"</code></pre>
+
+            <h3>Configuração de API Keys</h3>
+            <pre><code>import os
+
+# Opção 1: Variável de ambiente
+os.environ["OPENAI_API_KEY"] = "sk-..."
+
+# Opção 2: .env file (recomendado)
+from dotenv import load_dotenv
+load_dotenv()</code></pre>
+
+            <h3>Hello World: Seu Primeiro Agente</h3>
+            <pre><code>from agno import Agent, tool
+
+@tool
+def get_weather(city: str) -> str:
+    """
+    Retorna informações sobre o clima de uma cidade.
+
+    Args:
+        city: Nome da cidade
+    """
+    # Simulação (na prática, chamar API de clima)
+    return f"O clima em {city} está ensolarado, 25°C"
+
+# Criar agente
+agent = Agent(
+    name="Assistente de Clima",
+    tools=[get_weather],
+    model="gpt-4"
+)
+
+# Executar
+result = agent.run("Como está o tempo em São Paulo?")
+print(result)</code></pre>
+
+            <div class="success-box">
+                <strong>Saída:</strong><br>
+                <pre>[Agent] Thinking: Preciso verificar o clima em São Paulo
+[Agent] Action: get_weather
+[Agent] Action Input: São Paulo
+[Agent] Observation: O clima em São Paulo está ensolarado, 25°C
+[Agent] Thinking: Tenho a informação necessária
+[Agent] Final Answer: O clima em São Paulo está ensolarado com 25°C.</pre>
+            </div>
+
+            <h3>Anatomia de um Tool</h3>
+            <pre><code>@tool  # Decorator obrigatório
+def nome_da_funcao(parametro: tipo) -> tipo:  # Type hints são importantes!
+    """
+    Descrição clara e concisa do que a ferramenta faz.
+
+    O LLM usa esta descrição para decidir quando usar a tool.
+    Seja específico e objetivo.
+
+    Args:
+        parametro: Descrição do parâmetro
+
+    Returns:
+        Descrição do retorno
+    """
+    # Implementação
+    return resultado</code></pre>
+
+            <p><strong>Regras de Ouro:</strong></p>
+            <ol>
+                <li>✅ <strong>Sempre use type hints</strong> - Agno valida tipos</li>
+                <li>✅ <strong>Docstring detalhada</strong> - É a "interface" para o LLM</li>
+                <li>✅ <strong>Nome descritivo</strong> - <code>get_weather</code> > <code>tool1</code></li>
+                <li>✅ <strong>Uma responsabilidade</strong> - Cada tool faz UMA coisa</li>
+                <li>✅ <strong>Retorno sempre string</strong> - LLMs entendem texto</li>
+            </ol>
+        </section>
+
+        <!-- Chapter 4.3 -->
+        <section id="cap-4-3" class="content-section">
+            <h2>Capítulo 4.3: Tools - O Poder das Ferramentas</h2>
+
+            <h3>Tools Básicas</h3>
+
+            <h4>1. Tool de Cálculo</h4>
+            <pre><code>@tool
+def calculator(expression: str) -> str:
+    """
+    Calcula expressões matemáticas.
+
+    Args:
+        expression: Expressão matemática (ex: "2 + 2", "10 * 5")
+    """
+    try:
+        result = eval(expression)
+        return f"Resultado: {result}"
+    except Exception as e:
+        return f"Erro ao calcular: {str(e)}"</code></pre>
+
+            <h4>2. Tool com API Externa</h4>
+            <pre><code>import requests
+
+@tool
+def get_exchange_rate(from_currency: str, to_currency: str) -> str:
+    """
+    Retorna taxa de câmbio entre duas moedas.
+
+    Args:
+        from_currency: Moeda de origem (ex: USD, BRL, EUR)
+        to_currency: Moeda de destino
+    """
+    try:
+        url = f"https://api.exchangerate-api.com/v4/latest/{from_currency}"
+        response = requests.get(url)
+        data = response.json()
+
+        rate = data['rates'][to_currency]
+        return f"1 {from_currency} = {rate} {to_currency}"
+
+    except Exception as e:
+        return f"Erro ao buscar taxa: {str(e)}"</code></pre>
+
+            <h4>3. Tool com Estado (Database)</h4>
+            <pre><code># Simular banco de dados em memória
+TASKS_DB = []
+
+@tool
+def add_task(task: str) -> str:
+    """
+    Adiciona uma nova tarefa à lista.
+
+    Args:
+        task: Descrição da tarefa a adicionar
+    """
+    TASKS_DB.append(task)
+    return f"✓ Tarefa adicionada: '{task}'. Total: {len(TASKS_DB)} tarefas."
+
+@tool
+def list_tasks() -> str:
+    """
+    Lista todas as tarefas pendentes.
+    """
+    if not TASKS_DB:
+        return "Nenhuma tarefa pendente."
+
+    tasks_list = "\n".join([f"{i+1}. {task}" for i, task in enumerate(TASKS_DB)])
+    return f"Tarefas pendentes:\n{tasks_list}"</code></pre>
+
+            <h3>Agente com Múltiplas Tools</h3>
+            <pre><code>from agno import Agent
+
+# Criar agente assistente completo
+assistant = Agent(
+    name="Assistente Pessoal",
+    description="Ajuda com cálculos, buscas, tarefas e arquivos",
+    tools=[
+        calculator,
+        get_exchange_rate,
+        add_task,
+        list_tasks,
+    ],
+    model="gpt-4",
+    show_tool_calls=True  # Mostrar raciocínio
+)
+
+# Testar capacidades
+responses = [
+    assistant.run("Qual é 25 * 17?"),
+    assistant.run("Adicione 'Comprar leite' às minhas tarefas"),
+    assistant.run("Quanto vale 1 dólar em reais?"),
+]</code></pre>
+        </section>
+
+        <!-- Chapter 4.4 -->
+        <section id="cap-4-4" class="content-section">
+            <h2>Capítulo 4.4: Memory e Contexto Conversacional</h2>
+
+            <h3>Memory Simples</h3>
+            <pre><code>from agno import Agent
+
+# Ativar memória com uma linha
+agent = Agent(
+    tools=[...],
+    memory=True  # Isso é tudo!
+)
+
+# Conversa com contexto
+agent.run("Meu nome é João")
+agent.run("Qual é meu nome?")  # Lembra: "Seu nome é João"</code></pre>
+
+            <h3>Memory Configurada</h3>
+            <pre><code>from agno import Agent
+from agno.memory import ConversationMemory
+
+# Memória customizada
+memory = ConversationMemory(
+    max_messages=10,  # Últimas 10 mensagens
+    summary_threshold=20  # Resume após 20 mensagens
+)
+
+agent = Agent(
+    tools=[...],
+    memory=memory
+)</code></pre>
+
+            <h3>Memory Persistente (Storage)</h3>
+            <pre><code>from agno import Agent
+from agno.storage import FileStorage
+
+# Salvar histórico em arquivo
+storage = FileStorage(path="./agent_history.json")
+
+agent = Agent(
+    tools=[...],
+    memory=True,
+    storage=storage
+)
+
+# Histórico persiste entre execuções</code></pre>
+
+            <h3>Memory com Database (SQLite)</h3>
+            <pre><code>from agno import Agent
+from agno.storage import SQLStorage
+
+# Usar SQLite para persistência
+storage = SQLStorage(
+    connection_string="sqlite:///agent_memory.db",
+    session_id="user_123"  # ID único por usuário
+)
+
+agent = Agent(
+    tools=[...],
+    memory=True,
+    storage=storage
+)</code></pre>
+        </section>
+
+        <!-- Chapter 4.5 -->
+        <section id="cap-4-5" class="content-section">
+            <h2>Capítulo 4.5: RAG (Retrieval-Augmented Generation) com Agno</h2>
+
+            <h3>Abordagem 1: RAG como Tool</h3>
+            <p>A forma mais simples de fazer RAG em Agno é criar uma tool que consulta seu conhecimento base:</p>
+
+            <pre><code>from agno import Agent, tool
+import faiss
+import numpy as np
+from sentence_transformers import SentenceTransformer
+
+# Setup do vector store
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+documents = [
+    "Python é uma linguagem de programação de alto nível.",
+    "JavaScript é usado para desenvolvimento web.",
+    "SQL é usado para consultar bancos de dados.",
+]
+
+# Criar embeddings e índice
+embeddings = model.encode(documents)
+index = faiss.IndexFlatL2(embeddings.shape[1])
+index.add(embeddings.astype('float32'))
+
+@tool
+def search_knowledge_base(query: str) -> str:
+    """
+    Busca informações na base de conhecimento.
+
+    Args:
+        query: Pergunta ou termo de busca
+    """
+    query_embedding = model.encode([query]).astype('float32')
+    k = 2
+    distances, indices = index.search(query_embedding, k)
+    results = [documents[i] for i in indices[0]]
+    return "\n".join(results)
+
+# Agente com RAG
+rag_agent = Agent(
+    name="Assistente Técnico",
+    tools=[search_knowledge_base],
+    model="gpt-4"
+)</code></pre>
+
+            <h3>Abordagem 2: RAG com Documentos Reais</h3>
+            <pre><code>from langchain_community.document_loaders import PyPDFLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.vectorstores import FAISS
+from langchain_openai import OpenAIEmbeddings
+
+# Carregar e processar PDFs
+loader = PyPDFLoader("manual_produto.pdf")
+documents = loader.load()
+
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=1000,
+    chunk_overlap=200
+)
+chunks = text_splitter.split_documents(documents)
+
+# Criar vector store
+embeddings = OpenAIEmbeddings()
+vectorstore = FAISS.from_documents(chunks, embeddings)
+vectorstore.save_local("vectorstore_agno")
+
+# Tool para consultar
+@tool
+def query_product_manual(question: str) -> str:
+    """
+    Consulta o manual do produto.
+
+    Args:
+        question: Pergunta sobre o produto
+    """
+    vs = FAISS.load_local(
+        "vectorstore_agno",
+        OpenAIEmbeddings(),
+        allow_dangerous_deserialization=True
+    )
+    docs = vs.similarity_search(question, k=3)
+    context = "\n\n".join([doc.page_content for doc in docs])
+    return context</code></pre>
+        </section>
+
+        <!-- Chapter 4.6 -->
+        <section id="cap-4-6" class="content-section">
+            <h2>Capítulo 4.6: Sistemas Multi-Agentes</h2>
+
+            <h3>Padrão 1: Agente como Tool</h3>
+            <p>A abordagem mais simples: um agente pode usar outro agente como tool.</p>
+
+            <pre><code>from agno import Agent, tool
+
+# Agentes Especialistas
+researcher = Agent(
+    name="Pesquisador",
+    tools=[search_web, search_knowledge_base],
+    model="gpt-4"
+)
+
+writer = Agent(
+    name="Escritor",
+    tools=[save_to_file],
+    model="gpt-4"
+)
+
+# Transformar agentes em tools
+@tool
+def research(topic: str) -> str:
+    """
+    Pesquisa informações detalhadas sobre um tópico.
+    """
+    return researcher.run(f"Pesquise sobre: {topic}")
+
+@tool
+def write_article(topic: str, research_data: str) -> str:
+    """
+    Escreve um artigo baseado em dados de pesquisa.
+    """
+    prompt = f"Escreva sobre '{topic}' usando:\n{research_data}"
+    return writer.run(prompt)
+
+# Agente Gerente
+manager = Agent(
+    name="Gerente de Conteúdo",
+    tools=[research, write_article],
+    model="gpt-4"
+)</code></pre>
+
+            <h3>Padrão 2: Pipeline de Agentes</h3>
+            <pre><code>class AgentPipeline:
+    """Pipeline sequencial de agentes"""
+
+    def __init__(self, agents: list):
+        self.agents = agents
+
+    def run(self, initial_input: str) -> str:
+        current_input = initial_input
+
+        for i, agent in enumerate(self.agents):
+            print(f"\nEtapa {i+1}: {agent.name}")
+            current_input = agent.run(current_input)
+
+        return current_input
+
+# Criar pipeline
+pipeline = AgentPipeline([
+    Agent(name="Planejador", ...),
+    Agent(name="Executor", ...),
+    Agent(name="Revisor", ...)
+])
+
+final_result = pipeline.run("Pesquise sobre IA")</code></pre>
+
+            <h3>Padrão 3: Collaborative Agents</h3>
+            <pre><code>class CollaborativeAgents:
+    """Múltiplos agentes colaborando em paralelo"""
+
+    def __init__(self, agents: dict):
+        self.agents = agents
+
+    def run(self, task: str) -> dict:
+        results = {}
+        for name, agent in self.agents.items():
+            print(f"\n{name} trabalhando...")
+            results[name] = agent.run(task)
+        return results
+
+# Criar time
+team = CollaborativeAgents({
+    "Analista Técnico": Agent(...),
+    "Analista de Mercado": Agent(...),
+    "Analista Financeiro": Agent(...)
+})
+
+results = team.run("Avalie lançar produto de IA no Brasil")</code></pre>
+        </section>
+
+        <!-- Chapter 4.7 -->
+        <section id="cap-4-7" class="content-section">
+            <h2>Capítulo 4.7: Configurações e Customização</h2>
+
+            <h3>Configurando o Agente</h3>
+            <pre><code>from agno import Agent
+
+agent = Agent(
+    # Identidade
+    name="Assistente Executivo",
+    description="Especialista em produtividade e gestão",
+
+    # Comportamento
+    instructions="""
+    Você é um assistente executivo altamente organizado.
+
+    Suas prioridades:
+    1. Precisão sobre velocidade
+    2. Proatividade
+    3. Comunicação clara e profissional
+    """,
+
+    # Modelo e parâmetros
+    model="gpt-4",
+    temperature=0.3,  # Mais determinístico
+
+    # Tools
+    tools=[...],
+
+    # Memory
+    memory=True,
+    max_memory_messages=20,
+
+    # Debugging
+    show_tool_calls=True,
+
+    # Limites de segurança
+    max_iterations=10,
+    timeout=60,  # segundos
+)</code></pre>
+
+            <h3>System Prompts Avançados</h3>
+            <pre><code>agent = Agent(
+    instructions="""
+    # IDENTIDADE
+    Você é Alex, um assistente de pesquisa acadêmica.
+
+    # CAPACIDADES
+    - Buscar papers científicos
+    - Resumir artigos técnicos
+    - Explicar conceitos complexos
+
+    # PROCESSO DE TRABALHO
+    1. Entenda completamente a pergunta
+    2. Use ferramentas para buscar informações
+    3. Sintetize findings de múltiplas fontes
+    4. Forneça resposta estruturada com citações
+
+    # RESTRIÇÕES
+    - NUNCA invente citações
+    - SEMPRE indique quando informação é incerta
+    - Admita limitações quando apropriado
+    """,
+    tools=[...],
+    model="gpt-4"
+)</code></pre>
+        </section>
+
+        <!-- Chapter 4.8 -->
+        <section id="cap-4-8" class="content-section">
+            <h2>Capítulo 4.8: Best Practices e Padrões</h2>
+
+            <h3>1. Estrutura de Projeto</h3>
+            <div class="diagram">meu-projeto/
+├── agents/
+│   ├── __init__.py
+│   ├── researcher_agent.py
+│   ├── writer_agent.py
+│   └── manager_agent.py
+├── tools/
+│   ├── __init__.py
+│   ├── web_tools.py
+│   └── database_tools.py
+├── config/
+│   ├── settings.py
+│   └── prompts.py
+├── storage/
+│   └── agent_memory.db
+├── main.py
+└── requirements.txt</div>
+
+            <h3>2. Factory Pattern para Agentes</h3>
+            <pre><code>from agno import Agent
+from tools import web_tools, database_tools
+from config.settings import settings
+
+def create_researcher_agent():
+    """Factory para criar agente pesquisador"""
+    return Agent(
+        name="Researcher",
+        tools=[
+            web_tools.search_web,
+            database_tools.query_knowledge_base
+        ],
+        model=settings.default_model,
+        memory=True
+    )</code></pre>
+
+            <h3>3. Error Handling</h3>
+            <pre><code>from tenacity import retry, stop_after_attempt, wait_exponential
+
+@retry(
+    stop=stop_after_attempt(3),
+    wait=wait_exponential(multiplier=1, min=4, max=10)
+)
+def run_agent_with_retry(agent, input_text):
+    """Executa agente com retry automático"""
+    try:
+        return agent.run(input_text)
+    except Exception as e:
+        print(f"❌ Erro: {e}")
+        raise</code></pre>
+
+            <h3>4. Testing</h3>
+            <pre><code>import pytest
+from agents import create_researcher_agent
+
+@pytest.fixture
+def researcher():
+    return create_researcher_agent()
+
+def test_researcher_basic_query(researcher):
+    result = researcher.run("O que é Python?")
+    assert "Python" in result
+    assert len(result) > 100
+
+def test_researcher_memory(researcher):
+    researcher.run("Meu nome é João")
+    result = researcher.run("Qual é meu nome?")
+    assert "João" in result</code></pre>
+        </section>
+
+        <!-- Summary -->
+        <section class="content-section">
+            <h2>📝 Resumo Gráfico do Módulo 4</h2>
+
+            <h3>Conceitos-Chave</h3>
+
+            <p><strong>Filosofia Agno:</strong></p>
+            <ul>
+                <li>Simplicidade > Complexidade</li>
+                <li>Foco > Generalização</li>
+                <li>Transparência > Caixa-preta</li>
+            </ul>
+
+            <p><strong>Componentes:</strong></p>
+            <div class="diagram">Agent = Tools + Memory + Instructions + Model</div>
+
+            <p><strong>Patterns:</strong></p>
+            <ol>
+                <li>Single Agent (1 agente, N tools)</li>
+                <li>Agent as Tool (agente usando agente)</li>
+                <li>Pipeline (sequência de agentes)</li>
+                <li>Collaborative (agentes em paralelo)</li>
+            </ol>
+
+            <p><strong>Quando Usar:</strong></p>
+            <ul>
+                <li>✅ Protótipos rápidos</li>
+                <li>✅ Agentes autônomos</li>
+                <li>✅ Código limpo e manutenível</li>
+                <li>✅ Time pequeno</li>
+            </ul>
+        </section>
+
+        <!-- Project -->
+        <section id="projeto" class="project-section">
+            <h2>🚀 Projeto Prático do Módulo 4</h2>
+
+            <h3>Desafio: Assistente Pessoal Completo</h3>
+
+            <p><strong>Objetivo:</strong> Criar um assistente pessoal com múltiplas capacidades usando Agno.</p>
+
+            <h4>Funcionalidades:</h4>
+            <ol>
+                <li>Gerenciamento de tarefas (CRUD)</li>
+                <li>Lembretes e agenda</li>
+                <li>Notas e anotações</li>
+                <li>Busca de informações</li>
+                <li>Cálculos e conversões</li>
+                <li>Memory persistente</li>
+            </ol>
+
+            <div class="info-box">
+                <strong>📁 Código completo disponível:</strong><br>
+                Veja o arquivo completo do Assistente Pessoal (300+ linhas) no conteúdo markdown do módulo, incluindo:<br>
+                • Sistema completo de tarefas, notas e lembretes<br>
+                • Tools customizadas para cada funcionalidade<br>
+                • Storage persistente em JSON<br>
+                • Interface interativa via CLI<br>
+                • Memory conversacional
+            </div>
+
+            <h4>Como Executar</h4>
+            <pre><code># 1. Instalar dependências
+pip install agno python-dotenv
+
+# 2. Configurar .env
+echo "OPENAI_API_KEY=sk-..." > .env
+
+# 3. Executar
+python personal_assistant.py</code></pre>
+
+            <h4>Exemplos de Uso</h4>
+            <pre><code>Você: Adicione "estudar Python" às minhas tarefas com alta prioridade
+🤖 Assistente: ✓ Tarefa #1 adicionada: 'estudar Python' (prioridade: high)
+
+Você: Liste minhas tarefas pendentes
+🤖 Assistente: Tarefas (pending):
+○ #1 [high] estudar Python
+
+Você: Quanto é 25 * 17?
+🤖 Assistente: Resultado: 425</code></pre>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="content-section">
+            <h2>💡 Conclusões e Próximos Passos</h2>
+
+            <h3>O que você aprendeu:</h3>
+            <ul>
+                <li>✓ Filosofia de simplicidade do Agno</li>
+                <li>✓ Criar agentes com código minimalista</li>
+                <li>✓ Desenvolver tools customizadas</li>
+                <li>✓ Implementar memory e storage</li>
+                <li>✓ RAG simplificado</li>
+                <li>✓ Sistemas multi-agentes</li>
+                <li>✓ Best practices e patterns</li>
+                <li>✓ Projeto completo production-ready</li>
+            </ul>
+
+            <h3>Agno vs LangChain: Veredito</h3>
+
+            <p><strong>Use Agno quando:</strong></p>
+            <ul>
+                <li>Velocidade de desenvolvimento é crítica</li>
+                <li>Foco em agentes autônomos</li>
+                <li>Clareza > Flexibilidade</li>
+                <li>Equipe pequena</li>
+            </ul>
+
+            <p><strong>Use LangChain quando:</strong></p>
+            <ul>
+                <li>Necessita ecossistema completo</li>
+                <li>Pipelines complexos de dados</li>
+                <li>Múltiplas integrações especializadas</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>No Módulo 5</strong>, vamos explorar <strong>CrewAI</strong>, o framework especializado em orquestrar equipes de agentes que colaboram como uma tripulação profissional, cada um com papel e expertise específicos.
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="module-navigation">
+            <a href="modulo-03.html" class="nav-button prev">
+                ← Módulo 3: LangChain
+            </a>
+            <a href="modulo-05.html" class="nav-button next">
+                Módulo 5: CrewAI →
+            </a>
+        </nav>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: #1e293b; color: white; padding: 3rem 0; margin-top: 4rem;">
+        <div class="container" style="text-align: center;">
+            <p style="margin-bottom: 1rem;">
+                <strong>FEA-IA 2.0</strong> - Formação Completa em Engenharia de Agentes IA
+            </p>
+            <p style="font-size: 0.875rem; opacity: 0.8;">
+                📄 1.687 linhas | 17.000+ palavras | Nível Intermediário
+            </p>
+            <p style="font-size: 0.875rem; opacity: 0.6; margin-top: 1rem;">
+                Desenvolvido com 💜 para a comunidade de IA
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Topics toggle functionality
+        const toggleButton = document.getElementById('topics-toggle');
+        const topicsList = document.getElementById('topics-list');
+        const topicsContainer = document.getElementById('topics-container');
+        const toggleIcon = toggleButton.querySelector('.toggle-icon');
+
+        toggleButton.addEventListener('click', () => {
+            topicsContainer.classList.toggle('collapsed');
+            toggleIcon.textContent = topicsContainer.classList.contains('collapsed') ? '▶' : '▼';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section in topics
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.topic-item').forEach(item => {
+                        item.classList.remove('active');
+                        if (item.getAttribute('href') === `#${id}`) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, {
+            rootMargin: '-100px 0px -66%'
+        });
+
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

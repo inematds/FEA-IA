@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Módulo 5: Sistemas Multi-Agentes com CrewAI - Orquestre equipes de IA colaborativas e especializadas">
+    <title>Módulo 5: CrewAI - Sistemas Multi-Agentes | FEA-IA 2.0</title>
+
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/topics.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script defer src="../js/app.js"></script>
+
+    <style>
+        .module-hero {
+            padding: 6rem 0 4rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+        }
+
+        .module-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .module-breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .module-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .module-content-area {
+            padding: 4rem 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .module-header-info {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .info-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .content-block {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-block h2 {
+            color: #3b82f6;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3b82f6;
+        }
+
+        .content-block h3 {
+            color: #1d4ed8;
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-block p {
+            line-height: 1.7;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+
+        .content-block ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-block li {
+            line-height: 1.7;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 4px solid #3b82f6;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .insight-box p {
+            margin: 0;
+        }
+
+        .insight-box strong {
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        .practice-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 4px solid #10b981;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .practice-box p {
+            margin: 0;
+        }
+
+        .practice-box strong {
+            color: #047857;
+            font-weight: 600;
+        }
+
+        .code-block {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .quote-block {
+            font-style: italic;
+            font-size: 1.125rem;
+            color: #6b7280;
+            padding: 1rem 1.5rem;
+            border-left: 4px solid #d1d5db;
+            margin: 1.5rem 0;
+        }
+
+        .project-section {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(29, 78, 216, 0.05) 100%);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 2px solid #3b82f6;
+            margin: 2rem 0;
+        }
+
+        .project-section h3 {
+            color: #3b82f6;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .next-module-cta {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(29, 78, 216, 0.1) 100%);
+            border-radius: 1rem;
+            margin-top: 3rem;
+        }
+
+        .next-module-cta h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .next-module-cta p {
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+        }
+
+        .cta-button.secondary:hover {
+            background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
+            box-shadow: 0 10px 20px rgba(107, 114, 128, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .module-hero {
+                padding: 4rem 0 2rem;
+            }
+
+            .module-content-area {
+                padding: 2rem 1rem;
+            }
+
+            .content-block {
+                padding: 1.5rem;
+            }
+
+            .content-block h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-block h3 {
+                font-size: 1.25rem;
+            }
+
+            .cta-button {
+                margin: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-logo">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text">Engenharia de Agentes IA 2.0</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Início</a></li>
+                <li><a href="../index.html#niveis" class="nav-link">Níveis</a></li>
+                <li><a href="../index.html#modulos" class="nav-link">Módulos</a></li>
+                <li><a href="https://github.com/inematds/FEA-IA#readme" class="btn-primary" target="_blank" rel="noopener">Acessar Curso</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Module Hero -->
+    <section class="module-hero">
+        <div class="container">
+            <div class="module-breadcrumb">
+                <a href="../index.html">Início</a>
+                <span>›</span>
+                <a href="../niveis/aplicacao.html">Nível Aplicação</a>
+                <span>›</span>
+                <span>Módulo 5</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
+                <div style="font-size: 4rem;">👥</div>
+                <div>
+                    <h1 style="font-size: 2.5rem; font-weight: 700; margin: 0 0 0.5rem 0;">Módulo 5: Sistemas Multi-Agentes com CrewAI</h1>
+                    <p style="font-size: 1.125rem; margin: 0; opacity: 0.9;">Orquestre equipes de IA que colaboram como especialistas humanos</p>
+                </div>
+            </div>
+
+            <div class="module-header-info">
+                <span class="info-badge">⏱️ 12 horas</span>
+                <span class="info-badge">📝 18k palavras</span>
+                <span class="info-badge">🎯 Avançado</span>
+                <span class="info-badge">🌟 Nível Aplicação</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module Content -->
+    <section class="module-content-area">
+        <div class="container">
+            <!-- Progress Tracker -->
+            <div class="module-progress-container" data-module="modulo-05">
+                <div class="module-progress-header">
+                    <span class="module-progress-label">Progresso do Módulo</span>
+                    <span class="module-progress-text">0/25 tópicos</span>
+                </div>
+                <div class="module-progress-track">
+                    <div class="module-progress-bar"></div>
+                </div>
+            </div>
+
+            <!-- Intro Quote -->
+            <div class="content-block">
+                <blockquote class="quote-block">
+                    "Sozinho você vai rápido. Em equipe, você vai longe." - Provérbio Africano
+                </blockquote>
+                <p style="font-size: 1.125rem; font-weight: 500; color: #3b82f6; margin-bottom: 1rem;">Ato 3: A Maestria</p>
+                <p>Você evoluiu de um conversador para um construtor, e de um construtor para um arquiteto. Agora, você se tornará um <strong>orquestrador</strong>. Este é o ápice da engenharia de agentes: a criação de sistemas onde múltiplos especialistas de IA colaboram, delegam e resolvem problemas que nenhum agente conseguiria sozinho.</p>
+                <p>Com CrewAI, você não está mais apenas dando ordens; você está montando uma <strong>equipe de elite</strong>.</p>
+            </div>
+
+            <!-- Chapter 5.1 -->
+            <div class="content-block module-content" data-module="modulo-05">
+                <h2>Capítulo 5.1: Conceitos de Multi-Agent Systems</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m05-t01" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>O Que São Sistemas Multi-Agentes?</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Um <strong>Sistema Multi-Agentes (MAS)</strong> é uma coleção de agentes autônomos que:</p>
+                            <ul>
+                                <li>Interagem entre si</li>
+                                <li>Compartilham informações</li>
+                                <li>Colaboram em objetivos comuns</li>
+                                <li>Competem ou negociam quando necessário</li>
+                            </ul>
+                            <div class="insight-box">
+                                <p><strong>💡 ANALOGIA:</strong> Pense em uma equipe de desenvolvimento de software: Product Owner (define o que construir), Arquiteto (planeja a solução), Desenvolvedores (implementam), QA (testa), DevOps (faz deploy). Cada membro tem expertise específica. Juntos, entregam o que nenhum conseguiria sozinho.</p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m05-t02" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Por Que Múltiplos Agentes?</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>1. Especialização</strong></p>
+                            <p>Agente generalista sabe um pouco de tudo, mas é mestre em nada. Uma equipe de especialistas (Pesquisador 95% precisão, Escritor qualidade editorial, Analista insights profundos) oferece qualidade superior em cada subtarefa.</p>
+
+                            <p><strong>2. Paralelismo</strong></p>
+                            <p>Sequencial (1 agente): 40 minutos total. Paralelo (4 agentes): 12 minutos total com tarefas simultâneas.</p>
+
+                            <p><strong>3. Robustez</strong></p>
+                            <p>Se um agente falha, outro pode assumir. O sistema continua operacional com degradação graceful.</p>
+
+                            <p><strong>4. Modularidade</strong></p>
+                            <p>5 agentes de 2.000 linhas cada são mais fáceis de debugar, manter, testar e reutilizar do que um monolito de 10.000 linhas.</p>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m05-t03" data-topic-level="2">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Exemplos Reais de MAS</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>1. Agência de Marketing Digital</strong></p>
+                            <ul>
+                                <li>Estrategista: Análise de mercado</li>
+                                <li>Copywriter: Criação de textos</li>
+                                <li>Designer: Assets visuais</li>
+                                <li>Analista: Métricas e ROI</li>
+                            </ul>
+
+                            <p><strong>2. Consultoria Jurídica</strong></p>
+                            <ul>
+                                <li>Pesquisador: Jurisprudência</li>
+                                <li>Analista: Análise de contratos</li>
+                                <li>Redator: Pareceres legais</li>
+                                <li>Revisor: Compliance</li>
+                            </ul>
+
+                            <p><strong>3. Desenvolvimento de Software</strong></p>
+                            <ul>
+                                <li>Arquiteto: Design do sistema</li>
+                                <li>Backend Dev: APIs</li>
+                                <li>Frontend Dev: UI/UX</li>
+                                <li>QA: Testes automatizados</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chapter 5.2 -->
+            <div class="content-block module-content" data-module="modulo-05">
+                <h2>Capítulo 5.2: A Arquitetura CrewAI</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m05-t04" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Os 5 Componentes Fundamentais</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <div class="code-block">
+<code>┌─────────────────────────────────────────────┐
+│                   CREW                      │
+│  ┌───────────────────────────────────────┐ │
+│  │           PROCESS                     │ │
+│  │  (Sequential / Hierarchical)          │ │
+│  └───────────────────────────────────────┘ │
+│                                             │
+│  ┌─────────┐  ┌─────────┐  ┌─────────┐    │
+│  │ Agent 1 │  │ Agent 2 │  │ Agent 3 │    │
+│  │ + Tools │  │ + Tools │  │ + Tools │    │
+│  └─────────┘  └─────────┘  └─────────┘    │
+│                                             │
+│  ┌─────────┐  ┌─────────┐  ┌─────────┐    │
+│  │ Task 1  │  │ Task 2  │  │ Task 3  │    │
+│  └─────────┘  └─────────┘  └─────────┘    │
+└─────────────────────────────────────────────┘</code>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m05-t05" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>1. Agents (Agentes)</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>São os <strong>especialistas</strong> da sua equipe.</p>
+                            <div class="code-block">
+<code>from crewai import Agent
+
+agent = Agent(
+    role="Senior Data Analyst",
+    goal="Extrair insights acionáveis de dados complexos",
+    backstory="""
+    Você é um analista de dados sênior com 10 anos de
+    experiência em análise preditiva e visualização de dados.
+    Você trabalhou em Fortune 500 companies e é conhecido por
+    transformar dados brutos em insights estratégicos.
+    """,
+    tools=[search_tool, calculator, database_query],
+    verbose=True,
+    allow_delegation=False,
+    max_iter=15,
+    memory=True
+)</code>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m05-t06" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>2. Tasks (Tarefas)</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>São as <strong>unidades de trabalho</strong> específicas.</p>
+                            <div class="code-block">
+<code>from crewai import Task
+
+task = Task(
+    description="""
+    Analise o dataset de vendas Q1 2024 e identifique:
+    1. Top 5 produtos por receita
+    2. Tendências sazonais
+    3. Oportunidades de cross-sell
+    """,
+    expected_output="""
+    Relatório executivo em formato Markdown com:
+    - Gráficos das métricas principais
+    - Lista de insights com nível de confiança
+    - 3 recomendações acionáveis
+    """,
+    agent=data_analyst,
+    tools=[pandas_tool, visualization_tool]
+)</code>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m05-t07" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>3. Tools (Ferramentas)</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Ferramentas permitem que agentes <strong>interajam com o mundo externo</strong>.</p>
+                            <div class="code-block">
+<code>from crewai_tools import SerperDevTool, WebsiteSearchTool
+
+# Ferramenta de busca
+search_tool = SerperDevTool()
+
+# Ferramenta customizada
+from crewai_tools import tool
+
+@tool("Database Query Tool")
+def query_database(query: str) -> str:
+    """Execute SQL query on company database"""
+    # Implementação
+    return results</code>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m05-t08" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>4. Process (Processo)</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Sequential Process:</strong> Tarefas executadas em ordem linear (A → B → C).</p>
+                            <p><strong>Hierarchical Process:</strong> Um agente manager coordena outros agentes, delegando tarefas e revisando resultados.</p>
+                            <div class="insight-box">
+                                <p><strong>💡 DICA:</strong> Use Sequential para workflows lineares simples. Use Hierarchical quando houver interdependências complexas ou necessidade de revisão/aprovação.</p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m05-t09" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>5. Crew (Equipe)</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>A <strong>Crew</strong> orquestra tudo.</p>
+                            <div class="code-block">
+<code>from crewai import Crew, Process
+
+crew = Crew(
+    agents=[researcher, analyst, writer],
+    tasks=[research_task, analysis_task, writing_task],
+    process=Process.sequential,
+    verbose=True,
+    memory=True,
+    max_rpm=10  # Rate limiting
+)
+
+result = crew.kickoff()
+print(result)</code>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chapter 5.3 -->
+            <div class="content-block module-content" data-module="modulo-05">
+                <h2>Capítulo 5.3: Construindo Sua Primeira Crew</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m05-t10" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Projeto: Agência de Pesquisa de Mercado</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Objetivo:</strong> Criar uma crew que pesquisa, analisa e escreve relatórios de mercado.</p>
+                            <div class="code-block">
+<code>from crewai import Agent, Task, Crew, Process
+from crewai_tools import SerperDevTool
+
+# Ferramentas
+search_tool = SerperDevTool()
+
+# AGENTE 1: Pesquisador
+researcher = Agent(
+    role="Market Research Specialist",
+    goal="Coletar dados abrangentes sobre mercados e competidores",
+    backstory="""
+    Você é um pesquisador de mercado experiente com habilidade
+    excepcional em encontrar informações relevantes e validar fontes.
+    """,
+    tools=[search_tool],
+    verbose=True
+)
+
+# AGENTE 2: Analista
+analyst = Agent(
+    role="Business Analyst",
+    goal="Transformar dados brutos em insights estratégicos",
+    backstory="""
+    Você é um analista de negócios sênior com expertise em
+    identificar oportunidades de mercado e avaliar competição.
+    """,
+    tools=[],
+    verbose=True
+)
+
+# AGENTE 3: Escritor
+writer = Agent(
+    role="Content Strategist",
+    goal="Criar relatórios executivos claros e acionáveis",
+    backstory="""
+    Você é um estrategista de conteúdo especializado em
+    comunicar insights complexos de forma acessível.
+    """,
+    tools=[],
+    verbose=True
+)
+
+# TAREFAS
+research_task = Task(
+    description="""
+    Pesquise o mercado de {topic} e colete:
+    1. Tamanho do mercado (global e regional)
+    2. Principais players
+    3. Tendências recentes
+    4. Tecnologias emergentes
+    """,
+    expected_output="Documento com dados estruturados e fontes",
+    agent=researcher
+)
+
+analysis_task = Task(
+    description="""
+    Analise os dados coletados e identifique:
+    1. Oportunidades de mercado
+    2. Ameaças competitivas
+    3. Barreiras de entrada
+    4. Recomendações estratégicas
+    """,
+    expected_output="Análise SWOT detalhada",
+    agent=analyst
+)
+
+writing_task = Task(
+    description="""
+    Escreva um relatório executivo de 500 palavras que:
+    1. Resume os principais achados
+    2. Destaca insights críticos
+    3. Fornece recomendações acionáveis
+    """,
+    expected_output="Relatório em Markdown formatado",
+    agent=writer
+)
+
+# CREW
+market_research_crew = Crew(
+    agents=[researcher, analyst, writer],
+    tasks=[research_task, analysis_task, writing_task],
+    process=Process.sequential,
+    verbose=True
+)
+
+# EXECUTAR
+result = market_research_crew.kickoff(inputs={"topic": "IA Generativa"})
+print(result)</code>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Chapter 5.4 -->
+            <div class="content-block module-content" data-module="modulo-05">
+                <h2>Capítulo 5.4: Padrões Avançados</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m05-t11" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Delegação entre Agentes</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Com <code>allow_delegation=True</code>, agentes podem delegar subtarefas para outros agentes.</p>
+                            <div class="code-block">
+<code>senior_agent = Agent(
+    role="Senior Consultant",
+    goal="Coordenar projeto complexo",
+    allow_delegation=True,  # Pode delegar
+    tools=[],
+    verbose=True
+)
+
+junior_agent = Agent(
+    role="Junior Analyst",
+    goal="Executar análises específicas",
+    allow_delegation=False,  # Não pode delegar
+    tools=[analysis_tool],
+    verbose=True
+)</code>
+                            </div>
+                            <div class="insight-box">
+                                <p><strong>💡 QUANDO USAR:</strong> Delegação é útil quando um agente identifica que precisa de expertise que outro agente possui. É como um gerente delegando uma tarefa técnica para um especialista.</p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m05-t12" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Memória Compartilhada</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Agentes podem compartilhar memória para manter contexto entre execuções.</p>
+                            <div class="code-block">
+<code>crew = Crew(
+    agents=[agent1, agent2],
+    tasks=[task1, task2],
+    memory=True,  # Ativa memória compartilhada
+    verbose=True
+)
+
+# Agentes lembrarão de interações anteriores
+result1 = crew.kickoff(inputs={"query": "Analise vendas Q1"})
+result2 = crew.kickoff(inputs={"query": "Compare com Q2"})
+# Agent2 tem contexto de Q1!</code>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m05-t13" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Hierarquia com Manager Agent</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <div class="code-block">
+<code>crew = Crew(
+    agents=[dev1, dev2, qa, devops],
+    tasks=[feature_task, test_task, deploy_task],
+    process=Process.hierarchical,
+    manager_llm="gpt-4",  # LLM para o manager
+    verbose=True
+)
+
+# O manager irá:
+# 1. Analisar as tarefas
+# 2. Delegar para os agentes apropriados
+# 3. Revisar os resultados
+# 4. Garantir qualidade e completude</code>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="topic-item" data-topic="m05-t14" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Callbacks e Monitoramento</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <div class="code-block">
+<code>def task_callback(output):
+    print(f"Task completed: {output.description}")
+    # Salvar em banco de dados
+    # Enviar notificação
+    # Atualizar dashboard
+
+task = Task(
+    description="Analyze data",
+    agent=analyst,
+    callback=task_callback
+)</code>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="content-block">
+                <h2>📝 Resumo Gráfico do Módulo 5</h2>
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m05-t20" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Conceitos-Chave</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Componentes CrewAI:</strong></p>
+                            <ul>
+                                <li><strong>Agents:</strong> Especialistas com role, goal, backstory</li>
+                                <li><strong>Tasks:</strong> Unidades de trabalho específicas</li>
+                                <li><strong>Tools:</strong> Capacidades de interação externa</li>
+                                <li><strong>Process:</strong> Sequential ou Hierarchical</li>
+                                <li><strong>Crew:</strong> Orquestrador da equipe</li>
+                            </ul>
+                            <p><strong>Vantagens de Multi-Agentes:</strong></p>
+                            <ul>
+                                <li>✓ Especialização (melhor qualidade)</li>
+                                <li>✓ Paralelismo (melhor performance)</li>
+                                <li>✓ Robustez (tolerância a falhas)</li>
+                                <li>✓ Modularidade (manutenção fácil)</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Practical Project -->
+            <div class="project-section">
+                <h3>🚀 Projeto Prático do Módulo 5</h3>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m05-t21" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>Desafio: Sistema de Criação de Conteúdo Automatizado</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p><strong>Objetivo:</strong> Criar uma crew que produz artigos de blog completos com pesquisa, escrita e SEO.</p>
+
+                            <p><strong>Agentes Necessários:</strong></p>
+                            <ul>
+                                <li><strong>Researcher:</strong> Pesquisa tópicos e tendências</li>
+                                <li><strong>Writer:</strong> Escreve conteúdo envolvente</li>
+                                <li><strong>SEO Specialist:</strong> Otimiza para motores de busca</li>
+                                <li><strong>Editor:</strong> Revisa e aprova</li>
+                            </ul>
+
+                            <p><strong>Funcionalidades:</strong></p>
+                            <ul>
+                                <li>Pesquisa automática de keywords</li>
+                                <li>Geração de outline estruturado</li>
+                                <li>Escrita de artigo completo (1500+ palavras)</li>
+                                <li>Otimização SEO (meta tags, headers)</li>
+                                <li>Revisão de qualidade</li>
+                            </ul>
+
+                            <p><strong>Resultado Esperado:</strong> Artigo publicável em formato Markdown com SEO otimizado.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="content-block">
+                <h2>🎯 Próximos Passos</h2>
+
+                <ul class="topics-list">
+                    <li class="topic-item" data-topic="m05-t25" data-topic-level="1">
+                        <button class="topic-button">
+                            <span class="topic-checkbox"></span>
+                            <span>O Que Vem a Seguir?</span>
+                            <span class="topic-icon">▶</span>
+                        </button>
+                        <div class="topic-explanation nivel-fundamentos hidden">
+                            <p>Você agora domina a orquestração de equipes de IA com CrewAI. Você aprendeu:</p>
+                            <ul>
+                                <li>✓ Conceitos de Sistemas Multi-Agentes</li>
+                                <li>✓ Arquitetura CrewAI (Agents, Tasks, Tools, Process, Crew)</li>
+                                <li>✓ Padrões Sequential e Hierarchical</li>
+                                <li>✓ Delegação e memória compartilhada</li>
+                            </ul>
+                            <p>No <strong>Módulo 6</strong>, exploraremos o <strong>Model Context Protocol (MCP)</strong>, uma tecnologia revolucionária que permite que agentes de IA se conectem a qualquer sistema externo de forma padronizada e segura.</p>
+                            <p><strong>Você aprenderá:</strong></p>
+                            <ul>
+                                <li>Arquitetura MCP (Servers, Clients, Resources, Tools)</li>
+                                <li>Criar servidores MCP customizados</li>
+                                <li>Integrar sistemas externos com IA</li>
+                                <li>Segurança e autenticação</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- CTA to Next Module -->
+            <div class="next-module-cta">
+                <h3>Continue sua jornada</h3>
+                <p>Você dominou sistemas multi-agentes. Agora é hora de conectar IA com qualquer sistema!</p>
+                <div>
+                    <a href="modulo-04.html" class="cta-button secondary">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M15.833 10H4.167M10 15.833L4.167 10 10 4.167" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Voltar: Módulo 4</span>
+                    </a>
+                    <a href="modulo-06.html" class="cta-button">
+                        <span>Próximo: Módulo 6 - MCP</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <a href="../niveis/aplicacao.html" style="color: #6b7280; text-decoration: none; font-size: 0.875rem;">← Voltar para Nível Aplicação</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Engenharia de Agentes IA 2.0</h3>
+                    <p class="footer-text">
+                        Curso completo e gratuito de Engenharia de Agentes de IA.
+                        Do zero ao profissional.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#niveis">Níveis</a></li>
+                        <li><a href="../index.html#modulos">Módulos</a></li>
+                        <li><a href="https://github.com/inematds/FEA-IA" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:inematds@gmail.com">inematds@gmail.com</a></li>
+                        <li><a href="https://github.com/inematds" target="_blank">@inematds</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Engenharia de Agentes IA 2.0. Código aberto sob licença MIT.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
