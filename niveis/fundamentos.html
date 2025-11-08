@@ -371,12 +371,123 @@
 
                     <div style="background: #f9fafb; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
                         <h4 style="font-size: 0.875rem; font-weight: 600; color: #374151; margin: 0 0 0.75rem 0; text-transform: uppercase; letter-spacing: 0.05em;">O que você vai aprender:</h4>
-                        <ul style="margin: 0; padding-left: 1.5rem; color: #6b7280; line-height: 1.8;">
-                            <li>Anatomia de um prompt perfeito (Persona, Contexto, Tarefa, Formato)</li>
-                            <li>Zero-Shot, Few-Shot e Chain-of-Thought prompting</li>
-                            <li>Técnicas avançadas: Self-Consistency, ToT, ReAct</li>
-                            <li>Meta-prompting e prompt engineering sistemático</li>
-                            <li>Debugging e otimização de prompts</li>
+
+                        <ul class="topics-list" style="margin: 0; padding: 0; list-style: none;">
+                            <li class="topic-item" data-topic="fund-m02-t01" data-topic-level="1">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Anatomia de um prompt perfeito (Persona, Contexto, Tarefa, Formato)</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <p>Domine os 4 elementos essenciais de prompts eficazes:</p>
+                                    <ul>
+                                        <li><strong>Persona:</strong> "Você é um especialista em marketing digital com 10 anos de experiência..."</li>
+                                        <li><strong>Contexto:</strong> Forneça informações de background que a IA precisa conhecer</li>
+                                        <li><strong>Tarefa:</strong> Instrução clara e específica do que fazer</li>
+                                        <li><strong>Formato:</strong> Como estruturar a resposta (JSON, tabela, bullet points)</li>
+                                    </ul>
+                                    <p><strong>📐 Framework:</strong> P-C-T-F (Persona-Context-Task-Format) para criar prompts profissionais consistentemente.</p>
+                                </div>
+                            </li>
+
+                            <li class="topic-item" data-topic="fund-m02-t02" data-topic-level="1">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Zero-Shot, Few-Shot e Chain-of-Thought prompting</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <ul>
+                                        <li><strong>Zero-Shot:</strong> Tarefas sem exemplos - "Traduza isso para inglês"</li>
+                                        <li><strong>Few-Shot:</strong> Fornecer 2-5 exemplos para guiar o modelo
+                                            <ul>
+                                                <li>Exemplo 1: Input → Output</li>
+                                                <li>Exemplo 2: Input → Output</li>
+                                                <li>Agora seu input: ?</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Chain-of-Thought (CoT):</strong> "Pense passo a passo" para raciocínio complexo</li>
+                                    </ul>
+                                    <p><strong>🎯 Caso de uso:</strong> CoT aumenta precisão em problemas matemáticos de 20% para 85%+.</p>
+                                </div>
+                            </li>
+
+                            <li class="topic-item" data-topic="fund-m02-t03" data-topic-level="1">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Técnicas avançadas: Self-Consistency, ToT, ReAct</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <ul>
+                                        <li><strong>Self-Consistency:</strong> Gerar múltiplas respostas e escolher a mais comum (voting)</li>
+                                        <li><strong>Tree of Thoughts (ToT):</strong> Explorar múltiplos caminhos de raciocínio simultaneamente</li>
+                                        <li><strong>ReAct (Reasoning + Acting):</strong> Combinar raciocínio com ações (usar ferramentas)
+                                            <ul>
+                                                <li>Thought: "Preciso buscar dados atualizados"</li>
+                                                <li>Action: search("GDP Brasil 2024")</li>
+                                                <li>Observation: "R$ 2.1 trilhões"</li>
+                                                <li>Thought: "Agora posso responder..."</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <p><strong>⚡ Poder:</strong> Essas técnicas transformam LLMs em "pensadores" muito mais sofisticados.</p>
+                                </div>
+                            </li>
+
+                            <li class="topic-item" data-topic="fund-m02-t04" data-topic-level="1">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Meta-prompting e prompt engineering sistemático</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <p><strong>Meta-prompting:</strong> Usar a IA para melhorar seus próprios prompts!</p>
+                                    <ul>
+                                        <li>"Analise este prompt e sugira 5 melhorias específicas"</li>
+                                        <li>"Reescreva este prompt para ser mais claro e eficaz"</li>
+                                        <li>"Identifique ambiguidades neste prompt"</li>
+                                    </ul>
+                                    <p><strong>Engenharia sistemática:</strong></p>
+                                    <ul>
+                                        <li>Medir qualidade de outputs (métricas)</li>
+                                        <li>A/B testing de variações de prompts</li>
+                                        <li>Criar bibliotecas de prompts reutilizáveis</li>
+                                        <li>Versionamento e documentação</li>
+                                    </ul>
+                                    <p><strong>🔧 Ferramentas:</strong> LangSmith, PromptLayer, Weights & Biases para otimização.</p>
+                                </div>
+                            </li>
+
+                            <li class="topic-item" data-topic="fund-m02-t05" data-topic-level="1">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Debugging e otimização de prompts</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <p><strong>Problemas comuns e soluções:</strong></p>
+                                    <ul>
+                                        <li><strong>Output inconsistente?</strong> → Reduza temperature, seja mais específico</li>
+                                        <li><strong>Alucinações (inventa fatos)?</strong> → Adicione "responda apenas com informações fornecidas"</li>
+                                        <li><strong>Formato errado?</strong> → Use exemplos + validação de schema</li>
+                                        <li><strong>Muito verboso?</strong> → "Seja conciso. Máximo 3 frases."</li>
+                                    </ul>
+                                    <p><strong>Técnicas de otimização:</strong></p>
+                                    <ul>
+                                        <li>Iteração: testar → medir → ajustar → repetir</li>
+                                        <li>Simplificação: remover palavras desnecessárias</li>
+                                        <li>Constraints: limites explícitos (tamanho, tom, formato)</li>
+                                    </ul>
+                                    <p><strong>📊 Métricas:</strong> Precisão, tempo de resposta, custo, consistência.</p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
 
@@ -409,12 +520,125 @@
 
                     <div style="background: #f9fafb; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
                         <h4 style="font-size: 0.875rem; font-weight: 600; color: #374151; margin: 0 0 0.75rem 0; text-transform: uppercase; letter-spacing: 0.05em;">O que você vai aprender:</h4>
-                        <ul style="margin: 0; padding-left: 1.5rem; color: #6b7280; line-height: 1.8;">
-                            <li>Arquitetura e componentes do LangChain</li>
-                            <li>RAG (Retrieval-Augmented Generation) completo</li>
-                            <li>Agentes ReAct e sistemas de memória</li>
-                            <li>Criação de tools customizadas</li>
-                            <li>Chains complexas e orquestração</li>
+
+                        <ul class="topics-list" style="margin: 0; padding: 0; list-style: none;">
+                            <li class="topic-item" data-topic="fund-m03-t01" data-topic-level="1">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Arquitetura e componentes do LangChain</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <p>Entenda a estrutura modular do LangChain:</p>
+                                    <ul>
+                                        <li><strong>Models:</strong> Interface unificada para GPT-4, Claude, Llama, etc</li>
+                                        <li><strong>Prompts:</strong> Templates gerenciáveis e versionáveis</li>
+                                        <li><strong>Chains:</strong> Sequências de operações (LLMChain, SequentialChain)</li>
+                                        <li><strong>Agents:</strong> Sistemas que tomam decisões e usam ferramentas</li>
+                                        <li><strong>Memory:</strong> Armazenamento de conversas e contexto</li>
+                                        <li><strong>Callbacks:</strong> Hooks para logging e monitoramento</li>
+                                    </ul>
+                                    <p><strong>🏗️ Arquitetura:</strong> Design modular que permite compor aplicações complexas de IA.</p>
+                                </div>
+                            </li>
+
+                            <li class="topic-item" data-topic="fund-m03-t02" data-topic-level="1">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>RAG (Retrieval-Augmented Generation) completo</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <p>Construa sistemas que respondem com seus próprios dados:</p>
+                                    <ul>
+                                        <li><strong>Document Loaders:</strong> Carregar PDFs, CSVs, websites, APIs</li>
+                                        <li><strong>Text Splitters:</strong> Dividir documentos grandes em chunks inteligentes</li>
+                                        <li><strong>Vector Stores:</strong> Pinecone, Chroma, FAISS para busca semântica</li>
+                                        <li><strong>Retrievers:</strong> Buscar os documentos mais relevantes</li>
+                                        <li><strong>Chain:</strong> Combinar retrieval + LLM para responder com contexto</li>
+                                    </ul>
+                                    <p><strong>🎯 Projeto:</strong> Chatbot que responde perguntas sobre seus documentos privados com 95%+ de precisão.</p>
+                                </div>
+                            </li>
+
+                            <li class="topic-item" data-topic="fund-m03-t03" data-topic-level="1">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Agentes ReAct e sistemas de memória</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <p><strong>Agentes ReAct:</strong></p>
+                                    <ul>
+                                        <li>Ciclo: Observation → Thought → Action → Repeat</li>
+                                        <li>O agente decide quais tools usar dinamicamente</li>
+                                        <li>Pode encadear múltiplas ações para resolver problemas complexos</li>
+                                    </ul>
+                                    <p><strong>Sistemas de Memória:</strong></p>
+                                    <ul>
+                                        <li><strong>ConversationBufferMemory:</strong> Guardar histórico completo</li>
+                                        <li><strong>ConversationSummaryMemory:</strong> Resumir conversas longas</li>
+                                        <li><strong>VectorStoreMemory:</strong> Busca semântica em memórias antigas</li>
+                                        <li><strong>EntityMemory:</strong> Lembrar fatos sobre pessoas/coisas específicas</li>
+                                    </ul>
+                                    <p><strong>💡 Uso:</strong> Chatbots que lembram de conversas anteriores e mantêm contexto.</p>
+                                </div>
+                            </li>
+
+                            <li class="topic-item" data-topic="fund-m03-t04" data-topic-level="1">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Criação de tools customizadas</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <p>Dar superpoderes aos seus agentes com ferramentas customizadas:</p>
+                                    <ul>
+                                        <li><strong>@tool decorator:</strong> Transformar funções Python em ferramentas LangChain</li>
+                                        <li><strong>Descrição clara:</strong> Como o agente entende quando usar a ferramenta</li>
+                                        <li><strong>Validação de entrada:</strong> Pydantic schemas para segurança</li>
+                                        <li><strong>Error handling:</strong> Lidar com falhas gracefully</li>
+                                    </ul>
+                                    <p><strong>Exemplos práticos:</strong></p>
+                                    <ul>
+                                        <li>Tool de cálculo avançado</li>
+                                        <li>Tool de busca em banco de dados</li>
+                                        <li>Tool de envio de emails/notificações</li>
+                                        <li>Tool de geração de gráficos</li>
+                                    </ul>
+                                    <p><strong>🔧 Poder:</strong> Conectar agentes a qualquer API ou sistema que você imaginar!</p>
+                                </div>
+                            </li>
+
+                            <li class="topic-item" data-topic="fund-m03-t05" data-topic-level="1">
+                                <button class="topic-button">
+                                    <span class="topic-checkbox"></span>
+                                    <span>Chains complexas e orquestração</span>
+                                    <span class="topic-icon">▶</span>
+                                </button>
+                                <div class="topic-explanation hidden">
+                                    <p><strong>O que você aprenderá:</strong></p>
+                                    <p><strong>Tipos de Chains:</strong></p>
+                                    <ul>
+                                        <li><strong>SimpleSequentialChain:</strong> Output de uma chain vira input da próxima</li>
+                                        <li><strong>SequentialChain:</strong> Múltiplos inputs/outputs entre chains</li>
+                                        <li><strong>RouterChain:</strong> Escolher qual chain executar baseado no input</li>
+                                        <li><strong>MapReduceChain:</strong> Processar documentos em paralelo e combinar resultados</li>
+                                    </ul>
+                                    <p><strong>Orquestração avançada:</strong></p>
+                                    <ul>
+                                        <li>Criar pipelines multi-step complexos</li>
+                                        <li>Combinar RAG + Agents + Memory</li>
+                                        <li>Paralelização para performance</li>
+                                        <li>Error recovery e retry logic</li>
+                                    </ul>
+                                    <p><strong>🚀 Aplicação:</strong> Sistemas de IA de nível enterprise que orquestram múltiplas operações complexas.</p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
 
