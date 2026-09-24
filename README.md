@@ -128,3 +128,10 @@ MIT — veja `LICENSE`.
 
 > Nota: Este arquivo é a versão corrigida (UTF‑8) do README. Caso veja diferenças em relação ao histórico anterior, a causa provável é correção de caracteres acentuados que estavam corrompidos por encoding.
 
+<!-- inema-backlink:v1 -->
+## Mais no INEMA.CLUB
+
+- [Ficha completa deste curso](https://www.inema.club/cursos/10-fea-ia-engenharia-de-agentes/)
+- [Guia: como aprender inteligência artificial](https://www.inema.club/aprender-inteligencia-artificial/)
+- [Todos os cursos](https://www.inema.club/cursos/)
+<!-- /inema-backlink:v1 -->
